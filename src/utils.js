@@ -205,7 +205,7 @@ module.exports = function(redis) {
         media_path = path.join(__dirname, '../media')
       }
       
-      const path_with_filename = `${media_path}${file_path}`
+      const path_with_filename = decodeURI(`${media_path}${file_path}`)
       let path_without_filename = path_with_filename.split('/')
           path_without_filename.pop()
           path_without_filename = path_without_filename.join('/')
