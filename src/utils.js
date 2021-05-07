@@ -140,6 +140,10 @@ module.exports = function(redis) {
         const upload_wikimedia_regx = /((https:|http:|)\/\/?upload.wikimedia.org)/gm
         data.html = data.html.replace(upload_wikimedia_regx, '/media')
         
+        // replace maps.wikimedia.org with /media
+        const maps_wikimedia_regx = /((https:|http:|)\/\/?maps.wikimedia.org)/gm
+        data.html = data.html.replace(maps_wikimedia_regx, '/media/maps_wikimedia_org')
+        
         // replace wiki links
         const wiki_href_regx = /(href=\"(https:|http:|)\/\/([A-z.]+\.)?(wikipedia.org|wikimedia.org|wikidata.org|mediawiki.org))/gm
         data.html = data.html.replace(wiki_href_regx, `href="${protocol}${config.domain}`)
@@ -159,7 +163,7 @@ module.exports = function(redis) {
     })
   }
   
-  this.proxyMedia = (req) => {
+  this.proxyMedia = (req, wiki_domain='') => {
     return new Promise(async resolve => {
       let params = new URLSearchParams(req.query).toString() || ''
       
@@ -167,9 +171,20 @@ module.exports = function(redis) {
         params = '?' + params
       }
       
-      let path = req.url.split('/media')[1]
-      let wikimedia_path = path + params
-      let url = new URL(`https://upload.wikimedia.org${wikimedia_path}`)
+      let path = ''
+      let domain = 'upload.wikimedia.org'
+      let wikimedia_path = ''
+      
+      if(wiki_domain === 'maps.wikimedia.org') {
+        path = req.url.split('/media/maps_wikimedia_org')[1]
+        domain = 'maps.wikimedia.org'
+        wikimedia_path = path
+      } else {
+        path = req.url.split('/media')[1]
+        wikimedia_path = path + params
+      }
+      
+      url = new URL(`https://${domain}${wikimedia_path}`)
       
       let file = await saveFile(url, path)
       
@@ -183,7 +198,13 @@ module.exports = function(redis) {
   
   this.saveFile = (url, file_path) => {
     return new Promise(async resolve => {
-      const media_path = path.join(__dirname, '../media')
+      let media_path = ''
+      if(url.href.startsWith('https://maps.wikimedia.org/')) {
+        media_path = path.join(__dirname, '../media/maps_wikimedia_org')
+      } else {
+        media_path = path.join(__dirname, '../media')
+      }
+      
       const path_with_filename = `${media_path}${file_path}`
       let path_without_filename = path_with_filename.split('/')
           path_without_filename.pop()
@@ -202,7 +223,7 @@ module.exports = function(redis) {
                 resolve({ success: true, path: path_with_filename })
               })
             }).on('error', (err) => {
-              console.log('Error while fetching data...', err)
+              console.log('Error while fetching data. Details:', err)
               resolve({ success: false, reason: 'SERVER_ERROR' })
             })
           }
@@ -250,6 +271,12 @@ module.exports = function(redis) {
     if(prefix === '/w/') {
       let file = req.params.file
       url = `https://${lang}.wikipedia.org/w/${file}`
+    }
+    
+    if(prefix === '/wiki/Map') {
+      let page = 'Special:Map'
+      let sub_page = req.params['0'] || ''
+      url = `https://${lang}.wikipedia.org/wiki/${page}/${sub_page}`
     }
     
     if(prefix === '/') {
@@ -345,9 +372,9 @@ module.exports = function(redis) {
   
   this.preferencesPage = (req, res) => {
     let user_preferences = req.cookies
-    
     let lang_select = '<select id="default_lang" name="default_lang">'
     let valid_langs = validLang('', true)
+    
     for(var i = 0; i < valid_langs.length; i++) {
       let selected = ''
       if(valid_langs[i] == user_preferences.default_lang) {
@@ -355,6 +382,7 @@ module.exports = function(redis) {
       }
       lang_select += `<option value="${valid_langs[i]}" ${selected}>${valid_langs[i]}</option>`
     }
+    
     lang_select += '</select>'
     
     let html = `
@@ -364,7 +392,7 @@ module.exports = function(redis) {
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <link rel="stylesheet" href="/styles.css"></head>
-          <title>preferences - wikiless</title>
+          <title>Preferences - Wikiless</title>
         </head>
         <body>
           <div id="preferences">

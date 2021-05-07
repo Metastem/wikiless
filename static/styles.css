@@ -74,6 +74,11 @@ details[open] #preferences {
 }
 /* END PREFERENCES CSS */
 
+/* WIKILESS OVERRIDES */
+#mw-specialMap-map {
+  background-image: url(/media/map.png) !important;
+}
+/* END WIKILESS OVERRIDES */
 
 /* START WIKIPEDIA CSS */
 #p-lang .uls-settings-trigger {
@@ -8690,6 +8695,66 @@ div.after-portlet-lang:after {
  content:'';
  clear:both;
  display:block
+}
+
+
+#mw-specialMap-container {
+ position:relative
+}
+#mw-specialMap-container .thumbinner {
+ display:inline-block;
+ position:relative;
+ width:256px
+}
+#mw-specialMap-inner {
+ height:256px;
+ position:relative
+}
+#mw-specialMap-map {
+ position:absolute;
+ width:256px;
+ height:256px;
+ background-position:center;
+ background-repeat:no-repeat;
+ background-size:256px 256px
+}
+
+#mw-specialMap-marker {
+ position:absolute;
+ background-color:#7b4e10;
+ height:10px;
+ width:10px;
+ margin-top:-5px;
+ margin-left:-5px;
+ border-radius:5px
+}
+#mw-specialMap-caption {
+ display:block;
+ padding-top:0.5em
+}
+#mw-specialMap-icon {
+ display:inline-block;
+ margin:0 12px 0 0;
+ background-color:#7b4e10;
+ height:10px;
+ width:10px;
+ margin-top:-5px;
+ margin-left:0.5em;
+ border-radius:5px
+}
+#mw-specialMap-attributions {
+ position:absolute;
+ bottom:0;
+ font-size:9px;
+ right:0;
+ text-align:right
+}
+
+#p-lang .uls-settings-trigger::-moz-focus-inner {
+ border:0
+}
+#p-lang .uls-settings-trigger:focus {
+ outline:1px solid #36c
 }
 
 /* END WIKIPEDIA CSS */

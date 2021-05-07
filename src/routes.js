@@ -30,7 +30,14 @@ module.exports = (app, utils) => {
     }
     
     if(req.url.startsWith('/media')) {
-      let media = await proxyMedia(req)
+      let media
+      
+      if(req.url.startsWith('/media/maps_wikimedia_org/')) {
+        media = await proxyMedia(req, 'maps.wikimedia.org')
+      } else {
+        media = await proxyMedia(req)
+      }
+      
       if(media.success === true) {
         return res.sendFile(media.path)
       } else {
@@ -51,6 +58,10 @@ module.exports = (app, utils) => {
   
   app.get('/w/:file', (req, res, next) => {
     return handleWikiPage(req, res, '/w/')
+  })
+  
+  app.get('/wiki/Special:Map/*', (req, res, next) => {
+    return handleWikiPage(req, res, '/wiki/Map')
   })
   
   app.get('/', (req, res, next) => {
