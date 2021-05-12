@@ -25,7 +25,19 @@ Community instances:
 
 ## Why I should use Wikiless instead of Wikipedia?
 
-**Short:** If you trust that Wikipedia has been able to defend itself from the attacks by the most powerful intelligence organisations, and/or you don't trust the Wikiless instance, then I would recommend you to keep using Wikipedia instead of Wikiless.
+There are couple of reasons why you might want to use Wikiless:
+
+* Circumvent censorship (1)
+* You prevent Wikipedia getting your IP address (2)
+
+### 1: Circumvent censorship
+
+Many countries have censored Wikipedia pages, including China, France, Germany, Iran, Russia... https://wikiless.org/wiki/Censorship_of_Wikipedia?lang=en
+
+
+### 2: What's the problem of Wikipedia getting my IP address?
+
+**Short:** If you trust that Wikipedia has not been infiltrated and/or you don't trust the Wikiless instance you would use, then you probably want to keep using Wikipedia instead of Wikiless.
 
 **Long:** We know from the leaks by Edward Snowden that the U.S. National Security Agency (NSA) has identified Wikipedia as a target for surveillance already in 2009.\[1\]\[2\] Wikimedia filled a lawsuit against the NSA in 2015 in order to fight against the mass-surveillance done by the NSA.\[2\]\[3\]
 
@@ -61,7 +73,7 @@ If you are like me, and you also like the NSA, feel free to contribute and add m
 
 
 
-### Sources
+#### Sources
   
 \[1\]: https://www.aclu.org/files/natsec/nsa/20140722/Why%20Are%20We%20Interested%20in%20HTTP.pdf  
 \[2\]: https://www.nytimes.com/2015/03/10/opinion/stop-spying-on-wikipedia-users.html  
