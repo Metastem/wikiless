@@ -7,13 +7,6 @@
   transition: 0.2113s all;
   cursor: default;
 }
-details[open] {
-  width: 100%;
-}
-details[open] #preferences {
-  opacity: 1;
-  box-shadow: 0px 0px 6px 2px #3e1900;
-}
 #preferences h4 {
   color: var(--light-white);
   padding: 31px 0px 0px 0px;
@@ -28,8 +21,13 @@ details[open] #preferences {
   padding: 0px 0px 15px 0px;
   font-size: 1rem;
 }
-#preferences form #pageReload.setting.disabled {
-  color: gray;
+#preferences form .setting .label {
+  float: left;
+  width: 70%;
+}
+#preferences form .setting .option {
+  float: right;
+  width: 30%;
 }
 #preferences form select {
   padding: 3px;
@@ -46,11 +44,14 @@ details[open] #preferences {
 #preferences form .setting select {
   float: right;
 }
-#preferences form .setting #price_size,
-#preferences form .setting #auto_update {
-  max-width: 60px;
-  margin: -20px 0px;
-  padding: 4px;
+#preferences form .bottom {
+  float: left;
+  width: 100%;
+}
+
+#preferences form .bottom input {
+  float: left;
+  width: 100%;
 }
 #preferences form small {
   font-size: x-small;
@@ -67,7 +68,8 @@ details[open] #preferences {
   border: 1px solid white;
   font-size: 1rem;
 }
-#preferences form input[type="submit"]:hover, #preferences form input[type="submit"]:focus {
+#preferences form input[type="submit"]:hover,
+#preferences form input[type="submit"]:focus {
   background: white;
   color: black;
   cursor: pointer;

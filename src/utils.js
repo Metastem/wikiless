@@ -409,18 +409,30 @@ module.exports = function(redis) {
             <h4>Preferences</h4>
             <form method="POST" action="/preferences?back=${back}">
               <div class="setting">
-                <label for="theme">Theme:</label>
-                <select id="theme" name="theme">
-                  <option value="" ${(!user_preferences.theme || user_preferences.theme == '' ? 'selected' : '')}>White</option>
-                  <option value="dark" ${(user_preferences.theme == 'dark' ? 'selected' : '')}>Dark (experimental)</option>
-                </select>
+                <div class="label">
+                  <label for="theme">Theme:</label>
+                </div>
+                <div class="option">
+                  <select id="theme" name="theme">
+                    <option value="" ${(!user_preferences.theme || user_preferences.theme == '' ? 'selected' : '')}>White</option>
+                    <option value="dark" ${(user_preferences.theme == 'dark' ? 'selected' : '')}>Dark (experimental)</option>
+                  </select>
+                </div>
               </div>
               <div class="setting">
-                <label for="default_lang">Default language:</label>
-                ${lang_select}
+                <div class="label">
+                  <label for="default_lang">Default language:</label>
+                  <br>
+                  <small>When you change the default language and visit the Wikiless without the lang parameter in the URL, the page will load with a language from this setting.</small>
+                </div>
+                <div class="option">
+                  ${lang_select}
+                </div>
               </div>
-              <small class="notice">Preferences are stored client-side using cookies without any personal information.</small>
-              <input type="submit" value="Save preferences">
+              <div class="bottom">
+                <small class="notice">Preferences are stored client-side using cookies without any personal information.</small>
+                <input type="submit" value="Save preferences">
+              </div>
             </form>
           </div>
         </body>
