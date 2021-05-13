@@ -251,6 +251,14 @@ module.exports = function(redis) {
   this.handleWikiPage = async (req, res, prefix) => {
     let lang = req.query.lang || req.cookies.default_lang || config.default_lang
     
+    if(lang) {
+      if(typeof(lang) !== 'string') {
+        lang = lang[0]
+      } else {
+        lang = lang.split('?')[0]
+      }
+    }
+    
     if(!validLang(lang)) {
       return res.send('invalid lang')
     }
@@ -385,6 +393,8 @@ module.exports = function(redis) {
     
     lang_select += '</select>'
     
+    let back = req.url.split('?back=')[1]
+    
     let html = `
       <!DOCTYPE html>
       <html lang="en">
@@ -397,7 +407,7 @@ module.exports = function(redis) {
         <body>
           <div id="preferences">
             <h4>Preferences</h4>
-            <form method="POST" action="/preferences?back=${req.query.back}">
+            <form method="POST" action="/preferences?back=${back}">
               <div class="setting">
                 <label for="theme">Theme:</label>
                 <select id="theme" name="theme">

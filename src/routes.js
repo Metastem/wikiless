@@ -79,7 +79,7 @@ module.exports = (app, utils) => {
   app.post('/preferences', (req, res, next) => {
     let theme = req.body.theme
     let default_lang = req.body.default_lang
-    let back = req.query.back
+    let back = req.url.split('?back=')[1]
     
     res.cookie('theme', theme, { maxAge: 365 * 24 * 60 * 60 * 1000, httpOnly: true })
     res.cookie('default_lang', default_lang, { maxAge: 365 * 24 * 60 * 60 * 1000, httpOnly: true })

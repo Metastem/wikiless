@@ -37,7 +37,7 @@ Many countries have censored Wikipedia pages, including China, France, Germany, 
 
 ### 2: What's the problem of Wikipedia getting my IP address?
 
-**Short:** If you trust that Wikipedia has not been infiltrated and/or you don't trust the Wikiless instance you would use, then you probably want to keep using Wikipedia instead of Wikiless because there are nothing to worry about giving IP address to Wikipedia.
+**Short:** If you trust that Wikipedia has not been infiltrated and/or you don't trust the Wikiless instance you would use, then you probably want to keep using Wikipedia instead of Wikiless because there are nothing to worry about giving your IP address to Wikipedia.
 
 **Long:** We know from the leaks by Edward Snowden that the U.S. National Security Agency (NSA) has identified Wikipedia as a target for surveillance already in 2009.\[1\]\[2\] Wikimedia filled a lawsuit against the NSA in 2015 in order to fight against the mass-surveillance done by the NSA.\[2\]\[3\]
 
