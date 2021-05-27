@@ -36,7 +36,7 @@ const config = {
   * given URL is revisited).
   */
   setexs: {
-    wikipage: 60 * 60 * 1, // 1 hour
+    wikipage: process.env.WIKIPAGE_CACHE_EXPIRATION || (60 * 60 * 1), // 1 hour
   },
 }
 
