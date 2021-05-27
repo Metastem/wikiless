@@ -106,7 +106,7 @@ module.exports = function(redis) {
           let href = links[i].getAttribute('href')
           if(href) {
             if(href.startsWith('/wiki/') || href.startsWith('/w/')) {
-              href = `${protocol}${config.domain}${href}`
+              href = `${protocol}${config.domain}${custom_port}${href}`
               let u = new URL(href)
               u.searchParams.append('lang', lang)
               href = u.href
@@ -146,7 +146,7 @@ module.exports = function(redis) {
         
         // replace wiki links
         const wiki_href_regx = /(href=\"(https:|http:|)\/\/([A-z.]+\.)?(wikipedia.org|wikimedia.org|wikidata.org|mediawiki.org))/gm
-        data.html = data.html.replace(wiki_href_regx, `href="${protocol}${config.domain}`)
+        data.html = data.html.replace(wiki_href_regx, `href="${protocol}${config.domain}${custom_port}`)
         
         redis.setex(url, config.setexs.wikipage, data.html, (error) => {
           if(error) {
