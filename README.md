@@ -21,7 +21,6 @@ Community instances:
 ## TODO
 
 * Make the mobile version better
-* Add docker image, docker-compose
 
 ## Why I should use Wikiless instead of Wikipedia?
 
@@ -131,3 +130,14 @@ If you are like me, and you also like the NSA, feel free to contribute and add m
    ```
 
 Wikiless should now be running at <http://localhost:8080>.
+
+### Docker & docker compose
+
+You can build a production image by running `docker build .` in the repo's root.
+
+For development, there's a `docker-compose.yml` that mounts the app code (for hot reload of code changes) and default config. Before running it, you need to install the dependencies:
+
+```
+$ docker compose run --rm web npm install --no-optionals
+$ docker compose up
+```
