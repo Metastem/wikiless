@@ -2,7 +2,7 @@ const config = {
   /**
   * Set these configs below to suite your environment.
   */
-  domain: process.env.DOMAIN || '127.0.0.1', // Or for example 'wikiless.org'
+  domain: process.env.DOMAIN || '127.0.0.1', // Or for example 'wikiless.org' or '127.0.0.1:1337'. Remember to add port here if needed.
   default_lang: process.env.DEFAULT_LANG || 'en',
   theme: process.env.THEME || '', // '' or 'dark'
   nonssl_port: process.env.NONSSL_PORT || 8080,

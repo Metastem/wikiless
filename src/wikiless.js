@@ -48,10 +48,8 @@ if(config.https_enabled) {
   }
   https = require('https').Server(credentials, app)
   global.protocol = 'https://'
-  global.custom_port = config.ssl_port === '443' ? '' : `:${config.ssl_port}`
 } else {
   global.protocol = 'http://'
-  global.custom_port = config.nonssl_port === '80' ? '' : `:${config.nonssl_port}`
 }
 
 const http = require('http').Server(app)
