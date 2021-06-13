@@ -103,6 +103,6 @@ redis.on('error', (error) => {
 })
 
 if(config.https_enabled) {
-  https.listen(config.ssl_port, '::', () => console.log(`Wikiless running on https://${config.domain}`))
+  https.listen(config.ssl_port, config.http_addr, () => console.log(`Wikiless ${config.domain} running on https://${config.http_addr}:${config.ssl_port}`))
 }
-http.listen(config.nonssl_port, '::', () => console.log(`Wikiless running on http://${config.domain}`))
+http.listen(config.nonssl_port, config.http_addr, () => console.log(`Wikiless ${config.domain} running on http://${config.http_addr}:${config.nonssl_port}`))
