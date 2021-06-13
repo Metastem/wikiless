@@ -16,7 +16,7 @@ XMR: 832ogRwuoSs2JGYg7wJTqshidK7dErgNdfpenQ9dzMghNXQTJRby1xGbqC3gW3GAifRM9E84J91
 [https://wikiless.org](https://wikiless.org) - Official instance
 
 Community instances:
-* -
+* - [https://wiki.ioens.is](https://wiki.ioens.is)
 
 ## TODO
 

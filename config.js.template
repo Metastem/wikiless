@@ -5,6 +5,7 @@ const config = {
   domain: process.env.DOMAIN || '127.0.0.1', // Or for example 'wikiless.org' or '127.0.0.1:1337'. Remember to add port here if needed.
   default_lang: process.env.DEFAULT_LANG || 'en',
   theme: process.env.THEME || '', // '' or 'dark'
+  http_addr: process.env.HTTP_ADDR || '127.0.0.1', // bind wikiless to specific ip address. 
   nonssl_port: process.env.NONSSL_PORT || 8080,
   
   /**
