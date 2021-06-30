@@ -5,7 +5,7 @@ const config = {
   domain: process.env.DOMAIN || '127.0.0.1', // Or for example 'wikiless.org' or '127.0.0.1:1337'. Remember to add port here if needed.
   default_lang: process.env.DEFAULT_LANG || 'en',
   theme: process.env.THEME || '', // '' or 'dark'
-  http_addr: process.env.HTTP_ADDR || '127.0.0.1', // bind wikiless to specific ip address. 
+  http_addr: process.env.HTTP_ADDR || '127.0.0.1', // Bind Wikiless to a specific IP address.
   nonssl_port: process.env.NONSSL_PORT || 8080,
   
   /**
@@ -14,7 +14,7 @@ const config = {
   https_enabled: process.env.HTTPS_ENABLED === 'true' || false,
   ssl_port: process.env.SSL_PORT || 8088,
   cert_dir: process.env.CERT_DIR || ``, // For example '/home/wikiless/letsencrypt/live/wikiless.org'. No trailing slash.
-  redirect_http_to_https: process.env.REDIRECT_HTTP_TO_HTTPS === 'true' || false, // If true, HTTP requests will be redirected to HTTPS
+  redirect_http_to_https: process.env.REDIRECT_HTTP_TO_HTTPS === 'true' || false, // If true, HTTP requests will be redirected to HTTPS.
   
   /**
   * You can configure redis below if needed.
@@ -25,7 +25,7 @@ const config = {
   redis_port: process.env.REDIS_PORT || 6379,
   
   /**
-  * You might need to change these configs below if you host through reverse
+  * You might need to change these configs below if you host through a reverse
   * proxy like nginx.
   */
   trust_proxy: process.env.TRUST_PROXY === 'true' || false,
@@ -39,6 +39,13 @@ const config = {
   setexs: {
     wikipage: process.env.WIKIPAGE_CACHE_EXPIRATION || (60 * 60 * 1), // 1 hour
   },
+  
+  /**
+  * Wikimedia requires a HTTP User-agent header for all Wikimedia related
+  * requests. It's a good idea to change this to something unique.
+  * Read more: https://meta.wikimedia.org/wiki/User-Agent_policy
+  */
+  wikimedia_useragent: process.env.wikimedia_useragent || 'Wikiless media proxy bot (https://codeberg.org/orenom/Wikiless)',
 }
 
 module.exports = config

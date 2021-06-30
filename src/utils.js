@@ -216,7 +216,11 @@ module.exports = function(redis) {
             resolve({ success: false, reason: 'MKDIR_FAILED' })
           } else {
             let file = fs.createWriteStream(path_with_filename)
-            https.get(url.href, (res) => {
+            const options = {
+              headers: { 'User-Agent': config.wikimedia_useragent }
+            }
+            
+            https.get(url.href, options, (res) => {
               res.pipe(file)
               file.on('finish', () => {
                 file.close()
