@@ -12,25 +12,28 @@ module.exports = function(redis) {
       }
       
       url = encodeURI(url)
-      if(params != '') {
+      if(params != '') {
         url = `${url}?${params}`
       }
       
       redis.get(url, (error, data) => {
         if(data) {
-          console.log(`Got key ${url} from cache.`)
+          console.log(`Got key ${url} from cache.`)
           resolve({ success: true, html: data, processed: true })
         } else {
           https.get(url, (res) => {
             if(res.statusCode !== 200) {
               if(res.statusCode === 301 || res.statusCode === 302) {
-                resolve({ success: false, reason: 'REDIRECT', url: res.headers.location })
+                resolve({ success: false, reason: 'REDIRECT', url: res.headers.location })
+                res.resume()
               } else if(res.statusCode === 404) {
                 // let's redirect 404s to homepage
                 console.log(`Didn't find ${url} HTTP status code: ${res.statusCode}`)
-                return resolve({ success: false, reason: 'REDIRECT', url: 'https://wikipedia.org/' })
+                res.resume()
+                return resolve({ success: false, reason: 'REDIRECT', url: 'https://wikipedia.org/' })
               } else {
                 console.log(`Error while fetching data from ${url}. HTTP status code: ${res.statusCode}`)
+                res.resume()
                 return resolve({ success: false, reason: `INVALID_HTTP_RESPONSE: ${res.statusCode}` })
               }
             }
@@ -71,7 +74,7 @@ module.exports = function(redis) {
     return new Promise(resolve => {
       if(validHtml(data.html)) {
         url = encodeURI(url)
-        if(params != '') {
+        if(params != '') {
           url = `${url}?${params}`
         }
         
@@ -165,7 +168,7 @@ module.exports = function(redis) {
   
   this.proxyMedia = (req, wiki_domain='') => {
     return new Promise(async resolve => {
-      let params = new URLSearchParams(req.query).toString() || ''
+      let params = new URLSearchParams(req.query).toString() || ''
       
       if(params != '') {
         params = '?' + params
@@ -201,7 +204,7 @@ module.exports = function(redis) {
       let media_path = ''
       if(url.href.startsWith('https://maps.wikimedia.org/')) {
         media_path = path.join(__dirname, '../media/maps_wikimedia_org')
-      } else {
+      } else {
         media_path = path.join(__dirname, '../media')
       }
       
@@ -224,6 +227,7 @@ module.exports = function(redis) {
               res.pipe(file)
               file.on('finish', () => {
                 file.close()
+                res.resume()
                 resolve({ success: true, path: path_with_filename })
               })
             }).on('error', (err) => {
@@ -253,7 +257,7 @@ module.exports = function(redis) {
   }
   
   this.handleWikiPage = async (req, res, prefix) => {
-    let lang = req.query.lang || req.cookies.default_lang || config.default_lang
+    let lang = req.query.lang || req.cookies.default_lang || config.default_lang
     
     if(lang) {
       if(typeof(lang) !== 'string') {
