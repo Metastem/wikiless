@@ -148,7 +148,7 @@ module.exports = function(redis) {
         data.html = data.html.replace(maps_wikimedia_regx, '/media/maps_wikimedia_org')
         
         // replace wiki links
-        const wiki_href_regx = /(href=\"(https:|http:|)\/\/([A-z.]+\.)?(wikipedia.org|wikimedia.org|wikidata.org|mediawiki.org))/gm
+        const wiki_href_regx = /(href=\"(https:|http:|)\/\/([A-z.-]+\.)?(wikipedia.org|wikimedia.org|wikidata.org|mediawiki.org))/gm
         data.html = data.html.replace(wiki_href_regx, `href="${protocol}${config.domain}`)
         
         redis.setex(url, config.setexs.wikipage, data.html, (error) => {
