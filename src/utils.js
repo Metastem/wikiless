@@ -143,7 +143,7 @@ module.exports = function(redis) {
         const upload_wikimedia_regx = /((https:|http:|)\/\/?upload.wikimedia.org)/gm
         data.html = data.html.replace(upload_wikimedia_regx, '/media')
         
-        // replace maps.wikimedia.org with /media
+        // replace maps.wikimedia.org with /media/maps_wikimedia_org
         const maps_wikimedia_regx = /((https:|http:|)\/\/?maps.wikimedia.org)/gm
         data.html = data.html.replace(maps_wikimedia_regx, '/media/maps_wikimedia_org')
         
