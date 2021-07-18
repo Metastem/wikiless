@@ -78,8 +78,6 @@ module.exports = function(redis) {
           url = `${url}?${params}`
         }
         
-        let setting_lang = user_preferences.default_lang || config.default_lang
-        
         data.html = parser.parse(data.html)
         
         // insert wikiless styles
@@ -122,6 +120,28 @@ module.exports = function(redis) {
         let wikibase_links = data.html.querySelector('#p-wikibase-otherprojects')
         if(wikibase_links) {
           wikibase_links.remove()
+        }
+        
+        // remove all <script> elements
+        let script_elements = data.html.querySelectorAll('script')
+        for(let i = 0; i < script_elements.length; i++) {
+          script_elements[i].remove()
+        }
+        
+        // remove all <iframe> elements
+        let iframe_elements = data.html.querySelectorAll('iframe')
+        for(let i = 0; i < iframe_elements.length; i++) {
+          iframe_elements[i].remove()
+        }
+        
+        // remove all JavaScript event attributes
+        let event_attributes = ['[onAbort]', '[onBlur]', '[onChange]', '[onClick]', '[onDblClick]', '[onError]', '[onFocus]', '[onKeydown]', '[onKeypress]', '[onKeyup]', '[onLoad]'
+, '[onMousedown]', '[onMousemove]', '[onMouseout]', '[onMouseover]', '[onMouseUp]', '[onReset]', '[onSelect]', '[onSubmit]', '[onUnload]']
+        let elements_with_event_attr = data.html.querySelectorAll(event_attributes.join(','))
+        for(let i = 0; i < elements_with_event_attr.length; i++) {
+          for(let j = 0; j < event_attributes.length; j++) {
+            elements_with_event_attr.removeAttribute(event_attributes[j])
+          }
         }
         
         /**
