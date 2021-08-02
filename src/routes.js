@@ -64,6 +64,21 @@ module.exports = (app, utils) => {
     return handleWikiPage(req, res, '/wiki/Map')
   })
   
+  app.get('/api/rest_v1/page/pdf/:page', async (req, res, next) => {
+    if(!req.params.page) {
+      return red.redirect('/')
+    }
+    
+    let media = await proxyMedia(req, '/api/rest_v1/page/pdf')
+    
+    if(media.success === true) {
+      let filename = `${req.params.page}.pdf`
+      return res.download(media.path, filename)
+    } else {
+      return res.sendStatus(404)
+    }
+  })
+  
   app.get('/', (req, res, next) => {
     return handleWikiPage(req, res, '/')
   })
@@ -89,5 +104,13 @@ module.exports = (app, utils) => {
     }
     
     return res.redirect(back)
+  })
+  
+  app.post('/wiki/Special::DownloadAsPdf', (req, res, next) => {
+    if(!req.body.page) {
+      return res.redirect('/')
+    }
+    
+    return res.redirect(`/w/index.php?title=Special%3ADownloadAsPdf&page=${req.body.page}&action=redirect-to-electron`)
   })
 }

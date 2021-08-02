@@ -202,7 +202,13 @@ module.exports = function(redis) {
         path = req.url.split('/media/maps_wikimedia_org')[1]
         domain = 'maps.wikimedia.org'
         wikimedia_path = path
-      } else {
+      } else if(wiki_domain === '/api/rest_v1/page/pdf') {
+        let lang = req.query.lang || req.cookies.default_lang || config.default_lang
+        
+        domain = `${lang}.wikipedia.org`
+        wikimedia_path = `/api/rest_v1/page/pdf/${req.params.page}`
+        path = `/api/${lang}${wiki_domain}/${req.params.page}`
+      }  else {
         path = req.url.split('/media')[1]
         wikimedia_path = path + params
       }
@@ -333,10 +339,15 @@ module.exports = function(redis) {
           if(url.startsWith('/wiki/')) {
             prefix = '/wiki/'
           }
+          if(url.startsWith('/api/rest_v1/page/pdf/')) {
+            let page = result.url.split('/').slice(-1)[0]
+            let lang_code = result.url.split('.wikipedia.org')[0].split('//')[1]
+            return res.redirect(`/api/rest_v1/page/pdf/${page}/?lang=${lang}`)
+          }
         }
         
         if(prefix != '') {
-          redirect_to = `${prefix}${result.url.split(prefix)[1]}`
+          let redirect_to = `${prefix}${result.url.split(prefix)[1]}`
           return res.redirect(redirect_to)
         } else {
           return res.redirect(`/?lang=${lang}`)
