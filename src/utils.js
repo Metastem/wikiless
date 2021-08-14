@@ -171,6 +171,18 @@ module.exports = function(redis) {
         const wiki_href_regx = /(href=\"(https:|http:|)\/\/([A-z.-]+\.)?(wikipedia.org|wikimedia.org|wikidata.org|mediawiki.org))/gm
         data.html = data.html.replace(wiki_href_regx, `href="${protocol}${config.domain}`)
         
+        /**
+        * If we are on DownloadAsPdf page, we have to inject a input which
+        * holds the language value. Without this input, we can't access the
+        * language (not avail from the POST data).
+        * See more on https://codeberg.org/orenom/Wikiless/issues/9
+        */
+        if(url.includes('%3ADownloadAsPdf')) {
+          let lang_input = `<input type='hidden' name='lang' value='${lang}'>`
+          let replace_str = `<input type='hidden' name='page'`
+          data.html = data.html.replace(replace_str, `${lang_input}${replace_str}`)
+        }
+        
         redis.setex(url, config.setexs.wikipage, data.html, (error) => {
           if(error) {
             console.log(`Error setting the ${url} key to Redis. Error: ${error}`)

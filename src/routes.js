@@ -106,11 +106,13 @@ module.exports = (app, utils) => {
     return res.redirect(back)
   })
   
-  app.post('/wiki/Special::DownloadAsPdf', (req, res, next) => {
+  app.post(/DownloadAsPdf/, (req, res, next) => {
     if(!req.body.page) {
       return res.redirect('/')
     }
     
-    return res.redirect(`/w/index.php?title=Special%3ADownloadAsPdf&page=${req.body.page}&action=redirect-to-electron`)
+    let lang = req.body.lang || req.cookies.default_lang || config.default_lang
+    
+    return res.redirect(`/w/index.php?title=Special%3ADownloadAsPdf&page=${req.body.page}&action=redirect-to-electron&lang=${lang}`)
   })
 }
