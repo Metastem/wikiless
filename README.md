@@ -139,6 +139,6 @@ You can build a production image by running `docker build .` in the repo's root.
 For development, there's a `docker-compose.yml` that mounts the app code (for hot reload of code changes) and default config. Before running it, you need to install the dependencies:
 
 ```
-$ docker compose run --rm web npm install --no-optionals
-$ docker compose up
+$ docker-compose run --rm web npm install --no-optionals
+$ docker-compose up
 ```
