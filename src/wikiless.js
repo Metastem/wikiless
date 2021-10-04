@@ -54,11 +54,11 @@ if(config.https_enabled) {
 
 const http = require('http').Server(app)
 
-app.use((req, res, next) => {  
+app.use((req, res, next) => {
   // set CSP rules and other headers to every request
   res.set({
     'Content-Security-Policy': "default-src 'none'; base-uri 'none'; font-src 'self' data:; img-src 'self' data:; object-src 'none'; script-src 'none'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; media-src 'self'; form-action 'self'; frame-ancestors 'none'; " + (config.https_enabled ? 'upgrade-insecure-requests;' : '') + " block-all-mixed-content;",
-    'Referrer-Policy': 'no-refferer',
+    'Referrer-Policy': 'no-referrer',
     ...(config.https_enabled ? { 'Strict-Transport-Security': 'max-age=31536000' } : {}),
     'X-Content-Type-Options': 'nosniff',
     'X-DNS-Prefetch-Control': 'off',
