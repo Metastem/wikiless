@@ -140,7 +140,9 @@ module.exports = function(redis) {
         let elements_with_event_attr = data.html.querySelectorAll(event_attributes.join(','))
         for(let i = 0; i < elements_with_event_attr.length; i++) {
           for(let j = 0; j < event_attributes.length; j++) {
-            elements_with_event_attr.removeAttribute(event_attributes[j])
+            if(typeof(elements_with_event_attr.removeAttribute) === 'function') {
+              elements_with_event_attr.removeAttribute(event_attributes[j])
+            }
           }
         }
         
