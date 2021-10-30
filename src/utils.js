@@ -11,7 +11,16 @@ module.exports = function(redis) {
         resolve({ success: false, reason: 'MISSING_URL' })
       }
       
-      url = encodeURI(url)
+      if(url.includes('?')) {
+        let wikipage = url.split('wikipedia.org/wiki/')[1]
+        let uriencoded_wikipage = ''
+        
+        if(wikipage) {console.log("we have a wikipage:",wikipage)
+          uriencoded_wikipage = encodeURIComponent(wikipage)
+        }
+        url = url.replace(wikipage, uriencoded_wikipage)
+      }
+      
       if(params != '') {
         url = `${url}?${params}`
       }
