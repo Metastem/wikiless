@@ -15,7 +15,7 @@ module.exports = function(redis) {
         let wikipage = url.split('wikipedia.org/wiki/')[1]
         let uriencoded_wikipage = ''
         
-        if(wikipage) {console.log("we have a wikipage:",wikipage)
+        if(wikipage) {
           uriencoded_wikipage = encodeURIComponent(wikipage)
         }
         url = url.replace(wikipage, uriencoded_wikipage)
