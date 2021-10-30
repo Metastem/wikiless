@@ -31,14 +31,24 @@ module.exports = (app, utils) => {
     
     if(req.url.startsWith('/media')) {
       let media
+      let mime = ''
       
       if(req.url.startsWith('/media/maps_wikimedia_org/')) {
         media = await proxyMedia(req, 'maps.wikimedia.org')
+      } else if(req.url.startsWith('/media/api/rest_v1/media')) {
+        media = await proxyMedia(req, 'wikimedia.org/api/rest_v1/media')
+        if(req.url.includes('render/svg/')) {
+          mime = 'image/svg+xml'
+        }
       } else {
         media = await proxyMedia(req)
       }
-      
+     
       if(media.success === true) {
+        if(mime != '') {
+          res.setHeader('Content-Type', mime)
+        }
+        
         return res.sendFile(media.path)
       } else {
         return res.sendStatus(404)

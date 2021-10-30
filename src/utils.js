@@ -169,6 +169,10 @@ module.exports = function(redis) {
         const maps_wikimedia_regx = /((https:|http:|)\/\/?maps.wikimedia.org)/gm
         data.html = data.html.replace(maps_wikimedia_regx, '/media/maps_wikimedia_org')
         
+        // replace wikimedia.org with /media
+        const wikimedia_regex = /((https:|http:|)\/\/?wikimedia.org)/gm
+        data.html = data.html.replace(wikimedia_regex, '/media')
+        
         // replace wiki links
         const wiki_href_regx = /(href=\"(https:|http:|)\/\/([A-z.-]+\.)?(wikipedia.org|wikimedia.org|wikidata.org|mediawiki.org))/gm
         data.html = data.html.replace(wiki_href_regx, `href="${protocol}${config.domain}`)
@@ -211,20 +215,28 @@ module.exports = function(redis) {
       let path = ''
       let domain = 'upload.wikimedia.org'
       let wikimedia_path = ''
+      let lang
       
-      if(wiki_domain === 'maps.wikimedia.org') {
-        path = req.url.split('/media/maps_wikimedia_org')[1]
-        domain = 'maps.wikimedia.org'
-        wikimedia_path = path
-      } else if(wiki_domain === '/api/rest_v1/page/pdf') {
-        let lang = req.query.lang || req.cookies.default_lang || config.default_lang
-        
-        domain = `${lang}.wikipedia.org`
-        wikimedia_path = `/api/rest_v1/page/pdf/${req.params.page}`
-        path = `/api/${lang}${wiki_domain}/${req.params.page}`
-      }  else {
-        path = req.url.split('/media')[1]
-        wikimedia_path = path + params
+      switch (wiki_domain) {
+        case 'maps.wikimedia.org':
+          path = req.url.split('/media/maps_wikimedia_org')[1]
+          domain = 'maps.wikimedia.org'
+          wikimedia_path = path
+          break;
+        case '/api/rest_v1/page/pdf':
+           lang = req.query.lang || req.cookies.default_lang || config.default_lang
+          domain = `${lang}.wikipedia.org`
+          wikimedia_path = `/api/rest_v1/page/pdf/${req.params.page}`
+          path = `/api/${lang}${wiki_domain}/${req.params.page}`
+          break;
+        case 'wikimedia.org/api/rest_v1/media':
+          domain = 'wikimedia.org'
+          wikimedia_path = req.url.replace('/media/api/rest_v1', '/api/rest_v1')
+          path = req.url.split('/media/api')[1]
+          break;
+        default:
+          path = req.url.split('/media')[1]
+          wikimedia_path = path + params
       }
       
       url = new URL(`https://${domain}${wikimedia_path}`)
@@ -244,6 +256,8 @@ module.exports = function(redis) {
       let media_path = ''
       if(url.href.startsWith('https://maps.wikimedia.org/')) {
         media_path = path.join(__dirname, '../media/maps_wikimedia_org')
+      } else if(url.href.startsWith('https://wikimedia.org/media/api/')) {
+        media_path = path.join(__dirname, '../media/api')
       } else {
         media_path = path.join(__dirname, '../media')
       }
