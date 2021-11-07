@@ -331,7 +331,7 @@ module.exports = function(redis) {
     }
     
     if(!validLang(lang)) {
-      return res.send('invalid lang')
+      return res.status(500).send('invalid lang')
     }
     
     let params = new URLSearchParams(req.query).toString()
@@ -399,7 +399,7 @@ module.exports = function(redis) {
       if(process_html.success === true) {
         return res.send(applyUserMods(process_html.html.toString(), req.cookies))
       } else {
-        return res.send(process_html.reason)
+        return res.status(500).send(process_html.reason)
       }
     }
   }
