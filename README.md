@@ -18,6 +18,7 @@ XMR: 832ogRwuoSs2JGYg7wJTqshidK7dErgNdfpenQ9dzMghNXQTJRby1xGbqC3gW3GAifRM9E84J91
 Community instances:
   - [https://wiki.ioens.is](https://wiki.ioens.is) (Not working since 07/2021) + [hidden service](http://wiki.ioensistjs7wd746zluwixvojbbkxhr37lepdvwtdfeav673o64iflqd.onion/)
   - [https://wikiless.alefvanoon.xyz](https://wikiless.alefvanoon.xyz)
+  - [https://wikiless.sethforprivacy.com](https://wikiless.sethforprivacy.com) + [hidden server](http://dj2tbh2nqfxyfmvq33cjmhuw7nb6am7thzd3zsjvizeqf374fixbrxyd.onion)
 
 ## TODO
 
@@ -74,33 +75,33 @@ If you are like me, and you also like the NSA, feel free to contribute and add m
 
 
 #### Sources
-  
-\[1\]: https://www.aclu.org/files/natsec/nsa/20140722/Why%20Are%20We%20Interested%20in%20HTTP.pdf  
-\[2\]: https://www.nytimes.com/2015/03/10/opinion/stop-spying-on-wikipedia-users.html  
-\[3\]: https://policy.wikimedia.org/stopsurveillance/  
-[4]: page 356 https://www.aclu.org/legal-document/wikimedia-v-nsa-joint-appendix-vol-6-7  
-[5]: page 355 https://www.aclu.org/legal-document/wikimedia-v-nsa-joint-appendix-vol-6-7  
-[6]: see slide #9 "Fingerprints and Appids (more)" https://www.aclu.org/sites/default/files/field_document/168-34.ex_.30.pdf  
-[7]: https://archive.is/69f7s  
-[8]: https://en.wikipedia.org/wiki/Dual_EC_DRBG  
-[9]: https://archive.is/9TmLJ  
-[10]: https://archive.nytimes.com/www.nytimes.com/interactive/2013/09/05/us/documents-reveal-nsa-campaign-against-encryption.html  
-[11]: https://www.propublica.org/article/the-nsas-secret-campaign-to-crack-undermine-internet-encryption  
-[12]: https://www.techspot.com/news/57316-nsa-classifies-linux-journal-readers-tor-and-tails-linux-users-as-extremists.html  
-[13]: https://arstechnica.com/tech-policy/2014/05/photos-of-an-nsa-upgrade-factory-show-cisco-router-getting-implant/  
-[14]: https://www.spiegel.de/netzwelt/netzpolitik/nsa-hat-wanzen-in-eu-gebaeuden-installiert-a-908515.html  
-[15]: https://www.spiegel.de/politik/ausland/nsa-hoerte-zentrale-der-vereinte-nationen-in-new-york-ab-a-918421.html  
-[16]: https://www.nytimes.com/2013/09/06/us/nsa-foils-much-internet-encryption.html  
-[17]: https://archive.is/rMNnF  
-[18]: https://www.theguardian.com/world/2013/jun/06/us-tech-giants-nsa-data  
-[19]: https://www.information.dk/udland/2014/06/nsa-third-party-partners-tap-the-internet-backbone-in-global-surveillance-program  
-[20]: https://en.wikipedia.org/wiki/RAMPART-A  
-[21]: https://www.theguardian.com/world/2014/feb/27/gchq-nsa-webcam-images-internet-yahoo  
-[22]: https://theintercept.com/2014/03/12/nsa-plans-infect-millions-computers-malware/  
-[23]: https://en.wikipedia.org/wiki/TURBINE_(US_government_project)  
-[24]: https://web.archive.org/web/20140411054544/https://firstlook.org/theintercept/article/2014/03/20/inside-nsa-secret-efforts-hunt-hack-system-administrators/  
-[25]: https://theintercept.com/document/2014/03/20/hunt-sys-admins/  
-[26]: https://www.theguardian.com/world/2013/dec/17/merkel-compares-nsa-stasi-obama  
+
+\[1\]: https://www.aclu.org/files/natsec/nsa/20140722/Why%20Are%20We%20Interested%20in%20HTTP.pdf
+\[2\]: https://www.nytimes.com/2015/03/10/opinion/stop-spying-on-wikipedia-users.html
+\[3\]: https://policy.wikimedia.org/stopsurveillance/
+[4]: page 356 https://www.aclu.org/legal-document/wikimedia-v-nsa-joint-appendix-vol-6-7
+[5]: page 355 https://www.aclu.org/legal-document/wikimedia-v-nsa-joint-appendix-vol-6-7
+[6]: see slide #9 "Fingerprints and Appids (more)" https://www.aclu.org/sites/default/files/field_document/168-34.ex_.30.pdf
+[7]: https://archive.is/69f7s
+[8]: https://en.wikipedia.org/wiki/Dual_EC_DRBG
+[9]: https://archive.is/9TmLJ
+[10]: https://archive.nytimes.com/www.nytimes.com/interactive/2013/09/05/us/documents-reveal-nsa-campaign-against-encryption.html
+[11]: https://www.propublica.org/article/the-nsas-secret-campaign-to-crack-undermine-internet-encryption
+[12]: https://www.techspot.com/news/57316-nsa-classifies-linux-journal-readers-tor-and-tails-linux-users-as-extremists.html
+[13]: https://arstechnica.com/tech-policy/2014/05/photos-of-an-nsa-upgrade-factory-show-cisco-router-getting-implant/
+[14]: https://www.spiegel.de/netzwelt/netzpolitik/nsa-hat-wanzen-in-eu-gebaeuden-installiert-a-908515.html
+[15]: https://www.spiegel.de/politik/ausland/nsa-hoerte-zentrale-der-vereinte-nationen-in-new-york-ab-a-918421.html
+[16]: https://www.nytimes.com/2013/09/06/us/nsa-foils-much-internet-encryption.html
+[17]: https://archive.is/rMNnF
+[18]: https://www.theguardian.com/world/2013/jun/06/us-tech-giants-nsa-data
+[19]: https://www.information.dk/udland/2014/06/nsa-third-party-partners-tap-the-internet-backbone-in-global-surveillance-program
+[20]: https://en.wikipedia.org/wiki/RAMPART-A
+[21]: https://www.theguardian.com/world/2014/feb/27/gchq-nsa-webcam-images-internet-yahoo
+[22]: https://theintercept.com/2014/03/12/nsa-plans-infect-millions-computers-malware/
+[23]: https://en.wikipedia.org/wiki/TURBINE_(US_government_project)
+[24]: https://web.archive.org/web/20140411054544/https://firstlook.org/theintercept/article/2014/03/20/inside-nsa-secret-efforts-hunt-hack-system-administrators/
+[25]: https://theintercept.com/document/2014/03/20/hunt-sys-admins/
+[26]: https://www.theguardian.com/world/2013/dec/17/merkel-compares-nsa-stasi-obama
 
 
 ## Installation
