@@ -68,6 +68,11 @@ module.exports = (app, utils) => {
   
   // This route handles wiki-pages starting with forward slash (issue #21))
   app.get('/wiki//:page?/:sub_page?', (req, res, next) => {
+    const page = req.params.page
+    if(page) {
+      // issue #25
+      req.params.page = `/${req.params.page}`
+    }
     return handleWikiPage(req, res, '/wiki/')
   })
   
