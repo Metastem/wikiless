@@ -72,10 +72,20 @@ module.exports = function(redis) {
     * cookie specific modifications to it yet. Let's do it.
     */
     
-    // add dark style theme file if needed
-    if(user_preferences.theme == 'dark') {
-      data = data.replace('</head>', `<link rel="stylesheet" href="/wikipedia_styles_dark.css"></head>`)
+    if(user_preferences.theme === 'white') {
+      // if the user has chosen the white theme from the preferences
+      data = data.replace('</head>', `<link rel="stylesheet" href="/wikipedia_styles_light.css"></head>`)
     }
+    if(user_preferences.theme === 'dark') {
+      // if the user has chosen the dark theme from the preferences
+      data = data.replace('</head>', `<link rel="stylesheet" href="/wikipedia_styles_light.css">
+                                      <link rel="stylesheet" href="/wikipedia_styles_dark.css"></head>`)
+    }
+    if(user_preferences.theme !== 'dark' && user_preferences.theme !== 'white') {
+      // default, auto theme
+      data = data.replace('</head>', `<link rel="stylesheet" href="/styles.css"></head>`)
+    }
+    
     return data
   }
   
@@ -88,13 +98,6 @@ module.exports = function(redis) {
         }
         
         data.html = parser.parse(data.html)
-        
-        // insert wikiless styles
-        let head = data.html.querySelector('head')
-        if(head) {
-          let head_html = `<link rel="stylesheet" href="/styles.css">`
-          head.insertAdjacentHTML('beforeend', head_html)
-        }
         
         // replace default wikipedia top right nav bar links
         let nav = data.html.querySelector('nav#p-personal .vector-menu-content-list')
@@ -490,7 +493,8 @@ module.exports = function(redis) {
                 </div>
                 <div class="option">
                   <select id="theme" name="theme">
-                    <option value="" ${(!user_preferences.theme || user_preferences.theme == '' ? 'selected' : '')}>White</option>
+                    <option value="" ${(!user_preferences.theme ? 'selected' : '')}>Auto</option>
+                    <option value="white" ${(user_preferences.theme == 'white' ? 'selected' : '')}>White</option>
                     <option value="dark" ${(user_preferences.theme == 'dark' ? 'selected' : '')}>Dark (experimental)</option>
                   </select>
                 </div>
