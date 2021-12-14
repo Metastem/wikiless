@@ -4,27 +4,27 @@ module.exports = function(redis) {
   const parser = require('node-html-parser')
   const fs = require('fs')
   const path = require('path')
-  
+
   this.download = async (url, params = '') => {
     return new Promise(resolve => {
       if(!url) {
         resolve({ success: false, reason: 'MISSING_URL' })
       }
-      
+
       if(url.includes('?')) {
         let wikipage = url.split('wikipedia.org/wiki/')[1]
         let uriencoded_wikipage = ''
-        
+
         if(wikipage) {
           uriencoded_wikipage = encodeURIComponent(wikipage)
         }
         url = url.replace(wikipage, uriencoded_wikipage)
       }
-      
-      if(params != '') {
+
+      if(params) {
         url = `${url}?${params}`
       }
-      
+
       redis.get(url, (error, data) => {
         if(data) {
           console.log(`Got key ${url} from cache.`)
@@ -46,7 +46,7 @@ module.exports = function(redis) {
                 return resolve({ success: false, reason: `INVALID_HTTP_RESPONSE: ${res.statusCode}` })
               }
             }
-            
+
             let data = ''
 
             res.on('data', (chunk) => {
@@ -65,13 +65,13 @@ module.exports = function(redis) {
       })
     })
   }
-  
+
   this.applyUserMods = (data, user_preferences) => {
     /**
     * We have already processed the HTML, but we haven't applied the user's
     * cookie specific modifications to it yet. Let's do it.
     */
-    
+
     if(user_preferences.theme === 'white') {
       // if the user has chosen the white theme from the preferences
       data = data.replace('</head>', `<link rel="stylesheet" href="/wikipedia_styles_light.css"></head>`)
@@ -85,20 +85,20 @@ module.exports = function(redis) {
       // default, auto theme
       data = data.replace('</head>', `<link rel="stylesheet" href="/styles.css"></head>`)
     }
-    
+
     return data
   }
-  
+
   this.processHtml = (data, url, params, lang, user_preferences, process_user_prefs) => {
     return new Promise(resolve => {
       if(validHtml(data.html)) {
         url = encodeURI(url)
-        if(params != '') {
+        if(params) {
           url = `${url}?${params}`
         }
-        
+
         data.html = parser.parse(data.html)
-        
+
         // replace default wikipedia top right nav bar links
         let nav = data.html.querySelector('nav#p-personal .vector-menu-content-list')
         if(nav) {
@@ -109,43 +109,41 @@ module.exports = function(redis) {
             <li>
               <a href="/preferences?back=${url.split('wikipedia.org')[1]}">[ preferences ]</a>
             </li>
-          
+
           `
         }
-        
+
         // append the lang query param to the URLs starting with /wiki/ or /w/
         let links = data.html.querySelectorAll('a')
         for(let i = 0; i < links.length; i++) {
           let href = links[i].getAttribute('href')
-          if(href) {
-            if(href.startsWith('/wiki/') || href.startsWith('/w/')) {
-              href = `${protocol}${config.domain}${href}`
-              let u = new URL(href)
-              u.searchParams.append('lang', lang)
-              href = `${u.pathname}${u.search}`
-              links[i].setAttribute('href', href)
-            }
+          if(href && (href.startsWith('/wiki/') || href.startsWith('/w/'))) {
+            href = `${protocol}${config.domain}${href}`
+            let u = new URL(href)
+            u.searchParams.append('lang', lang)
+            href = `${u.pathname}${u.search}`
+            links[i].setAttribute('href', href)
           }
         }
-        
+
         // remove #p-wikibase-otherprojects
         let wikibase_links = data.html.querySelector('#p-wikibase-otherprojects')
         if(wikibase_links) {
           wikibase_links.remove()
         }
-        
+
         // remove all <script> elements
         let script_elements = data.html.querySelectorAll('script')
         for(let i = 0; i < script_elements.length; i++) {
           script_elements[i].remove()
         }
-        
+
         // remove all <iframe> elements
         let iframe_elements = data.html.querySelectorAll('iframe')
         for(let i = 0; i < iframe_elements.length; i++) {
           iframe_elements[i].remove()
         }
-        
+
         // remove all JavaScript event attributes
         let event_attributes = ['[onAbort]', '[onBlur]', '[onChange]', '[onClick]', '[onDblClick]', '[onError]', '[onFocus]', '[onKeydown]', '[onKeypress]', '[onKeyup]', '[onLoad]'
 , '[onMousedown]', '[onMousemove]', '[onMouseout]', '[onMouseover]', '[onMouseUp]', '[onReset]', '[onSelect]', '[onSubmit]', '[onUnload]']
@@ -157,7 +155,7 @@ module.exports = function(redis) {
             }
           }
         }
-        
+
         /**
         * Remove the language subdomain from the sidebar language switchers.
         * Then append the language as a URL query param.
@@ -170,25 +168,25 @@ module.exports = function(redis) {
           href = `${href}?lang=${lang_code.slice(0, -1)}`
           lang_links[i].setAttribute('href', href)
         }
-        
+
         data.html = data.html.toString()
-        
+
         // replace upload.wikimedia.org with /media
         const upload_wikimedia_regx = /((https:|http:|)\/\/?upload.wikimedia.org)/gm
         data.html = data.html.replace(upload_wikimedia_regx, '/media')
-        
+
         // replace maps.wikimedia.org with /media/maps_wikimedia_org
         const maps_wikimedia_regx = /((https:|http:|)\/\/?maps.wikimedia.org)/gm
         data.html = data.html.replace(maps_wikimedia_regx, '/media/maps_wikimedia_org')
-        
+
         // replace wikimedia.org with /media
         const wikimedia_regex = /((https:|http:|)\/\/?wikimedia.org)/gm
         data.html = data.html.replace(wikimedia_regex, '/media')
-        
+
         // replace wiki links
         const wiki_href_regx = /(href=\"(https:|http:|)\/\/([A-z.-]+\.)?(wikipedia.org|wikimedia.org|wikidata.org|mediawiki.org))/gm
         data.html = data.html.replace(wiki_href_regx, 'href="')
-        
+
         /**
         * If we are on DownloadAsPdf page, we have to inject a input which
         * holds the language value. Without this input, we can't access the
@@ -200,7 +198,7 @@ module.exports = function(redis) {
           let replace_str = `<input type='hidden' name='page'`
           data.html = data.html.replace(replace_str, `${lang_input}${replace_str}`)
         }
-        
+
         redis.setex(url, config.setexs.wikipage, data.html, (error) => {
           if(error) {
             console.log(`Error setting the ${url} key to Redis. Error: ${error}`)
@@ -215,20 +213,19 @@ module.exports = function(redis) {
       }
     })
   }
-  
+
   this.proxyMedia = (req, wiki_domain='') => {
     return new Promise(async resolve => {
       let params = new URLSearchParams(req.query).toString() || ''
-      
-      if(params != '') {
+
+      if(params) {
         params = '?' + params
       }
-      
+
       let path = ''
       let domain = 'upload.wikimedia.org'
       let wikimedia_path = ''
-      let lang
-      
+
       switch (wiki_domain) {
         case 'maps.wikimedia.org':
           path = req.url.split('/media/maps_wikimedia_org')[1]
@@ -236,7 +233,7 @@ module.exports = function(redis) {
           wikimedia_path = path
           break;
         case '/api/rest_v1/page/pdf':
-           lang = req.query.lang || req.cookies.default_lang || config.default_lang
+          const lang = req.query.lang || req.cookies.default_lang || config.default_lang
           domain = `${lang}.wikipedia.org`
           wikimedia_path = `/api/rest_v1/page/pdf/${req.params.page}`
           path = `/api/${lang}${wiki_domain}/${req.params.page}`
@@ -250,11 +247,9 @@ module.exports = function(redis) {
           path = req.url.split('/media')[1]
           wikimedia_path = path + params
       }
-      
-      url = new URL(`https://${domain}${wikimedia_path}`)
-      
-      let file = await saveFile(url, path)
-      
+
+      const file = await saveFile(url, path)
+
       if(file.success === true) {
         resolve({ success: true, path: file.path })
       } else {
@@ -262,7 +257,7 @@ module.exports = function(redis) {
       }
     })
   }
-  
+
   this.saveFile = (url, file_path) => {
     return new Promise(async resolve => {
       let media_path = ''
@@ -273,7 +268,7 @@ module.exports = function(redis) {
       } else {
         media_path = path.join(__dirname, '../media')
       }
-      
+
       const path_with_filename = decodeURI(`${media_path}${file_path}`)
       let path_without_filename = path_with_filename.split('/')
           path_without_filename.pop()
@@ -288,7 +283,7 @@ module.exports = function(redis) {
             const options = {
               headers: { 'User-Agent': config.wikimedia_useragent }
             }
-            
+
             https.get(url.href, options, (res) => {
               res.pipe(file)
               file.on('finish', () => {
@@ -307,7 +302,7 @@ module.exports = function(redis) {
       }
     })
   }
-  
+
   this.writeToDisk = (data, file) => {
     return new Promise(resolve => {
       fs.writeFile(file, data, 'binary', (error, result) => {
@@ -321,72 +316,69 @@ module.exports = function(redis) {
       console.log('Writing media file to disk failed for unknown reason. Details:', err)
     })
   }
-  
+
   this.handleWikiPage = async (req, res, prefix) => {
     let lang = req.query.lang || req.cookies.default_lang || config.default_lang
-    
+
     if(lang) {
-      if(typeof(lang) !== 'string') {
+      if(Array.isArray(lang)) {
         lang = lang[0]
       } else {
         lang = lang.split('?')[0]
       }
     }
-    
+
     if(!validLang(lang)) {
       return res.status(500).send('invalid lang')
     }
-    
+
     let params = new URLSearchParams(req.query).toString()
-    
+
     let url = ''
-    
-    if(prefix === '/wiki/') {
-      let page = req.params.page || ''
-      let sub_page = req.params.sub_page || ''
-      if(sub_page != '') {
-        sub_page = `/${sub_page}`
-      }
-      url = `https://${lang}.wikipedia.org/wiki/${page}${sub_page}`
+
+    switch (prefix) {
+      case '/wiki/':
+        let page = req.params.page || ''
+        let sub_page = req.params.sub_page || ''
+        if(sub_page) {
+          sub_page = `/${sub_page}`
+        }
+        url = `https://${lang}.wikipedia.org/wiki/${page}${sub_page}`
+        break
+      case '/w/':
+        let file = req.params.file
+        url = `https://${lang}.wikipedia.org/w/${file}`
+        break
+      case '/wiki/Map':
+        let page = 'Special:Map'
+        let sub_page = req.params['0'] || ''
+        url = `https://${lang}.wikipedia.org/wiki/${page}/${sub_page}`
+        break
+      case '/':
+        url = `https://${lang}.wikipedia.org/?lang=${lang}`
+        break
     }
-    
-    if(prefix === '/w/') {
-      let file = req.params.file
-      url = `https://${lang}.wikipedia.org/w/${file}`
-    }
-    
-    if(prefix === '/wiki/Map') {
-      let page = 'Special:Map'
-      let sub_page = req.params['0'] || ''
-      url = `https://${lang}.wikipedia.org/wiki/${page}/${sub_page}`
-    }
-    
-    if(prefix === '/') {
-      url = `https://${lang}.wikipedia.org/?lang=${lang}`
-    }
-    
+
     let result = await download(url, params)
-    
+
     if(result.success !== true) {
-      if(result.reason === 'REDIRECT' && result.url != '') {
+      if(result.reason === 'REDIRECT' && result.url) {
         url = result.url.split('wikipedia.org')[1]
         let prefix = ''
-        
+
         if(url) {
           if(url.startsWith('/w/')) {
             prefix = '/w/'
-          }
-          if(url.startsWith('/wiki/')) {
+          } else if(url.startsWith('/wiki/')) {
             prefix = '/wiki/'
-          }
-          if(url.startsWith('/api/rest_v1/page/pdf/')) {
+          } else if(url.startsWith('/api/rest_v1/page/pdf/')) {
             let page = result.url.split('/').slice(-1)[0]
             let lang_code = result.url.split('.wikipedia.org')[0].split('//')[1]
-            return res.redirect(`/api/rest_v1/page/pdf/${page}/?lang=${lang}`)
+            return res.redirect(`/api/rest_v1/page/pdf/${page}/?lang=${lang_code}`)
           }
         }
-        
-        if(prefix != '') {
+
+        if(prefix) {
           let redirect_to = `${prefix}${result.url.split(prefix)[1]}`
           return res.redirect(redirect_to)
         } else {
@@ -394,7 +386,7 @@ module.exports = function(redis) {
         }
       }
     }
-    
+
     if(result.processed === true) {
       return res.send(applyUserMods(result.html, req.cookies))
     } else {
@@ -406,7 +398,7 @@ module.exports = function(redis) {
       }
     }
   }
-  
+
   this.validLang = (lang, return_langs=false) => {
     let valid_langs = ['ab','ace','ady','af','ak','als','am','an','ang','ar',
     'arc','ary','arz','as','ast','atj','av','avk','awa','ay','az','azb','ba',
@@ -432,49 +424,47 @@ module.exports = function(redis) {
     'tr','ts','tt','tum','tw','ty','tyv','udm','ug','uk','ur','uz','ve','vec',
     'vep','vi','vls','vo','wa','war','wo','wuu','xal','xh','xmf','yi','yo','za',
     'zea','zh','zh-classical','zh-min-nan','zh-yue','zu']
-    
+
     if(return_langs) {
       return valid_langs
     }
-    
+
     if(valid_langs.includes(lang)) {
       return true
     }
     return false
   }
-  
+
   this.validHtml = (html) => {
-    if(html) {
-      if(parser.valid(html)) {
-        return true
-      }
+    if(html && parser.valid(html)) {
+      return true
     }
     return false
   }
-  
+
   this.wikilessLogo = () => {
-    let static_path = path.join(__dirname, '../static')
+    const static_path = path.join(__dirname, '../static')
     return `${static_path}/wikiless-logo.png`
   }
-  
+
   this.preferencesPage = (req, res) => {
-    let user_preferences = req.cookies
+    const { default_lang, theme } = req.cookies
     let lang_select = '<select id="default_lang" name="default_lang">'
-    let valid_langs = validLang('', true)
-    
+    const valid_langs = validLang('', true)
+
     for(var i = 0; i < valid_langs.length; i++) {
       let selected = ''
-      if(valid_langs[i] == user_preferences.default_lang) {
+      if(valid_langs[i] === default_lang) {
         selected = 'selected'
       }
       lang_select += `<option value="${valid_langs[i]}" ${selected}>${valid_langs[i]}</option>`
     }
-    
+
     lang_select += '</select>'
-    
-    let back = req.url.split('?back=')[1]
-    
-    let html = `
+
+    const back = req.url.split('?back=')[1]
+
+    const html = `
       <!DOCTYPE html>
       <html lang="en">
         <head>
@@ -493,9 +483,9 @@ module.exports = function(redis) {
                 </div>
                 <div class="option">
                   <select id="theme" name="theme">
-                    <option value="" ${(!user_preferences.theme ? 'selected' : '')}>Auto</option>
-                    <option value="white" ${(user_preferences.theme == 'white' ? 'selected' : '')}>White</option>
-                    <option value="dark" ${(user_preferences.theme == 'dark' ? 'selected' : '')}>Dark (experimental)</option>
+                    <option value="" ${(!theme ? 'selected' : '')}>Auto</option>
+                    <option value="white" ${(theme == 'white' ? 'selected' : '')}>White</option>
+                    <option value="dark" ${(theme == 'dark' ? 'selected' : '')}>Dark (experimental)</option>
                   </select>
                 </div>
               </div>
@@ -518,7 +508,7 @@ module.exports = function(redis) {
         </body>
       </html>
     `
-    
+
     return html
   }
 }
