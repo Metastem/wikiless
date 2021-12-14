@@ -66,24 +66,25 @@ module.exports = function(redis) {
     })
   }
 
-  this.applyUserMods = (data, user_preferences) => {
+  this.applyUserMods = (data, theme, lang) => {
     /**
     * We have already processed the HTML, but we haven't applied the user's
     * cookie specific modifications to it yet. Let's do it.
     */
 
-    if(user_preferences.theme === 'white') {
+    // load fr style, issue #12
+    const langSuffix = `_${lang}` ? lang === 'fr' : ''
+
+    if(theme === 'white') {
       // if the user has chosen the white theme from the preferences
-      data = data.replace('</head>', `<link rel="stylesheet" href="/wikipedia_styles_light.css"></head>`)
-    }
-    if(user_preferences.theme === 'dark') {
+      data = data.replace('</head>', `<link rel="stylesheet" href="/wikipedia_styles_light${langSuffix}.css"></head>`)
+    } else if(theme === 'dark') {
       // if the user has chosen the dark theme from the preferences
-      data = data.replace('</head>', `<link rel="stylesheet" href="/wikipedia_styles_light.css">
+      data = data.replace('</head>', `<link rel="stylesheet" href="/wikipedia_styles_light${langSuffix}.css">
                                       <link rel="stylesheet" href="/wikipedia_styles_dark.css"></head>`)
-    }
-    if(user_preferences.theme !== 'dark' && user_preferences.theme !== 'white') {
+    } else {
       // default, auto theme
-      data = data.replace('</head>', `<link rel="stylesheet" href="/styles.css"></head>`)
+      data = data.replace('</head>', `<link rel="stylesheet" href="/styles${langSuffix}.css"></head>`)
     }
 
     return data
@@ -391,11 +392,11 @@ module.exports = function(redis) {
     }
 
     if(result.processed === true) {
-      return res.send(applyUserMods(result.html, req.cookies))
+      return res.send(applyUserMods(result.html, req.cookies.theme, lang))
     } else {
       let process_html = await processHtml(result, url, params, lang, req.cookies)
       if(process_html.success === true) {
-        return res.send(applyUserMods(process_html.html.toString(), req.cookies))
+        return res.send(applyUserMods(process_html.html.toString(), req.cookies.theme, lang))
       } else {
         return res.status(500).send(process_html.reason)
       }
