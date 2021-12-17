@@ -102,6 +102,9 @@ redis.on('error', (error) => {
   }
 })
 
+const cacheControl = require('./cache_control.js')
+cacheControl.removeCacheFiles()
+
 if(config.https_enabled) {
   https.listen(config.ssl_port, config.http_addr, () => console.log(`Wikiless ${config.domain} running on https://${config.http_addr}:${config.ssl_port}`))
 }

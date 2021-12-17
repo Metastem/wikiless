@@ -46,6 +46,15 @@ const config = {
   * Read more: https://meta.wikimedia.org/wiki/User-Agent_policy
   */
   wikimedia_useragent: process.env.wikimedia_useragent || 'Wikiless media proxy bot (https://codeberg.org/orenom/Wikiless)',
+  
+  /**
+  * Cache control. Wikiless can automatically remove the cached media files from
+  * the server. Cache control is on by default.
+  * 'cache_control_interval' sets the interval for often the cache directory
+  * is emptied (in hours). Default is every 24 hours.
+  */
+  cache_control: process.env.CACHE_CONTROL !== 'true' || true,
+  cache_control_interval: process.env.CACHE_CONTROL_INTERVAL || 24,
 }
 
 module.exports = config
