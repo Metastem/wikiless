@@ -16,7 +16,6 @@ XMR: 832ogRwuoSs2JGYg7wJTqshidK7dErgNdfpenQ9dzMghNXQTJRby1xGbqC3gW3GAifRM9E84J91
 [https://wikiless.org](https://wikiless.org) - Official instance
 
 Community instances:
-  - [https://wiki.ioens.is](https://wiki.ioens.is) (Not working since 07/2021) + [hidden service](http://wiki.ioensistjs7wd746zluwixvojbbkxhr37lepdvwtdfeav673o64iflqd.onion/)
   - [https://wikiless.alefvanoon.xyz](https://wikiless.alefvanoon.xyz)
   - [https://wikiless.sethforprivacy.com](https://wikiless.sethforprivacy.com) + [hidden server](http://dj2tbh2nqfxyfmvq33cjmhuw7nb6am7thzd3zsjvizeqf374fixbrxyd.onion)
 
