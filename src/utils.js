@@ -248,6 +248,7 @@ module.exports = function(redis) {
           wikimedia_path = path + params
       }
 
+      url = new URL(`https://${domain}${wikimedia_path}`)
       const file = await saveFile(url, path)
 
       if(file.success === true) {
@@ -335,11 +336,13 @@ module.exports = function(redis) {
     let params = new URLSearchParams(req.query).toString()
 
     let url = ''
+    let page = ''
+    let sub_page = ''
 
     switch (prefix) {
       case '/wiki/':
-        let page = req.params.page || ''
-        let sub_page = req.params.sub_page || ''
+        page = req.params.page || ''
+        sub_page = req.params.sub_page || ''
         if(sub_page) {
           sub_page = `/${sub_page}`
         }
@@ -350,8 +353,8 @@ module.exports = function(redis) {
         url = `https://${lang}.wikipedia.org/w/${file}`
         break
       case '/wiki/Map':
-        let page = 'Special:Map'
-        let sub_page = req.params['0'] || ''
+        page = 'Special:Map'
+        sub_page = req.params['0'] || ''
         url = `https://${lang}.wikipedia.org/wiki/${page}/${sub_page}`
         break
       case '/':
