@@ -1,69 +1,63 @@
 module.exports = function(redis) {
   const config = require('../config')
-  const https = require('https')
   const parser = require('node-html-parser')
-  const fs = require('fs')
+  const fs = require('fs').promises
+  const { existsSync } = require('fs')
   const path = require('path')
+  const got = require('got')
 
   this.download = async (url, params = '') => {
-    return new Promise(resolve => {
-      if(!url) {
-        resolve({ success: false, reason: 'MISSING_URL' })
+    if(!url) {
+      return { success: false, reason: 'MISSING_URL' }
+    }
+
+    if(url.includes('?')) {
+      let wikipage = url.split('wikipedia.org/wiki/')[1]
+      let uriencoded_wikipage = ''
+
+      if(wikipage) {
+        uriencoded_wikipage = encodeURIComponent(wikipage)
       }
+      url = url.replace(wikipage, uriencoded_wikipage)
+    }
 
-      if(url.includes('?')) {
-        let wikipage = url.split('wikipedia.org/wiki/')[1]
-        let uriencoded_wikipage = ''
+    if(params) {
+      url = `${url}?${params}`
+    }
 
-        if(wikipage) {
-          uriencoded_wikipage = encodeURIComponent(wikipage)
+    let data = ''
+    try {
+      if(redis.isOpen === false) {
+        await redis.connect()
+      }
+      data = await redis.get(url)
+    } catch(err) {
+      console.log(`Error while fetching key ${url} from cache. Error: ${err}`)
+    }
+
+    if(data) {
+      console.log(`Got key ${url} from cache.`)
+      return { success: true, html: data, processed: true }
+    }
+    try {
+      const gotUrl = new URL(url)
+      const { body } = await got(gotUrl)
+
+      console.log(`Fetched url ${url} from Wikipedia.`)
+      return { success: true, html: body, processed: false }
+    } catch(err) {
+      const { statusCode } = err.response
+      if(statusCode !== 200) {
+        if(statusCode === 404) {
+          // let's redirect 404s to homepage
+          console.log(`Didn't find ${url} HTTP status code: ${statusCode}`)
+          return { success: false, reason: 'REDIRECT', url: 'https://wikipedia.org/' }
         }
-        url = url.replace(wikipage, uriencoded_wikipage)
+
+        console.log(`Error while fetching data from ${url}. HTTP status code: ${statusCode}`)
+        return { success: false, reason: `INVALID_HTTP_RESPONSE: ${statusCode}` }
       }
-
-      if(params) {
-        url = `${url}?${params}`
-      }
-
-      redis.get(url, (error, data) => {
-        if(data) {
-          console.log(`Got key ${url} from cache.`)
-          resolve({ success: true, html: data, processed: true })
-        } else {
-          https.get(url, (res) => {
-            if(res.statusCode !== 200) {
-              if(res.statusCode === 301 || res.statusCode === 302) {
-                resolve({ success: false, reason: 'REDIRECT', url: res.headers.location })
-                res.resume()
-              } else if(res.statusCode === 404) {
-                // let's redirect 404s to homepage
-                console.log(`Didn't find ${url} HTTP status code: ${res.statusCode}`)
-                res.resume()
-                return resolve({ success: false, reason: 'REDIRECT', url: 'https://wikipedia.org/' })
-              } else {
-                console.log(`Error while fetching data from ${url}. HTTP status code: ${res.statusCode}`)
-                res.resume()
-                return resolve({ success: false, reason: `INVALID_HTTP_RESPONSE: ${res.statusCode}` })
-              }
-            }
-
-            let data = ''
-
-            res.on('data', (chunk) => {
-              data += chunk
-            })
-
-            res.on('end', () => {
-              console.log(`Fetched url ${url} from Wikipedia.`)
-              resolve({ success: true, html: data, processed: false })
-            })
-          }).on('error', (err) => {
-            console.log(`Error while fetching data from ${url}. Error: ${err}`)
-            resolve({ success: false, reason: 'SERVER_ERROR' })
-          })
-        }
-      })
-    })
+    }
   }
 
   this.applyUserMods = (data, theme, lang) => {
@@ -90,233 +84,215 @@ module.exports = function(redis) {
     return data
   }
 
-  this.processHtml = (data, url, params, lang, user_preferences, process_user_prefs) => {
-    return new Promise(resolve => {
-      if(validHtml(data.html)) {
-        url = encodeURI(url)
-        if(params) {
-          url = `${url}?${params}`
-        }
-
-        data.html = parser.parse(data.html)
-
-        // replace default wikipedia top right nav bar links
-        let nav = data.html.querySelector('nav#p-personal .vector-menu-content-list')
-        if(nav) {
-          nav.innerHTML = `
-            <li>
-              <a href="/about">[ about ]</a>
-            </li>
-            <li>
-              <a href="/preferences?back=${url.split('wikipedia.org')[1]}">[ preferences ]</a>
-            </li>
-
-          `
-        }
-
-        // append the lang query param to the URLs starting with /wiki/ or /w/
-        let links = data.html.querySelectorAll('a')
-        for(let i = 0; i < links.length; i++) {
-          let href = links[i].getAttribute('href')
-          if(href && (href.startsWith('/wiki/') || href.startsWith('/w/'))) {
-            href = `${protocol}${config.domain}${href}`
-            let u = new URL(href)
-            u.searchParams.append('lang', lang)
-            href = `${u.pathname}${u.search}`
-            links[i].setAttribute('href', href)
-          }
-        }
-
-        // remove #p-wikibase-otherprojects
-        let wikibase_links = data.html.querySelector('#p-wikibase-otherprojects')
-        if(wikibase_links) {
-          wikibase_links.remove()
-        }
-
-        // remove all <script> elements
-        let script_elements = data.html.querySelectorAll('script')
-        for(let i = 0; i < script_elements.length; i++) {
-          script_elements[i].remove()
-        }
-
-        // remove all <iframe> elements
-        let iframe_elements = data.html.querySelectorAll('iframe')
-        for(let i = 0; i < iframe_elements.length; i++) {
-          iframe_elements[i].remove()
-        }
-
-        // remove all JavaScript event attributes
-        let event_attributes = ['[onAbort]', '[onBlur]', '[onChange]', '[onClick]', '[onDblClick]', '[onError]', '[onFocus]', '[onKeydown]', '[onKeypress]', '[onKeyup]', '[onLoad]'
-, '[onMousedown]', '[onMousemove]', '[onMouseout]', '[onMouseover]', '[onMouseUp]', '[onReset]', '[onSelect]', '[onSubmit]', '[onUnload]']
-        let elements_with_event_attr = data.html.querySelectorAll(event_attributes.join(','))
-        for(let i = 0; i < elements_with_event_attr.length; i++) {
-          for(let j = 0; j < event_attributes.length; j++) {
-            if(typeof(elements_with_event_attr.removeAttribute) === 'function') {
-              elements_with_event_attr.removeAttribute(event_attributes[j])
-            }
-          }
-        }
-
-        /**
-        * Remove the language subdomain from the sidebar language switchers.
-        * Then append the language as a URL query param.
-        */
-        let lang_links = data.html.querySelectorAll('#p-lang .interlanguage-link a')
-        for(let i = 0; i < lang_links.length; i++) {
-          let href = lang_links[i].getAttribute('href')
-          let lang_code = href.split('wikipedia.org')[0].split('//')[1]
-          href = href.replace(lang_code, '')
-          href = `${href}?lang=${lang_code.slice(0, -1)}`
-          lang_links[i].setAttribute('href', href)
-        }
-
-        data.html = data.html.toString()
-
-        // replace upload.wikimedia.org with /media
-        const upload_wikimedia_regx = /((https:|http:|)\/\/?upload.wikimedia.org)/gm
-        data.html = data.html.replace(upload_wikimedia_regx, '/media')
-
-        // replace maps.wikimedia.org with /media/maps_wikimedia_org
-        const maps_wikimedia_regx = /((https:|http:|)\/\/?maps.wikimedia.org)/gm
-        data.html = data.html.replace(maps_wikimedia_regx, '/media/maps_wikimedia_org')
-
-        // replace wikimedia.org with /media
-        const wikimedia_regex = /((https:|http:|)\/\/?wikimedia.org)/gm
-        data.html = data.html.replace(wikimedia_regex, '/media')
-
-        // replace wiki links
-        const wiki_href_regx = /(href=\"(https:|http:|)\/\/([A-z.-]+\.)?(wikipedia.org|wikimedia.org|wikidata.org|mediawiki.org))/gm
-        data.html = data.html.replace(wiki_href_regx, 'href="')
-
-        /**
-        * If we are on DownloadAsPdf page, we have to inject a input which
-        * holds the language value. Without this input, we can't access the
-        * language (not avail from the POST data).
-        * See more on https://codeberg.org/orenom/Wikiless/issues/9
-        */
-        if(url.includes('%3ADownloadAsPdf')) {
-          let lang_input = `<input type='hidden' name='lang' value='${lang}'>`
-          let replace_str = `<input type='hidden' name='page'`
-          data.html = data.html.replace(replace_str, `${lang_input}${replace_str}`)
-        }
-
-        redis.setex(url, config.setexs.wikipage, data.html, (error) => {
-          if(error) {
-            console.log(`Error setting the ${url} key to Redis. Error: ${error}`)
-            resolve({ success: false, reason: 'SERVER_ERROR_REDIS_SET' })
-          } else {
-            resolve({ success: true, html: data.html })
-          }
-        })
-      } else {
-        console.log('Invalid wiki_html.')
-        resolve({ success: false, reason: 'INVALID_HTML' })
-      }
-    })
-  }
-
-  this.proxyMedia = (req, wiki_domain='') => {
-    return new Promise(async resolve => {
-      let params = new URLSearchParams(req.query).toString() || ''
-
+  this.processHtml = async (data, url, params, lang) => {
+    if(validHtml(data.html)) {
+      url = encodeURI(url)
       if(params) {
-        params = '?' + params
+        url = `${url}?${params}`
       }
 
-      let path = ''
-      let domain = 'upload.wikimedia.org'
-      let wikimedia_path = ''
+      data.html = parser.parse(data.html)
 
-      switch (wiki_domain) {
-        case 'maps.wikimedia.org':
-          path = req.url.split('/media/maps_wikimedia_org')[1]
-          domain = 'maps.wikimedia.org'
-          wikimedia_path = path
-          break;
-        case '/api/rest_v1/page/pdf':
-          const lang = req.query.lang || req.cookies.default_lang || config.default_lang
-          domain = `${lang}.wikipedia.org`
-          wikimedia_path = `/api/rest_v1/page/pdf/${req.params.page}`
-          path = `/api/${lang}${wiki_domain}/${req.params.page}`
-          break;
-        case 'wikimedia.org/api/rest_v1/media':
-          domain = 'wikimedia.org'
-          wikimedia_path = req.url.replace('/media/api/rest_v1', '/api/rest_v1')
-          path = req.url.split('/media/api')[1]
-          break;
-        default:
-          path = req.url.split('/media')[1]
-          wikimedia_path = path + params
+      // replace default wikipedia top right nav bar links
+      let nav = data.html.querySelector('nav#p-personal .vector-menu-content-list')
+      if(nav) {
+        nav.innerHTML = `
+          <li>
+            <a href="/about">[ about ]</a>
+          </li>
+          <li>
+            <a href="/preferences?back=${url.split('wikipedia.org')[1]}">[ preferences ]</a>
+          </li>
+
+        `
       }
 
-      url = new URL(`https://${domain}${wikimedia_path}`)
-      const file = await saveFile(url, path)
-
-      if(file.success === true) {
-        resolve({ success: true, path: file.path })
-      } else {
-        resolve({ success: false, reason: file.reason })
-      }
-    })
-  }
-
-  this.saveFile = (url, file_path) => {
-    return new Promise(async resolve => {
-      let media_path = ''
-      if(url.href.startsWith('https://maps.wikimedia.org/')) {
-        media_path = path.join(__dirname, '../media/maps_wikimedia_org')
-      } else if(url.href.startsWith('https://wikimedia.org/media/api/')) {
-        media_path = path.join(__dirname, '../media/api')
-      } else {
-        media_path = path.join(__dirname, '../media')
-      }
-
-      const path_with_filename = decodeURI(`${media_path}${file_path}`)
-      let path_without_filename = path_with_filename.split('/')
-          path_without_filename.pop()
-          path_without_filename = path_without_filename.join('/')
-
-      if(!fs.existsSync(path_with_filename)) {
-        fs.mkdir(path_without_filename, { recursive: true }, (err) => {
-          if(err) {
-            resolve({ success: false, reason: 'MKDIR_FAILED' })
-          } else {
-            let file = fs.createWriteStream(path_with_filename)
-            const options = {
-              headers: { 'User-Agent': config.wikimedia_useragent }
-            }
-
-            https.get(url.href, options, (res) => {
-              res.pipe(file)
-              file.on('finish', () => {
-                file.close()
-                res.resume()
-                resolve({ success: true, path: path_with_filename })
-              })
-            }).on('error', (err) => {
-              console.log('Error while fetching data. Details:', err)
-              resolve({ success: false, reason: 'SERVER_ERROR' })
-            })
-          }
-        })
-      } else {
-        resolve({ success: true, path: path_with_filename })
-      }
-    })
-  }
-
-  this.writeToDisk = (data, file) => {
-    return new Promise(resolve => {
-      fs.writeFile(file, data, 'binary', (error, result) => {
-        if(!error) {
-          resolve({ success: true })
-        } else {
-          resolve({ success: false, reason: error })
+      // append the lang query param to the URLs starting with /wiki/ or /w/
+      let links = data.html.querySelectorAll('a')
+      for(let i = 0; i < links.length; i++) {
+        let href = links[i].getAttribute('href')
+        if(href && (href.startsWith('/wiki/') || href.startsWith('/w/'))) {
+          href = `${protocol}${config.domain}${href}`
+          let u = new URL(href)
+          u.searchParams.append('lang', lang)
+          href = `${u.pathname}${u.search}`
+          links[i].setAttribute('href', href)
         }
-      })
-    }).catch((err) => {
-      console.log('Writing media file to disk failed for unknown reason. Details:', err)
-    })
+      }
+
+      // remove #p-wikibase-otherprojects
+      let wikibase_links = data.html.querySelector('#p-wikibase-otherprojects')
+      if(wikibase_links) {
+        wikibase_links.remove()
+      }
+
+      // remove all <script> elements
+      let script_elements = data.html.querySelectorAll('script')
+      for(let i = 0; i < script_elements.length; i++) {
+        script_elements[i].remove()
+      }
+
+      // remove all <iframe> elements
+      let iframe_elements = data.html.querySelectorAll('iframe')
+      for(let i = 0; i < iframe_elements.length; i++) {
+        iframe_elements[i].remove()
+      }
+
+      // remove all JavaScript event attributes
+      let event_attributes = ['[onAbort]', '[onBlur]', '[onChange]', '[onClick]', '[onDblClick]', '[onError]', '[onFocus]', '[onKeydown]', '[onKeypress]', '[onKeyup]', '[onLoad]'
+, '[onMousedown]', '[onMousemove]', '[onMouseout]', '[onMouseover]', '[onMouseUp]', '[onReset]', '[onSelect]', '[onSubmit]', '[onUnload]']
+      let elements_with_event_attr = data.html.querySelectorAll(event_attributes.join(','))
+      for(let i = 0; i < elements_with_event_attr.length; i++) {
+        for(let j = 0; j < event_attributes.length; j++) {
+          if(typeof(elements_with_event_attr.removeAttribute) === 'function') {
+            elements_with_event_attr.removeAttribute(event_attributes[j])
+          }
+        }
+      }
+
+      /**
+      * Remove the language subdomain from the sidebar language switchers.
+      * Then append the language as a URL query param.
+      */
+      let lang_links = data.html.querySelectorAll('#p-lang .interlanguage-link a')
+      for(let i = 0; i < lang_links.length; i++) {
+        let href = lang_links[i].getAttribute('href')
+        let lang_code = href.split('wikipedia.org')[0].split('//')[1]
+        href = href.replace(lang_code, '')
+        href = `${href}?lang=${lang_code.slice(0, -1)}`
+        lang_links[i].setAttribute('href', href)
+      }
+
+      data.html = data.html.toString()
+
+      // replace upload.wikimedia.org with /media
+      const upload_wikimedia_regx = /((https:|http:|)\/\/?upload.wikimedia.org)/gm
+      data.html = data.html.replace(upload_wikimedia_regx, '/media')
+
+      // replace maps.wikimedia.org with /media/maps_wikimedia_org
+      const maps_wikimedia_regx = /((https:|http:|)\/\/?maps.wikimedia.org)/gm
+      data.html = data.html.replace(maps_wikimedia_regx, '/media/maps_wikimedia_org')
+
+      // replace wikimedia.org with /media
+      const wikimedia_regex = /((https:|http:|)\/\/?wikimedia.org)/gm
+      data.html = data.html.replace(wikimedia_regex, '/media')
+
+      // replace wiki links
+      const wiki_href_regx = /(href=\"(https:|http:|)\/\/([A-z.-]+\.)?(wikipedia.org|wikimedia.org|wikidata.org|mediawiki.org))/gm
+      data.html = data.html.replace(wiki_href_regx, 'href="')
+
+      /**
+      * If we are on DownloadAsPdf page, we have to inject a input which
+      * holds the language value. Without this input, we can't access the
+      * language (not avail from the POST data).
+      * See more on https://codeberg.org/orenom/Wikiless/issues/9
+      */
+      if(url.includes('%3ADownloadAsPdf')) {
+        let lang_input = `<input type='hidden' name='lang' value='${lang}'>`
+        let replace_str = `<input type='hidden' name='page'`
+        data.html = data.html.replace(replace_str, `${lang_input}${replace_str}`)
+      }
+
+      try {
+        if(redis.isOpen === false) {
+          await redis.connect()
+        }
+        await redis.setEx(url, config.setexs.wikipage, data.html)
+        return { success: true, html: data.html }
+      } catch(error) {
+        console.log(`Error setting the ${url} key to Redis. Error: ${error}`)
+        return { success: false, reason: 'SERVER_ERROR_REDIS_SET' }
+      }
+    }
+
+    console.log('Invalid wiki_html.')
+    return { success: false, reason: 'INVALID_HTML' }
+  }
+
+  this.proxyMedia = async (req, wiki_domain='') => {
+    let params = new URLSearchParams(req.query).toString() || ''
+
+    if(params) {
+      params = '?' + params
+    }
+
+    let path = ''
+    let domain = 'upload.wikimedia.org'
+    let wikimedia_path = ''
+
+    switch (wiki_domain) {
+      case 'maps.wikimedia.org':
+        path = req.url.split('/media/maps_wikimedia_org')[1]
+        domain = 'maps.wikimedia.org'
+        wikimedia_path = path
+        break;
+      case '/api/rest_v1/page/pdf':
+        const lang = req.query.lang || req.cookies.default_lang || config.default_lang
+        domain = `${lang}.wikipedia.org`
+        wikimedia_path = `/api/rest_v1/page/pdf/${req.params.page}`
+        path = `/api/${lang}${wiki_domain}/${req.params.page}`
+        break;
+      case 'wikimedia.org/api/rest_v1/media':
+        domain = 'wikimedia.org'
+        wikimedia_path = req.url.replace('/media/api/rest_v1', '/api/rest_v1')
+        path = req.url.split('/media/api')[1]
+        break;
+      default:
+        path = req.url.split('/media')[1]
+        wikimedia_path = path + params
+    }
+
+    url = new URL(`https://${domain}${wikimedia_path}`)
+    const file = await saveFile(url, path)
+
+    if(file.success === true) {
+      return { success: true, path: file.path }
+    }
+    return { success: false, reason: file.reason }
+  }
+
+  this.saveFile = async (url, file_path) => {
+    let media_path = ''
+    if(url.href.startsWith('https://maps.wikimedia.org/')) {
+      media_path = path.join(__dirname, '../media/maps_wikimedia_org')
+    } else if(url.href.startsWith('https://wikimedia.org/media/api/')) {
+      media_path = path.join(__dirname, '../media/api')
+    } else {
+      media_path = path.join(__dirname, '../media')
+    }
+
+    const path_with_filename = decodeURI(`${media_path}${file_path}`)
+    const path_without_filename = path.dirname(path_with_filename)
+    const options = {
+      headers: { 'User-Agent': config.wikimedia_useragent }
+    }
+
+    if(!existsSync(path_with_filename)) {
+      try {
+        await fs.mkdir(path_without_filename, { recursive: true })
+      } catch(err) {
+        return { success: false, reason: 'MKDIR_FAILED' }
+      }
+
+      let body = ''
+      try {
+        const { body: res } = await got(url, options)
+        body = res
+      } catch(err) {
+        console.log('Error while fetching data. Details:', err)
+        return { success: false, reason: 'SERVER_ERROR' }
+      }
+
+      try {
+        await fs.writeFile(path_with_filename, data, 'binary')
+        return { success: true, path: path_with_filename }
+      } catch(err) {
+        console.log('Writing media file to disk failed for unknown reason. Details:', err)
+        return { success: false, reason: 'WRITEFILE_FAILED' }
+      }
+    }
+
+    return { success: true, path: path_with_filename }
   }
 
   this.handleWikiPage = async (req, res, prefix) => {
@@ -385,22 +361,19 @@ module.exports = function(redis) {
         if(prefix) {
           let redirect_to = `${prefix}${result.url.split(prefix)[1]}`
           return res.redirect(redirect_to)
-        } else {
-          return res.redirect(`/?lang=${lang}`)
         }
+        return res.redirect(`/?lang=${lang}`)
       }
     }
 
     if(result.processed === true) {
       return res.send(applyUserMods(result.html, req.cookies.theme, lang))
-    } else {
-      let process_html = await processHtml(result, url, params, lang, req.cookies)
-      if(process_html.success === true) {
-        return res.send(applyUserMods(process_html.html.toString(), req.cookies.theme, lang))
-      } else {
-        return res.status(500).send(process_html.reason)
-      }
     }
+    const process_html = await processHtml(result, url, params, lang, req.cookies)
+    if(process_html.success === true) {
+      return res.send(applyUserMods(process_html.html.toString(), req.cookies, lang))
+    }
+    return res.status(500).send(process_html.reason)
   }
 
   this.validLang = (lang, return_langs=false) => {
@@ -456,7 +429,7 @@ module.exports = function(redis) {
     let lang_select = '<select id="default_lang" name="default_lang">'
     const valid_langs = validLang('', true)
 
-    for(var i = 0; i < valid_langs.length; i++) {
+    for(let i = 0; i < valid_langs.length; i++) {
       let selected = ''
       if(valid_langs[i] === default_lang) {
         selected = 'selected'

@@ -4,7 +4,6 @@ const path = require('path')
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const fs = require('fs')
-const parser = require('node-html-parser')
 const app = express()
 const r = require('redis')
 const bodyParser = require('body-parser')
@@ -13,10 +12,6 @@ const redis = (() => {
   const redisOptions = {
     host: '127.0.0.1',
     port: 6379
-  }
-
-  if(config.redis_db) {
-    redisOptions.db = config.redis_db
   }
 
   if(config.redis_host) {
@@ -31,7 +26,13 @@ const redis = (() => {
     redisOptions.password = config.redis_password
   }
 
-  return r.createClient(redisOptions)
+  const client = r.createClient(redisOptions)
+  client.on('error', (error) => {
+    if(error) {
+      console.error(`Redis error: ${error}`)
+    }
+  })
+  return client
 })()
 
 const utils = require('./utils.js')(redis)
@@ -95,12 +96,6 @@ if(config.trust_proxy) {
 }
 
 require('./routes')(app, utils)
-
-redis.on('error', (error) => {
-  if(error) {
-    console.error(`Redis error: ${error}`)
-  }
-})
 
 const cacheControl = require('./cache_control.js')
 cacheControl.removeCacheFiles()
