@@ -73,7 +73,7 @@ module.exports = function(redis) {
     */
 
     // load fr style, issue #12
-    const langSuffix = `_${lang}` ? lang === 'fr' : ''
+    const langSuffix = (lang === 'fr') ? `_${lang}` : '';
 
     if(theme === 'white') {
       // if the user has chosen the white theme from the preferences
