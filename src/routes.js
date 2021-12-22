@@ -55,7 +55,7 @@ module.exports = (app, utils) => {
       }
     }
 
-    if(req.url.startsWith('/static/images/project-logos/')) {
+    if(req.url.startsWith('/static/images/project-logos/') || req.url === '/static/images/mobile/copyright/wikipedia.png') {
       return res.sendFile(wikilessLogo())
     }
 
