@@ -59,6 +59,11 @@ module.exports = (app, utils) => {
       return res.sendFile(wikilessLogo())
     }
 
+    // fr logos
+    if(req.url.startsWith('/static/images/mobile/copyright/')) {
+      return res.sendFile(frLogo(req.url))
+    }
+
     return next()
   })
 
