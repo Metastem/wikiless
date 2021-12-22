@@ -2762,16 +2762,19 @@ a.mw-ui-button:focus {
   background-image: linear-gradient(transparent, transparent),
     url(/w/load.php?modules=skins.vector.icons&image=sandbox&variant=progressive&format=original&skin=vector&version=3vgeg);
 }
+
+/* WIKILESS OVERRIDES */
 .mw-ui-icon-wikimedia-ellipsis:before {
-  background-image: url(/w/load.php?modules=skins.vector.icons&image=ellipsis&format=rasterized&skin=vector&version=3vgeg);
+  background-image: url(/fr/ellipsis.png);
   background-image: linear-gradient(transparent, transparent),
-    url(/w/load.php?modules=skins.vector.icons&image=ellipsis&format=original&skin=vector&version=3vgeg);
+    url(/fr/ellipsis.svg);
 }
 .mw-ui-icon-wikimedia-ellipsis-progressive:before {
-  background-image: url(/w/load.php?modules=skins.vector.icons&image=ellipsis&variant=progressive&format=rasterized&skin=vector&version=3vgeg);
+  background-image: url(/fr/ellipsis.png);
   background-image: linear-gradient(transparent, transparent),
-    url(/w/load.php?modules=skins.vector.icons&image=ellipsis&variant=progressive&format=original&skin=vector&version=3vgeg);
+    url(/fr/ellipsis.svg);
 }
+/* END WIKILESS OVERRIDES */
 .mw-ui-icon-wikimedia-logIn:before {
   background-image: url(/w/load.php?modules=skins.vector.icons&image=logIn&format=rasterized&lang=fr&skin=vector&version=3vgeg);
   background-image: linear-gradient(transparent, transparent),

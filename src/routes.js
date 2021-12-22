@@ -35,7 +35,7 @@ module.exports = (app, utils) => {
 
       if(req.url.startsWith('/media/maps_wikimedia_org/')) {
         media = await proxyMedia(req, 'maps.wikimedia.org')
-      } else if(req.url.startsWith('/media/api/rest_v1/media')) {
+      } else if(req.url.startsWith('/media/api/rest_v1/media')) {
         media = await proxyMedia(req, 'wikimedia.org/api/rest_v1/media')
         if(req.url.includes('render/svg/')) {
           mime = 'image/svg+xml'
@@ -50,9 +50,8 @@ module.exports = (app, utils) => {
         }
 
         return res.sendFile(media.path)
-      } else {
-        return res.sendStatus(404)
       }
+      return res.sendStatus(404)
     }
 
     if(req.url.startsWith('/static/images/project-logos/') || req.url === '/static/images/mobile/copyright/wikipedia.png') {
@@ -94,14 +93,13 @@ module.exports = (app, utils) => {
       return red.redirect('/')
     }
 
-    let media = await proxyMedia(req, '/api/rest_v1/page/pdf')
+    const media = await proxyMedia(req, '/api/rest_v1/page/pdf')
 
     if(media.success === true) {
       let filename = `${req.params.page}.pdf`
       return res.download(media.path, filename)
-    } else {
-      return res.sendStatus(404)
     }
+    return res.sendStatus(404)
   })
 
   app.get('/', (req, res, next) => {
@@ -117,8 +115,8 @@ module.exports = (app, utils) => {
   })
 
   app.post('/preferences', (req, res, next) => {
-    let theme = req.body.theme
-    let default_lang = req.body.default_lang
+    const theme = req.body.theme
+    const default_lang = req.body.default_lang
     let back = req.url.split('?back=')[1]
 
     res.cookie('theme', theme, { maxAge: 365 * 24 * 60 * 60 * 1000, httpOnly: true })
@@ -136,7 +134,7 @@ module.exports = (app, utils) => {
       return res.redirect('/')
     }
 
-    let lang = req.body.lang || req.cookies.default_lang || config.default_lang
+    const lang = req.body.lang || req.cookies.default_lang || config.default_lang
 
     return res.redirect(`/w/index.php?title=Special%3ADownloadAsPdf&page=${req.body.page}&action=redirect-to-electron&lang=${lang}`)
   })
