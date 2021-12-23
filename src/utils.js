@@ -283,13 +283,18 @@ module.exports = function(redis) {
         return { success: false, reason: 'SERVER_ERROR' }
       }
 
-      try {
-        await fs.writeFile(path_with_filename, data, 'binary')
-        return { success: true, path: path_with_filename }
-      } catch(err) {
-        console.log('Writing media file to disk failed for unknown reason. Details:', err)
-        return { success: false, reason: 'WRITEFILE_FAILED' }
+      const encoding = url.includes('render/svg/') ? 'utf8' : 'binary'
+
+      if(body) {
+        try {
+          await fs.writeFile(path_with_filename, body, encoding)
+          return { success: true, path: path_with_filename }
+        } catch(err) {
+          console.log('Writing media file to disk failed for unknown reason. Details:', err)
+          return { success: false, reason: 'WRITEFILE_FAILED' }
+        }
       }
+      return { success: false, reason: 'EMPTY_BODY' }
     }
 
     return { success: true, path: path_with_filename }
