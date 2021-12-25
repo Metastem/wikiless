@@ -420,6 +420,10 @@ module.exports = function(redis) {
     return `${static_path}/wikiless-logo.png`
   }
 
+  this.frLogo = (reqUrl) => {
+    return path.join(__dirname, '..', 'static', 'fr', path.basename(reqUrl))
+  }
+
   this.preferencesPage = (req, res) => {
     const { default_lang, theme } = req.cookies
     let lang_select = '<select id="default_lang" name="default_lang">'
