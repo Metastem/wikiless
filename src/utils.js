@@ -2,9 +2,12 @@ module.exports = function(redis) {
   const config = require('../config')
   const parser = require('node-html-parser')
   const fs = require('fs').promises
-  const { existsSync } = require('fs')
+  const { createWriteStream, existsSync } = require('fs')
   const path = require('path')
   const got = require('got')
+  const stream = require('stream')
+  const { promisify } = require('util')
+  const pipeline = promisify(stream.pipeline)
 
   this.download = async (url, params = '') => {
     if(!url) {
@@ -274,27 +277,15 @@ module.exports = function(redis) {
         return { success: false, reason: 'MKDIR_FAILED' }
       }
 
-      let body = ''
       try {
-        const { body: res } = await got(url, options)
-        body = res
+        await pipeline(
+          got.stream(url, options),
+          createWriteStream(path_with_filename)
+        )
       } catch(err) {
-        console.log('Error while fetching data. Details:', err)
-        return { success: false, reason: 'SERVER_ERROR' }
+        console.log(`Error while saving ${path_with_filename}. Details:${err}`)
+        return { success: false, reason: 'SAVEFILE_ERROR' }
       }
-
-      const encoding = url.includes('render/svg/') ? 'utf8' : 'binary'
-
-      if(body) {
-        try {
-          await fs.writeFile(path_with_filename, body, encoding)
-          return { success: true, path: path_with_filename }
-        } catch(err) {
-          console.log('Writing media file to disk failed for unknown reason. Details:', err)
-          return { success: false, reason: 'WRITEFILE_FAILED' }
-        }
-      }
-      return { success: false, reason: 'EMPTY_BODY' }
     }
 
     return { success: true, path: path_with_filename }
