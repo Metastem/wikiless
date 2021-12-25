@@ -18,6 +18,7 @@ XMR: 832ogRwuoSs2JGYg7wJTqshidK7dErgNdfpenQ9dzMghNXQTJRby1xGbqC3gW3GAifRM9E84J91
 Community instances:
   - [https://wikiless.alefvanoon.xyz](https://wikiless.alefvanoon.xyz)
   - [https://wikiless.sethforprivacy.com](https://wikiless.sethforprivacy.com) + [hidden server](http://dj2tbh2nqfxyfmvq33cjmhuw7nb6am7thzd3zsjvizeqf374fixbrxyd.onion)
+  - [https://wiki.604kph.xyz](https://wiki.604kph.xyz)
 
 ## TODO
 
