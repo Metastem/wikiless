@@ -331,7 +331,7 @@ module.exports = function(redis) {
         url = `https://${lang}.wikipedia.org/wiki/${page}/${sub_page}`
         break
       case '/':
-        url = `https://${lang}.wikipedia.org/?lang=${lang}`
+        url = `https://${lang}.wikipedia.org/`
         break
     }
 
