@@ -306,8 +306,6 @@ module.exports = function(redis) {
       return res.status(500).send('invalid lang')
     }
 
-    let params = new URLSearchParams(req.query).toString()
-
     let url = ''
     let page = ''
     let sub_page = ''
@@ -335,7 +333,11 @@ module.exports = function(redis) {
         break
     }
 
-    let result = await download(url, params)
+    const params = new URLSearchParams(req.query)
+    // wikipedia doesn't support 'lang' parameter
+    params.delete('lang')
+    const upParams = params.toString()
+    const result = await download(url, upParams)
 
     if(result.success !== true) {
       if(result.reason === 'REDIRECT' && result.url) {
@@ -365,7 +367,10 @@ module.exports = function(redis) {
     if(result.processed === true) {
       return res.send(applyUserMods(result.html, req.cookies.theme, lang))
     }
-    const process_html = await processHtml(result, url, params, lang, req.cookies)
+
+    // wikiless params
+    const downParams = new URLSearchParams(req.query).toString()
+    const process_html = await processHtml(result, url, downParams, lang, req.cookies)
     if(process_html.success === true) {
       return res.send(applyUserMods(process_html.html.toString(), req.cookies, lang))
     }
