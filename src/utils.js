@@ -89,6 +89,7 @@ module.exports = function(redis) {
 
   this.processHtml = async (data, url, params, lang) => {
     if(validHtml(data.html)) {
+      const decoded_url = url
       url = encodeURI(url)
       if(params) {
         url = `${url}?${params}`
@@ -200,7 +201,7 @@ module.exports = function(redis) {
         if(redis.isOpen === false) {
           await redis.connect()
         }
-        await redis.setEx(url, config.setexs.wikipage, data.html)
+        await redis.setEx(decoded_url, config.setexs.wikipage, data.html)
         return { success: true, html: data.html }
       } catch(error) {
         console.log(`Error setting the ${url} key to Redis. Error: ${error}`)
