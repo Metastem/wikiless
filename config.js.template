@@ -15,14 +15,13 @@ const config = {
   ssl_port: process.env.SSL_PORT || 8088,
   cert_dir: process.env.CERT_DIR || ``, // For example '/home/wikiless/letsencrypt/live/wikiless.org'. No trailing slash.
   redirect_http_to_https: process.env.REDIRECT_HTTP_TO_HTTPS === 'true' || false, // If true, HTTP requests will be redirected to HTTPS.
-
+  
   /**
   * You can configure redis below if needed.
   */
-  redis_host: process.env.REDIS_HOST || '127.0.0.1',
+  redis_url: process.env.REDIS_HOST || 'redis://127.0.0.1:6379',
   redis_password: process.env.REDIS_PASSWORD,
-  redis_port: process.env.REDIS_PORT || 6379,
-
+  
   /**
   * You might need to change these configs below if you host through a reverse
   * proxy like nginx.

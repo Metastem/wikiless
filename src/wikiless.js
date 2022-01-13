@@ -10,20 +10,8 @@ const bodyParser = require('body-parser')
 
 const redis = (() => {
   const redisOptions = {
-    host: '127.0.0.1',
-    port: 6379
-  }
-
-  if(config.redis_host) {
-    redisOptions.host = config.redis_host
-  }
-
-  if(config.redis_port && config.redis_port > 0) {
-    redisOptions.port = config.redis_port
-  }
-
-  if(config.redis_password) {
-    redisOptions.password = config.redis_password
+    url: config.redis_url,
+    password: config.redis_password
   }
 
   const client = r.createClient(redisOptions)
