@@ -337,8 +337,8 @@ module.exports = function(redis) {
     const params = new URLSearchParams(req.query)
     // wikipedia doesn't support 'lang' parameter
     params.delete('lang')
-    const upParams = params.toString()
-    const result = await download(url, upParams)
+    const up_params = params.toString()
+    const result = await download(url, up_params)
 
     if(result.success !== true) {
       if(result.reason === 'REDIRECT' && result.url) {
@@ -370,8 +370,8 @@ module.exports = function(redis) {
     }
 
     // wikiless params
-    const downParams = new URLSearchParams(req.query).toString()
-    const process_html = await processHtml(result, url, downParams, lang, req.cookies)
+    const down_params = new URLSearchParams(req.query).toString()
+    const process_html = await processHtml(result, url, down_params, lang, req.cookies)
     if(process_html.success === true) {
       return res.send(applyUserMods(process_html.html.toString(), req.cookies.theme, lang))
     }
