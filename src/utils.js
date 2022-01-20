@@ -373,7 +373,7 @@ module.exports = function(redis) {
     const downParams = new URLSearchParams(req.query).toString()
     const process_html = await processHtml(result, url, downParams, lang, req.cookies)
     if(process_html.success === true) {
-      return res.send(applyUserMods(process_html.html.toString(), req.cookies, lang))
+      return res.send(applyUserMods(process_html.html.toString(), req.cookies.theme, lang))
     }
     return res.status(500).send(process_html.reason)
   }
