@@ -18,8 +18,12 @@ const config = {
   
   /**
   * You can configure redis below if needed.
+  * By default Wikiless uses 'redis://127.0.0.1:6379' as the Redis URL.
+  * Versions before 0.1.1 Wikiless used redis_host and redis_port properties,
+  * but they are not supported anymore.
+  * process.env.REDIS_HOST is still here for backwards compatibility.
   */
-  redis_url: process.env.REDIS_HOST || 'redis://127.0.0.1:6379',
+  redis_url: process.env.REDIS_URL || process.env.REDIS_HOST || 'redis://127.0.0.1:6379',
   redis_password: process.env.REDIS_PASSWORD,
   
   /**
