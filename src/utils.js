@@ -40,14 +40,14 @@ module.exports = function(redis) {
 
     if(data) {
       console.log(`Got key ${url} from cache.`)
-      return { success: true, html: data, processed: true }
+      return { success: true, html: data, processed: true, url: url }
     }
     try {
       const gotUrl = new URL(url)
       const { body } = await got(gotUrl)
 
       console.log(`Fetched url ${url} from Wikipedia.`)
-      return { success: true, html: body, processed: false }
+      return { success: true, html: body, processed: false, url: url }
     } catch(err) {
       const { statusCode } = err.response
       if(statusCode !== 200) {
@@ -201,7 +201,7 @@ module.exports = function(redis) {
         if(redis.isOpen === false) {
           await redis.connect()
         }
-        await redis.setEx(decoded_url, config.setexs.wikipage, data.html)
+        await redis.setEx(data.url, config.setexs.wikipage, data.html)
         return { success: true, html: data.html }
       } catch(error) {
         console.log(`Error setting the ${url} key to Redis. Error: ${error}`)
