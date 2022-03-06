@@ -5,7 +5,7 @@ module.exports.removeCacheFiles = function() {
     const fs = require('fs');
     const wiki_files = './media/wikipedia/';
 
-    fs.rmdir(wiki_files, { recursive: true, force: true }, () => {
+    fs.rm(wiki_files, { recursive: true, force: true }, () => {
       console.log('Cleared cached static media files. You can turn this off by setting the config.cache_control to false.');
     });
   }
