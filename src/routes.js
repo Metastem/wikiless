@@ -90,7 +90,7 @@ module.exports = (app, utils) => {
 
   app.get('/api/rest_v1/page/pdf/:page', async (req, res, next) => {
     if(!req.params.page) {
-      return red.redirect('/')
+      return res.redirect('/')
     }
 
     const media = await proxyMedia(req, '/api/rest_v1/page/pdf')
@@ -100,6 +100,14 @@ module.exports = (app, utils) => {
       return res.download(media.path, filename)
     }
     return res.sendStatus(404)
+  })
+
+  // handle chinese variants
+  app.get('/zh*', (req, res, next) => {
+    const pathSplit = req.path.split('/')
+    const lang = pathSplit[1]
+    const page = pathSplit[2]
+    return res.redirect(`/wiki/${page}?lang=${lang}`)
   })
 
   app.get('/', (req, res, next) => {

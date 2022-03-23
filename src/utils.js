@@ -313,12 +313,20 @@ module.exports = function(redis) {
 
     switch (prefix) {
       case '/wiki/':
+        let wiki = 'wiki'
         page = req.params.page || ''
         sub_page = req.params.sub_page || ''
         if(sub_page) {
           sub_page = `/${sub_page}`
         }
-        url = `https://${lang}.wikipedia.org/wiki/${page}${sub_page}`
+
+        // language variants
+        if(typeof validLang(lang) === 'string') {
+          wiki = lang
+          lang = lang.split('-')[0]
+        }
+
+        url = `https://${lang}.wikipedia.org/${wiki}/${page}${sub_page}`
         break
       case '/w/':
         let file = req.params.file
@@ -379,7 +387,8 @@ module.exports = function(redis) {
   }
 
   this.validLang = (lang, return_langs=false) => {
-    let valid_langs = ['ab','ace','ady','af','ak','als','am','an','ang','ar',
+    const lang_variants = ['zh-hans','zh-hant','zh-cn','zh-hk','zh-mo','zh-my','zh-sg','zh-tw']
+    const valid_langs = ['ab','ace','ady','af','ak','als','am','an','ang','ar',
     'arc','ary','arz','as','ast','atj','av','avk','awa','ay','az','azb','ba',
     'ban','bar','bat-smg','bcl','be','be-tarask','bg','bh','bi','bjn','bm','bn',
     'bo','bpy','br','bs','bug','bxr','ca','cbk-zam','cdo','ce','ceb','ch','chr',
@@ -411,6 +420,10 @@ module.exports = function(redis) {
     if(valid_langs.includes(lang)) {
       return true
     }
+    if(lang_variants.includes(lang)) {
+      return lang
+    }
+
     return false
   }
 
