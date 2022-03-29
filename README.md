@@ -20,6 +20,7 @@ Community instances:
   - [https://wikiless.sethforprivacy.com](https://wikiless.sethforprivacy.com) + [hidden server](http://dj2tbh2nqfxyfmvq33cjmhuw7nb6am7thzd3zsjvizeqf374fixbrxyd.onion)
   - [https://wiki.604kph.xyz](https://wiki.604kph.xyz)
   - [https://wikiless.lunar.icu](https://wikiless.lunar.icu)
+  - [http://c2pese...onion](http://c2pesewpalbi6lbfc5hf53q4g3ovnxe4s7tfa6k2aqkf7jd7a7dlz5ad.onion) + [http://hflqp2...b32.i2p](http://hflqp2ejxygpj6cdwo3ogfieqmxw3b56w7dblt7bor2ltwk6kcfa.b32.i2p)
 
 ## TODO
 
