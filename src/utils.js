@@ -439,6 +439,11 @@ module.exports = function(redis) {
     return `${static_path}/wikiless-logo.png`
   }
 
+  this.wikilessFavicon = () => {
+    const static_path = path.join(__dirname, '../static')
+    return `${static_path}/wikiless-favicon.ico`
+  }
+
   this.frLogo = (reqUrl) => {
     return path.join(__dirname, '..', 'static', 'fr', path.basename(reqUrl))
   }
