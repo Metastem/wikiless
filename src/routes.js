@@ -58,6 +58,10 @@ module.exports = (app, utils) => {
       return res.sendFile(wikilessLogo())
     }
 
+    if(req.url.startsWith('/static/favicon/wikipedia.ico')) {
+      return res.sendFile(wikilessFavicon())
+    }
+
     // fr logos
     if(req.url.startsWith('/static/images/mobile/copyright/')) {
       return res.sendFile(frLogo(req.url))
