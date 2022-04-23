@@ -80,6 +80,13 @@
 #mw-specialMap-map {
   background-image: url(/media/map.png) !important;
 }
+#mw-head .vector-menu-heading-label {
+  display: none;
+}
+#mw-panel .vector-menu-heading-label {
+  color: gray;
+  font-size: 0.7rem;
+}
 /* END WIKILESS OVERRIDES */
 
 /* START WIKIPEDIA CSS */
