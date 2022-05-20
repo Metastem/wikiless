@@ -149,3 +149,5 @@ For development, there's a `docker-compose.yml` that mounts the app code (for ho
 $ docker-compose run --rm web npm install --no-optionals
 $ docker-compose up
 ```
+
+If you are experiencing errors with Redis not connecting, you might want to try the [alternative docker-compose.yml](https://github.com/JarbasAl/wikiless-docker).
