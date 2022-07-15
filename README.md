@@ -25,6 +25,7 @@ Community instances:
   - [https://wikiless.tiekoetter.com](https://wikiless.tiekoetter.com)
   - [http://c2pese...onion](http://c2pesewpalbi6lbfc5hf53q4g3ovnxe4s7tfa6k2aqkf7jd7a7dlz5ad.onion) + [http://hflqp2...b32.i2p](http://hflqp2ejxygpj6cdwo3ogfieqmxw3b56w7dblt7bor2ltwk6kcfa.b32.i2p)
   - [https://wiki.slipfox.xyz](https://wiki.slipfox.xyz)
+  - [https://wikiless.funami.tech](https://wikiless.funami.tech)
 
 ## TODO
 
