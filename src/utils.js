@@ -69,19 +69,24 @@ module.exports = function(redis) {
     * cookie specific modifications to it yet. Let's do it.
     */
 
-    // load fr style, issue #12
-    const langSuffix = (lang === 'fr') ? `_${lang}` : '';
+    // load custom language specific languages
+    let lang_suffix = '';
+    let load_custom_styles = ['fr', 'ko'];
+
+    if(load_custom_styles.includes(lang)) {
+      lang_suffix = '_' + lang;
+    }
 
     if(theme === 'white') {
       // if the user has chosen the white theme from the preferences
-      data = data.replace('</head>', `<link rel="stylesheet" href="/wikipedia_styles_light${langSuffix}.css"></head>`)
+      data = data.replace('</head>', `<link rel="stylesheet" href="/wikipedia_styles_light${lang_suffix}.css"></head>`)
     } else if(theme === 'dark') {
       // if the user has chosen the dark theme from the preferences
-      data = data.replace('</head>', `<link rel="stylesheet" href="/wikipedia_styles_light${langSuffix}.css">
+      data = data.replace('</head>', `<link rel="stylesheet" href="/wikipedia_styles_light${lang_suffix}.css">
                                       <link rel="stylesheet" href="/wikipedia_styles_dark.css"></head>`)
     } else {
       // default, auto theme
-      data = data.replace('</head>', `<link rel="stylesheet" href="/styles${langSuffix}.css"></head>`)
+      data = data.replace('</head>', `<link rel="stylesheet" href="/styles${lang_suffix}.css"></head>`)
     }
 
     return data
@@ -293,7 +298,7 @@ module.exports = function(redis) {
   }
 
   this.handleWikiPage = async (req, res, prefix) => {
-    let lang = req.query.lang || req.cookies.default_lang || config.default_lang
+    let lang = getLang(req)
 
     if(lang) {
       if(Array.isArray(lang)) {
@@ -444,8 +449,28 @@ module.exports = function(redis) {
     return `${static_path}/wikiless-favicon.ico`
   }
 
-  this.frLogo = (reqUrl) => {
-    return path.join(__dirname, '..', 'static', 'fr', path.basename(reqUrl))
+  this.customLogos = (req) => {
+    const lang = getLang(req);
+    if(lang === 'fr') {
+      return path.join(__dirname, '..', 'static', 'fr', path.basename(req.url))
+    }
+    return false;
+  }
+  
+  this.getLang = (req=false) => {
+    if(!req) {
+      return config.default_lang
+    }
+
+    if(req.query && req.query.lang) {
+      return req.query.lang
+    }
+
+    if(req.cookies && req.cookies.default_lang) {
+      return req.cookies.default_lang
+    }
+
+    return config.default_lang
   }
 
   this.preferencesPage = (req, res) => {
