@@ -5725,3 +5725,6 @@ div.after-portlet-lang:after {
 .skin-vector:not(.skin-vector-legacy) .wb-langlinks-link a {
   color: #0645ad !important;
 }
+.sidebar-toc-contents {
+    display: none;
+}
