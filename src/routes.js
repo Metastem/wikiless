@@ -64,7 +64,8 @@ module.exports = (app, utils) => {
 
     // custom wikipedia logos for different languages
     if(req.url.startsWith('/static/images/mobile/copyright/')) { 
-      if(customLogos(req.url)) {
+      const custom_logo = customLogos(req)
+      if(custom_logo) {
         return res.sendFile(custom_logo)
       }
     }
