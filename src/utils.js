@@ -70,11 +70,11 @@ module.exports = function(redis) {
     */
 
     // load custom language specific languages
-    let lang_suffix = '';
-    let load_custom_styles = ['fr', 'ko'];
+    let lang_suffix = ''
+    let load_custom_styles = ['fr', 'ko']
 
     if(load_custom_styles.includes(lang)) {
-      lang_suffix = '_' + lang;
+      lang_suffix = '_' + lang
     }
 
     if(theme === 'white') {
@@ -450,11 +450,11 @@ module.exports = function(redis) {
   }
 
   this.customLogos = (req) => {
-    const lang = getLang(req);
+    const lang = getLang(req)
     if(lang === 'fr') {
       return path.join(__dirname, '..', 'static', 'fr', path.basename(req.url))
     }
-    return false;
+    return false
   }
   
   this.getLang = (req=false) => {
