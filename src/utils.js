@@ -453,10 +453,9 @@ module.exports = function(redis) {
     return `${static_path}/wikiless-favicon.ico`
   }
 
-  this.customLogos = (req) => {
-    const lang = getLang(req)
-    if(lang === 'fr') {
-      return path.join(__dirname, '..', 'static', 'fr', path.basename(req.url))
+  this.customLogos = (url, lang) => {
+    if(validLang(lang)) {
+      return path.join(__dirname, '..', 'static', lang, path.basename(url))
     }
     return false
   }
