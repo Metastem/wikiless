@@ -144,7 +144,7 @@ module.exports = (app, utils) => {
   })
 
   app.post(/DownloadAsPdf/, (req, res, next) => {
-    if(!req.body.page) {
+    if(!req.body.page) {
       return res.redirect('/')
     }
 
