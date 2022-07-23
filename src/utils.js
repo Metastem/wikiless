@@ -49,16 +49,20 @@ module.exports = function(redis) {
       console.log(`Fetched url ${url} from Wikipedia.`)
       return { success: true, html: body, processed: false, url: url }
     } catch(err) {
-      const { statusCode } = err.response
-      if(statusCode !== 200) {
-        if(statusCode === 404) {
+      let status_code = null
+      if(err.response) {
+        status_code = err.response.statusCode
+      }
+      if(status_code !== 200) {
+        if(status_code === 404) {
           // let's redirect 404s to homepage
-          console.log(`Didn't find ${url} HTTP status code: ${statusCode}`)
+          // TODO: maybe add some 404 page?
+          console.log(`Didn't find ${url} HTTP status code: ${status_code}`)
           return { success: false, reason: 'REDIRECT', url: 'https://wikipedia.org/' }
         }
 
-        console.log(`Error while fetching data from ${url}. HTTP status code: ${statusCode}`)
-        return { success: false, reason: `INVALID_HTTP_RESPONSE: ${statusCode}` }
+        console.log(`Error while fetching data from ${url}. HTTP status code: ${status_code}`)
+        return { success: false, reason: `INVALID_HTTP_RESPONSE: ${status_code}` }
       }
     }
   }
