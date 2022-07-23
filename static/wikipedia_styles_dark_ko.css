@@ -5,10 +5,12 @@ img.mw-logo-wordmark, img.mw-logo-tagline {
     filter: invert(90%);
 }
 
+/* icon in first row of top-right dropdown */
 .mw-ui-icon-wikimedia-logIn::before {
     filter:invert(1);
 }
 
+/* overwriting messy styling of top-right dropdown */
 #p-personal .vector-menu-content,
 .vector-user-menu-create-account,
 .vector-user-menu-login,
