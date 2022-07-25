@@ -1,0 +1,12 @@
+@import "wikipedia_styles_dark.css";
+
+/* slightly increasing readability of top-left wikipedia logo */
+#p-logo .mw-wiki-logo {
+    filter: invert(1);
+}
+
+/* big white boxes on German landing page */
+.mw-parser-output .hauptseite-box-content,
+.mw-parser-output .hauptseite-preview-wikidata {
+    background-color: transparent!important;
+}

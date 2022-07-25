@@ -75,7 +75,7 @@ module.exports = function(redis) {
 
     // load custom language specific languages
     let lang_suffix = ''
-    let load_custom_styles = ['fr', 'ko']
+    let load_custom_styles = ['de', 'fr', 'ko']
 
     if(load_custom_styles.includes(lang)) {
       lang_suffix = '_' + lang
@@ -87,7 +87,7 @@ module.exports = function(redis) {
     } else if(theme === 'dark') {
       // if the user has chosen the dark theme from the preferences
       data = data.replace('</head>', `<link rel="stylesheet" href="/wikipedia_styles_light${lang_suffix}.css">
-                                      <link rel="stylesheet" href="/wikipedia_styles_dark.css"></head>`)
+                                      <link rel="stylesheet" href="/wikipedia_styles_dark${lang_suffix}.css"></head>`)
     } else {
       // default, auto theme
       data = data.replace('</head>', `<link rel="stylesheet" href="/styles${lang_suffix}.css"></head>`)
