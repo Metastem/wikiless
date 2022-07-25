@@ -54,7 +54,7 @@ module.exports = (app, utils) => {
       return res.sendStatus(404)
     }
 
-    if(req.url.startsWith('/static/images/project-logos/') || req.url === '/static/images/mobile/copyright/wikipedia.png') {
+    if(req.url.startsWith('/static/images/project-logos/') || req.url === '/static/images/mobile/copyright/wikipedia.png' || req.url === '/static/apple-touch/wikipedia.png') {
       return res.sendFile(wikilessLogo())
     }
 
@@ -70,6 +70,9 @@ module.exports = (app, utils) => {
       }
       if(req.url.includes('-ko.svg')) {
         custom_lang = 'ko'
+      }
+      if(req.url.includes('-vi.svg')) {
+        custom_lang = 'vi'
       }
 
       const custom_logo = customLogos(req.url, custom_lang)
