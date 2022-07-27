@@ -75,7 +75,7 @@ module.exports = function(redis) {
 
     // load custom language specific languages
     let lang_suffix = ''
-    let load_custom_styles = ['de', 'fr', 'ko']
+    let load_custom_styles = ['de', 'fr', 'ko', 'vi']
 
     if(load_custom_styles.includes(lang)) {
       lang_suffix = '_' + lang
