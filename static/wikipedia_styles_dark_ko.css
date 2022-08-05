@@ -1,0 +1,40 @@
+@import "wikipedia_styles_dark.css";
+
+/* the logo section at the left side at the top of the Korean page header */
+img.mw-logo-wordmark, img.mw-logo-tagline {
+    filter: invert(90%);
+}
+
+/* icon in first row of top-right dropdown */
+.mw-ui-icon-wikimedia-logIn::before {
+    filter:invert(1);
+}
+
+/* overwriting messy styling of top-right dropdown */
+#p-personal .vector-menu-content,
+.vector-user-menu-create-account,
+.vector-user-menu-login,
+.vector-user-menu-anon-editor,
+.vector-menu-content-item, .vector-menu-content-item:hover,
+.vector-menu-content-list #pt-anontalk, .vector-menu-content-list #pt-anontalk a, .vector-menu-content-list #pt-anontalk a:hover,
+.vector-menu-content-list #pt-anoncontribs a {
+    background-color: var(--black_8)!important;
+    color: var(--white) !important;
+}
+
+
+/* fix white background of boxes on Korean landing page */
+.mw-parser-output .main-top,
+.mw-parser-output .main-top-left,
+.mw-parser-output .main-top-left p,
+.mw-parser-output .main-box {
+    background: transparent!important;
+    color: var(--white) !important;
+}
+
+/* svg icons on middle-left 'main-boxes' of Korean landing page
+   -> svg styling is not possible here -> using css filter
+*/
+.main-shortcut-item img {
+    filter: invert(90%);
+}

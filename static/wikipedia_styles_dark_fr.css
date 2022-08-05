@@ -1,0 +1,84 @@
+@import "wikipedia_styles_dark.css";
+
+/* the logo section at the left side at the top of the French page header */
+img.mw-logo-wordmark, img.mw-logo-tagline {
+    filter: invert(90%);
+}
+
+/* icon in first row of top-right dropdown */
+.mw-ui-icon-wikimedia-logIn::before {
+  filter:invert(1);
+}
+
+/* overwriting messy styling of top-right dropdown */
+#p-personal .vector-menu-content,
+.vector-user-menu-create-account,
+.vector-user-menu-login,
+.vector-user-menu-anon-editor,
+.vector-menu-content-item, .vector-menu-content-item:hover,
+.vector-menu-content-list #pt-anontalk, .vector-menu-content-list #pt-anontalk a, .vector-menu-content-list #pt-anontalk a:hover,
+.vector-menu-content-list #pt-anoncontribs a {
+    background-color: var(--black_8)!important;
+    color: var(--white) !important;
+}
+
+/* main content of French 'Main_Page' */
+#accueil_2017_en-tete {
+  background: transparent !important;
+  border: 1px solid var(--gray-5);
+}
+#mw-content-text h2 {
+  background: transparent !important;
+}
+
+div.accueil_2017_cadre {
+  box-shadow: none;
+  border: 1px solid var(--gray-5);
+}
+
+/* center-right dropdown (languages selector) */
+.mw-portlet-lang,
+#p-lang-btn .vector-menu-dropdown .vector-menu-content-list,
+#p-lang-btn .vector-menu-content,
+.interlanguage-link, a.interlanguage-link-target,
+#p-lang-btn .vector-menu-content li a,
+#p-lang-btn .vector-menu-content li a span,
+.after-portlet-lang {
+  background-color: var(--black_8)!important;
+  color: var(--white) !important;
+}
+
+/* French infobox aligned right used for the profile of e.g. actors or organizations */
+.mw-parser-output .infobox,
+.mw-parser-output .infobox_v3,
+div.infobox_v2, table.infobox_v2,
+div.infobox_v3, table.infobox_v3 {
+  background: transparent !important;
+}
+.infobox_v2 .entete, .infobox_v3 div.entete, .infobox_v2 th, div.infobox_v3 caption {
+  color: var(--gray-c) !important;
+  background: transparent !important;
+}
+
+/* inline article reference box */
+.bandeau-container, .bandeau-simple, .bandeau-niveau-neutre, .bandeau-niveau-detail, .bandeau-section,
+.bandeau-section.bandeau-niveau-information,
+.boite-grise,
+#bandeau-portail, .bandeau-portail, #article_de_qualite,
+#Categoryarticlecount-box  {
+  background-color: transparent;
+}
+
+/* inline data tables in Wikipedia */
+table.wikitable > tr > th, table.wikitable > * {
+  color: var(--gray-c);
+}
+
+/* long 'navbox' tables with horizontal lists */
+div.navbox-container table.navbox, tr + tr > .navbox-abovebelow, tr + tr > .navbox-group, tr + tr > .navbox-image, tr + tr > .navbox-list {
+  background: transparent !important;
+  box-shadow: none;
+}
+td.navbox-banner {
+    background: #ddddff0d;
+}

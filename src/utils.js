@@ -49,16 +49,20 @@ module.exports = function(redis) {
       console.log(`Fetched url ${url} from Wikipedia.`)
       return { success: true, html: body, processed: false, url: url }
     } catch(err) {
-      const { statusCode } = err.response
-      if(statusCode !== 200) {
-        if(statusCode === 404) {
+      let status_code = null
+      if(err.response) {
+        status_code = err.response.statusCode
+      }
+      if(status_code !== 200) {
+        if(status_code === 404) {
           // let's redirect 404s to homepage
-          console.log(`Didn't find ${url} HTTP status code: ${statusCode}`)
+          // TODO: maybe add some 404 page?
+          console.log(`Didn't find ${url} HTTP status code: ${status_code}`)
           return { success: false, reason: 'REDIRECT', url: 'https://wikipedia.org/' }
         }
 
-        console.log(`Error while fetching data from ${url}. HTTP status code: ${statusCode}`)
-        return { success: false, reason: `INVALID_HTTP_RESPONSE: ${statusCode}` }
+        console.log(`Error while fetching data from ${url}. HTTP status code: ${status_code}`)
+        return { success: false, reason: `INVALID_HTTP_RESPONSE: ${status_code}` }
       }
     }
   }
@@ -69,19 +73,24 @@ module.exports = function(redis) {
     * cookie specific modifications to it yet. Let's do it.
     */
 
-    // load fr style, issue #12
-    const langSuffix = (lang === 'fr') ? `_${lang}` : '';
+    // load custom language specific languages
+    let lang_suffix = ''
+    let load_custom_styles = ['de', 'fr', 'ko', 'vi']
+
+    if(load_custom_styles.includes(lang)) {
+      lang_suffix = '_' + lang
+    }
 
     if(theme === 'white') {
       // if the user has chosen the white theme from the preferences
-      data = data.replace('</head>', `<link rel="stylesheet" href="/wikipedia_styles_light${langSuffix}.css"></head>`)
+      data = data.replace('</head>', `<link rel="stylesheet" href="/wikipedia_styles_light${lang_suffix}.css"></head>`)
     } else if(theme === 'dark') {
       // if the user has chosen the dark theme from the preferences
-      data = data.replace('</head>', `<link rel="stylesheet" href="/wikipedia_styles_light${langSuffix}.css">
-                                      <link rel="stylesheet" href="/wikipedia_styles_dark.css"></head>`)
+      data = data.replace('</head>', `<link rel="stylesheet" href="/wikipedia_styles_light${lang_suffix}.css">
+                                      <link rel="stylesheet" href="/wikipedia_styles_dark${lang_suffix}.css"></head>`)
     } else {
       // default, auto theme
-      data = data.replace('</head>', `<link rel="stylesheet" href="/styles${langSuffix}.css"></head>`)
+      data = data.replace('</head>', `<link rel="stylesheet" href="/styles${lang_suffix}.css"></head>`)
     }
 
     return data
@@ -293,7 +302,7 @@ module.exports = function(redis) {
   }
 
   this.handleWikiPage = async (req, res, prefix) => {
-    let lang = req.query.lang || req.cookies.default_lang || config.default_lang
+    let lang = getLang(req)
 
     if(lang) {
       if(Array.isArray(lang)) {
@@ -444,8 +453,27 @@ module.exports = function(redis) {
     return `${static_path}/wikiless-favicon.ico`
   }
 
-  this.frLogo = (reqUrl) => {
-    return path.join(__dirname, '..', 'static', 'fr', path.basename(reqUrl))
+  this.customLogos = (url, lang) => {
+    if(validLang(lang)) {
+      return path.join(__dirname, '..', 'static', lang, path.basename(url))
+    }
+    return false
+  }
+  
+  this.getLang = (req=false) => {
+    if(!req) {
+      return config.default_lang
+    }
+
+    if(req.query && req.query.lang) {
+      return req.query.lang
+    }
+
+    if(req.cookies && req.cookies.default_lang) {
+      return req.cookies.default_lang
+    }
+
+    return config.default_lang
   }
 
   this.preferencesPage = (req, res) => {

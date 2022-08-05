@@ -101,7 +101,7 @@ fieldset.rcoptions {
   min-width: 100px;
 }
 #file img {
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIUlEQVQ4jWN4//79f3yYEGAYNWBYGEBIASELRg0YFgYAAI6Z5C6aRw6XAAAAAElFTkSuQmCC");
+  background: url(//upload.wikimedia.org/wikipedia/commons/5/5d/Checker-16x16.png);
 }
 .ns-0 #mw-editbutton-signature {
   display: none;
@@ -552,7 +552,7 @@ div.bandeau-section {
   display: inline-block;
 }
 .loupe {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAB5ElEQVQokZWQz2vScRjHPwwq2JJOdRhdBv4FXTzFLoKHWWDNYQcvBWNIgogwD3nYYZLWRSo2CSFN+7ExJwudw9lPq4Vzmgt/5GSwNuYgszoEMv2+OtguUxd7XZ4HHl5vnucR4hBAz9jY2DmLxdJ3eNaV0dHRXrvdHo1EIo1nc3EeB2ZxOp01lUp19b+iz+erecIVvPE6H742CSUbTPgrOFxelErlra6yw+GIPn9b40Ve4v0WfNqGxBZEN+B2+A8Tk3ckIUR/mwj0JBKJhnO5yZN1mC/AQhHm8xDIwtQqWO/HUCgU022yVqs9m8mVebQmMbUK7hQ8XAP3v34mB66FEkNDQ9k2Wa/X96XSn1ksweIGBAswm2ttEC3Dxx24F0oxODi41PFmv9//M15usLYHq7uQ3G3V9B5kKjDp8iCXy0c6ygaDYfjdSorkTpNCFQpVKFYhX4Wny2nGx8f3HwhxuuvHTSaTLRhakBLZTVZK33mV2cQTmMNqte7HYjG+vbwrpQZkl7oG6HS6frPZPG2z2TJGozGq0WiuGOXyU0XPzWb9zUXqX7TS66MCOhGUCfXv6yclwheo50ekpYEzw8cKmJUJ9a8brYAf8cvNmaN+0AmvTKi3r51oJvXn148lHuAWoveg/wsyFzpPvjRT+QAAAABJRU5ErkJggg==");
+  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/6/61/Searchtool.svg/15px-Searchtool.svg.png);
   background-position: 2px 3px;
 }
 .general {
@@ -610,7 +610,7 @@ div.bandeau-section {
   background-position: 1px 4px;
 }
 .important {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAQCAYAAAD0xERiAAAC3UlEQVQ4jZ3Mb2jUBQDG8UfvfrvdvN92v93mhEJdmqclGqw/LyUpX0WvgjFiM0ytQEoa9A9fbGnWxowVx9lWaiRrMdsft5rOzXm/o7K261bksWtsQ3Fnx63i1g42YXffXgRCUC194HnxwMNHWiYDUvkFd177Kene5b7LJry6+Os/GuoY8BVFJK28Y2hIqky9tBeiUW7sqeJ96Zk7giJSwY/b/L9lB8/BxYssnWglvHFd+lmp+Lax8y6jeb6xHoaHYWwMWlv5dXclQcNx/Lagfum+ySd2Zhk4z+/hMMFgkHRnJ7nal4ls9y/VSg/9b+xSiW/0ZmsA+vpoP30aSZxqaYGDB8ns2snJolVRSY5loT7p6eRz1XDmDExM0NPTgyTa2tpgaAh27GDcfw+vS/v+E/pKMkce2DyXPfkhS11dAAwODiKJ3t5eyOVYqq7m5qaNdPiK56qkkn/FutzuwPVHt5HZX8n85CS5XI5oNIokQqEQ2WyWucgoV9evIby2jEMOx0f/CPVK9/9UsTmb8ru49so+ZmdnWVhYIJVKYRgG8Xj81v5ufw0DhQ46Sr3ZGunhv0FIK74otb5PPHg3MxVljEdGSCQSpNNpFhcX6e7uJpPJkE6nmZmZIRYZpX/davp9JoddeVckOW9hbVLN+CNb+GWDg4njTcRiMaanp0kmk4RCISQRCARIJpNMTU0Ri8W43HiUDtcKPrcKqZaelyT1S4XhTevnbmz1cr18JRNvHGC8qZ5YYz0/N79N/L0GAntrGGl4kx+ajvLtW3V8c6SO0IEX+NQQ7flO3s13zT8plekTp/Pw1ccrSGwv4dpWH5Nbion7La5ssBgr9zK6tpDLd5mE13gYLl3FBV8BXxa5OWu66CzI4zOXwVnTQ5V0TEHpsY8t76UTlmW3WF77A8trB7ym3Wya9jHTtJtMj/2Ox20f8bjtOvdfPeTOt1/LN+xXDcOuNQz7RcMZ2iU99SfOHqQzGsqopwAAAABJRU5ErkJggg==");
+  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/19px-Nuvola_apps_important.svg.png);
   background-position: 1px 2px;
 }
 .en-travaux {
@@ -638,51 +638,51 @@ div.bandeau-section {
   background-position: 1px 1px;
 }
 .wikipedia {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAEK0lEQVQ4jbWUy08bBxDGt01fEuoh/Qd66aGXSu2laqW2UtQK9dbkf6gECKqAaOHQS2KlvBPAgAHHgDEQvzDmYYztGr9fGxv89ho/Y+961+t4jSlpD23g6yEUNUqaW+cyo9HMT6NPmo8g/s8A8AaAK6+a0Wg0V4xG49uvBAWDwU+8flKyubv70T+9aDTaEo/HW1Op1Ps+X/BTu93VvbWzO7K6plpbWVF+CeD1F0DZbPbzUCiUczpdWwqFooUgCKLZbF4tl8s/h8NRwel0ZcjgQcPrC5ybzNazocERiKdmymqd7tpzoFqt9gHHcb5CoXhut7u+JwiCaG1tbSkWix9SSephJBL9w+lwgiQfIhg8gNPlgUarg0q9DpV6PSeTyb+61IiiqPl4LI5SqXTm9frv9PX1XWtra7O0t7drzWZzmWW5v2imglwuj1g8AX+AhN3hgsFogmxBjqmZOb1CoWgharXax7lcjk6n01Cp1E9v3uymu7q6Cp2dnec9PT1wu90QhAYYpoKjowwikSgCZBBOtwe7RhOGR8YwMjbeEEsk3xCVCtfJ87Wn1SoPvX4TMpkM/f390Gg0oCgKNM1AEBogAyQ0ag28Xh+CoQM4XW6YLFYsLi1jTiqDWCwZIorF0uzhwSF4voZms4lGowGDwXBO0zROT5+gXq/j+PgYpVIZDrsD4XAEkUgMHo8PZosV+q0dLC4pMDYuNhD5XF5p27eBZTmcnp6CoRkkEglEI1E0Gg3U6wIE4VlmLnQ7DEfg8fphtlixuW2AeEoCkWjARZRKtDSbzYLnazg5OUE2k4XX44XH7cHxcROC0ADHVcHzPMplGhSVhsPpwr7NAYvVho3NbUyKpyES/WIkGIbpZVnujOd58HwN1WoVxWIRHMtBEAQ8flxHhamAZTmUaQZ7eyYsLcqh1epgslih0qxjZlaKwaGRCaJYLH7m9/mr2UwWHFdFvf4MwPO1y5qmGTx6VEI+X4DFYoVSqcLm5jZ2DEYsr6xh7N7E6e3bd74jALzj9fqVkXAElQoLluWQz+Wxb7WCDJCoVnnQNINcLg+KSiMYOoTb44PJ/Cu06xuYm5eh98ef9js6Oq4SBEEQ+Xz+i0KhUC2VyqhUWKSSKahVamzoNi4vSqXSiMbiCJBBqFQarK4pIV9exb0J8Ulvb9/1fzvFa5lM5odYLPF7Npu7WKaQSCRxdJRBMkUhFDqEP0Bi3+bA7JwUE5NTmJbM/Tk4PCqan59/87n/TCaTbxmNxm6Xy1uPRuOIxeIIXPyi30/C7nDCuGeGTr+FxaVliKclv90dnxSNjo62/KdP7ezsfG23Ow1Wq+1Eq9VBrdZCt6HHuk6PB0o1ZIvyJ2Nj4/aBgeHrL1z0svB4PO9ube1+q1Jp7q6sPLDcv78YXliQ26RS2dT09OyNW7fuvfeyvb8BXvV5HX38PIEAAAAASUVORK5CYII=");
+  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/6/63/Wikipedia-logo.png/19px-Wikipedia-logo.png);
   background-position: 1px 0;
 }
 .wikibooks {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAD3klEQVQ4jX3UWUxUVxgH8M/0wWr60CZlsdGkqcGIkgqiDy2LkNQ+dHGQpWw1s+EUF7AF0prSVrCkFBOMoTgwUirggEqVGWghaSDYQkBokcLM3LlsV4ssmevA7YxMmGEW/n1ouRWc9iTn4Zzk/PJ95zvfIXpiBMSlPBe878h5Itq0thf2QdPhgye/27G2Lrr64FlFFSOj/xsvx8meD45MGAgIlyB435F4IqK9ymtZe5UNnujcpnIiIpVmaKusmumSVptWVBrzNr/Qrsj0F1+KTBx5JSrZsysmzR0ULtGGyutO7FE0rMaeaXIfONFoy1AbXlBomN7sb03uM/WsQ65hSp6CAsPSg4IPJJpColPdvd21+LzkCwRHHF3ZLa1dzatst49P/o4wZT0kX/UMnb7KrExb7eg08T5ZlVFQaYa2rsO2RUrY0LhUz92eOvCcDiMDWgRGSFbTCy4uLy2ycAgslGWtSCpqd84tPIbP68KycxlZNYxTXm2Qr8NColPtv/XVg+d04kyQncQbqafgEP7GfvilD2HKBszwAnxeF3xeF+ruPLTJ1YaBddjw4LWFJyGe00HbeAkB4RIMDXXDIbCwL7A49NF1fKO7J2L8n0uQqxmfSjO6X8Qe3dePbcRmJ1oQGpeOT768IEZ3QduJ+LybcLudIljcMjknrWLU/2KcrmMjxnM6fHyuECExaRAsRjgEFuNTIwhTNqB7+L6I/Tqx6JGqGXtKc/8WIiKy/KGv8IcN9tYjMCIB3+ubxejkX+uRfalTxFbcTqiuMEsytSGFiIisXGumP4zndHgrU4Xk4/ki1vrz04WoufNQkKmNPxIR0fLs7e3/hdVeLUfQfgkmxgbgEFjYrGbEfri+EJzFBlm10St2xCNON+UPmxm7hZ1RKSirqBSjK2vsQnx+87pCFGjHBKmGySciIv5By0V/mPleE3ZGpaD8coWItff0Y4+iHtOWRRHTD8575BqjgYiIFidbXtsITYzewKFEBd6VnobNyohpvl+iR9K5VjEy14oTpXpuXqo2CkREBGATz+mn16BJw03EJysRnaDA/PQwHAKLBZ5Bdnkb3vm0BVbBDp/XhaGpBeTWsXap2jSprDTHiu+N59qK1+7pzbTjePVwxgo3cXfWIbCwzJmQev4W3itqcy7aHsPrdeF63yyyqk0eudr8WU4HNq9rq8W5n3ZYpnTejOxc7I5P8+YVFr6+JJhPWS0MUotu4+2zzWbebj/m87rQ3D+3qrpitskujx/0+6cRERWXFmljjipmzhYXJv2T/pZSbRdzrERnzsnp2AzgmU4D31XQwPZn1oxu33j+LzQDaHAtzbkrAAAAAElFTkSuQmCC");
+  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikibooks-logo.svg/19px-Wikibooks-logo.svg.png);
   background-position: 1px 1px;
 }
 .metawiki {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAADDElEQVQ4jX2UT4jVVRTHv4tpM45JhQajIEptJN45v5+5aFxM5NKIklYtWry65973pj8EtghTREmLMMMhxXPu7w5OyeRMLYbXZiB4Oi5sMZBEShG0aBEjY/bMIOiPPxe/33McGDtwFvdezud+v+f+AVaJCOw0ICpwWYGeAb8rcNmAmICR1WpWxFlgswLnFSj/LyPQPQtsXhWSgBEFegqUBiwacCgC2TSwbhpYl4A8AocNWKyBvQJ4agVkEtiiwFINmXnviQ2PNub2rsmia3KU3aShQxouZdoKZ9biEQW+qGFLk8CWu6AuMBCBtgLF7qMvPcTRtZ80/2Jm8gar9HLzX5PJUVIZZw3nnvno5Y0GpAi0u8BARWlODaPbHQCA7QvyQG4+ZdEdYJW/c/PHSaWsMnQybQVSf40tLDxd16DbHUBzahgQM3i9Ap+2sclYbv5zMvmNVEpW+YpUvmOTk7n5C2zyL6l8QCa3dyQ3Ap+2wesVBFVA7EeIlvAFsYZzrOFjVvmVVC6SyjhZew+rv7msTC5ydG+SyiR8QVWt/QCI/QnREtIZbKjMchEcaeiwyfdkcptUij6I1f9D0R0jcydYpQfpDFYgvQV4vQXREnvn1rD6m7n506T+v76Cei6xhYUsuvfZ/HXW8Ambv47m7NpKhP2xbK11plH34VvSME8qJZn81VCZpRSeZZW5Pjw3f5pN3kZ7gu+1ZhAtEWzfjuRG2eQkR3m+PuoJMv8Lm/xUN74kk5+pCC+QtfdAbH+tyICxuKseLD54MD5MKt9U8ltHVlpsfUgq41nhniMN80NHTqyH12sQLTEWd1V3Keh8DZtufPbqJtJwiVWW8hjeIpWCojvG0b2Tm0+ZyX46tW8jnM3Uti4sv5FW2grRHkRLOJsZOnhqQzbVHM6iO8DRdXPzx7kIbntHBodeT+vh7ctqY+2hlbaufLWvxZ3weqNvEy19FyFmd9dDzKqe2GJ95Dfg0n2+FD/xOETP17tV2Y9751zs4pVPH7v/h9QPl0YhWkDs6jLIrkK0gEujq5XcAWI4vqdtS5LvAAAAAElFTkSuQmCC");
+  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/7/75/Wikimedia_Community_Logo.svg/18px-Wikimedia_Community_Logo.svg.png);
   background-position: 1px 1px;
 }
 .wikiversity {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAACMklEQVQ4ja3PPU/bQBzH8R8bAyMTYsyY7l14C4jXEFVREjtPxKZO7ECkNKqQoEuVIVUphhhIL4CUBBTn4ZLBdnGEOmTtS2BATCwM1+GiXKqm0Eq19Jftr+8+OgPPXmwB4corhM5WEDpbQeRzEGALz+/50xW/WEXsqAfZrEAyLUimBfn4EySzi/jF6r9h6foaUsRFkqwjTmpIkkskyeXkeR0p4iJdX/s77HC4COX6K5TWMTKtRyhXD1Cu6pN5QKb1CPX6CJlWDYfDxZfBXC+Et7QLbRDmd/qELB0jS8fQ6BO0Xmf6LdcLvQzm3QgMrwbDu0f+2w8YnoWdmyJ2boowPGvS7mF4NeTdyO9AuLKMN4evp6N085DPN6B2d7HVL/PpvOMzeVe7u5DPN6B087/sDVeWgVg1gKhZROTLB0QPSoia4cnMaQcl3szi3BarBvgp5RMbksUgWf705PIp5a3qTJtUdSBZDPIpFc3yeTuxxW/HiY0EYUjWBZgilDciwCRxkCAMKSLAZN1HgjDEyQyYadjYbDCkGwJMNyk2GwyZpgAzTYevawow3fD5usYMqNg21DaD2hGg2qZQ2wxKW4BK2+Hr2gJUOz5fZ8+Aub4NjTJkBwLUBhQaZdCGAtSGDm8DAWYHPjTKkOvPgLpjQ3cZcq4ADY9CdxkMV4CG6/DmCTDn+tBdBt2ZgKVxEAV/D4XRRxRu97E90rE90ue3233e/L25rTQOAuW7Jbz/HvgvU75b+gmRi3LOLNS6gAAAAABJRU5ErkJggg==");
+  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/9/91/Wikiversity-logo.svg/20px-Wikiversity-logo.svg.png);
   background-position: 0 2px;
 }
 .wiktionary {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAEt0lEQVQ4jY3TS0zbBRwH8L9ZPLhEL1MPevDgwcSYaCR61JMHE2N8pGaLizoSmY6AgGPISllXCrRAX/8WSqEtpbR/oKX/Uh5t/6XvFkpp6Yu2QHnIQ2RhgIMtZEs2vt6aETn4O/7y+30OvwdB/I9g1Nz3XBTn0+dzBrLilcBwy48dHVdePbcpbOHKM05JcMXXvboW0R0teHrTBEEQSv4Pb1qULSc+k/x0ziaVEATxAkEQxKyF3+fUS7AU0j5JMp2jFkPrR0WspKTk4mpAAX4tF3/FhzBt0yPtHXxaVlbyoq3n7qayuQXlP7Gxl7VhMUT5+1vKLxX8nSd94g50C8Ww6XqxNjd2ajO2sYpomlE85d3k4zA/ioYqEQ4LHviGeKMd7CZwa/iQNUlQXtoMSqVH2CaJ3c8Mw6pVIe4ahoBDYnfBDrWi/JMiuOzveniQs0LAlsJHm3G8EULU2rpvIGWI2Q1QCrtB6waxkZg8TbsUOyO9PbAb9dDKNDhcDSIX6t88M8NFX+fGZswKLz2M/YIbOwsOWLX1t7Iu8WbGa4JG2o/9QgCeYa7ER7GrEk7F0aRRj/WEBw/WI3D0ciqLmHug8fqMheeM2lpzbmPDuFdf1xg01l1uKS+/FBsT2P2mptRWagLxSUm0vf2X13Nu2W5uSpqPTwjiCQe5F5sg77FYrAtFsOCVnkRtCpi6xDhYMGN1xviQxWK9NGvhjdB1V7Ezq0XaQWa0ZMW79r66ir35PtxPGbGfMUPVRmIprF8qYmVlJRc3Z1S4n6bQJ5bicHEc2/OWUw3v+vtbYeUzF7sUTPVV7MVN2EmOPo7QrY68V4eDrAUxJ4Wk24LFsHahCKqFZV/tpwehk5CoLmvGgxUXNuZMJwuMOJXt5yHC/RXBG1ewzfRhzUwi7ZQtKgUSbMZoNNXJIG7qQcrTSxdBv4l7dztuhkakhMs0iDHDEFajQ1spl+SfNbMY96YpzF/7FvtzNiSYrnjKKcuFxw0Y0ehxtB7A8UYEflraWARNZPXHaYdoeTmgPNmMUdhOTiA8KvWp2so+DNP80IavH0c5F7ZTY88GhKXvTOgqS3zGW4Igzfdk3V1bSyHNsaqp4u1z36+5lvVBxMpzB03yZ5kpZYQgCGJcXflbwiE7ioy2+2LjEkV6Sqm39dRdzjCdp2k7+WTJpz7OTGn25hnVnTOYx9D49UpAfrCX0IExdmM5bEaAlpRmGdGKm5JiuEuKbqEUGZ8ZHoo35qEUIO+K0M4RoeW2GPmALnn2sF3SI02bAF3NHaj6mQ9bvx5/Z5yP8lOinfpyDq5+8wfaOWIsTo9hdkyYitjUcFFqrEZoZANW5AP6mTNgyMw2Lfu1YFcK0H5HDq+VRibkQtJJ7mhFUgwolGBXi5EJTCDpkG+vRwbxxWe1aGWLcfxnCLmgzn0GFAq/fHnJTR6NqPtQiDqxt+xB0kUWouMCxm5Qwzk0gB6xFtOOSSQY9e767AAik/3IBGk82o4i7uym/rMUWln1fT5EYXV64LHHXN/AYrEuMBTnxvqMBoWA6nHer9xdYOQpu7q21KOvYYWGb5f6h+pr7D017ZOK3986d9Ne3c3vBuW33ng+d431+WvnFp8T/wKSp0I/SdIW3gAAAABJRU5ErkJggg==");
+  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Wiktionary-logo.svg/20px-Wiktionary-logo.svg.png);
   background-position: 0 1px;
 }
 .wikinews {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAACkElEQVQokZWSSU8TAQBGG8KJ8CP05Mm7EAyEgx6QABqjFxOJSjx4gaAmGrloA0XRAFZCZCklIC4lFCEukU5RoQtTCp2Wzkw7baEz3Wih27TjdPm8mZhIiO/+3uX7FIojIIBKC5vss3EiZedykt2bk+xe0WlikyoCqDzK+yckiSozm9xihDK4KMBGiqBDBXBRYDtQhJE6pIgYqo8Ntc3661s0vm4Lk1lwBmU4eQl0WAITkkCH8qDDEqigBCoow0qnF1u13ntN03tn/4osBVA7ZC3Uq8y5wev62Gofsd9N7RZkLlqGk8/hhy8Pf7yIQKIIf6IAis9hwpzC4ma22GeIPbixEP2mMuWGn5GFunkPahQrPKYntguD2i1c7CLE/Gd76pXq6wGGjAksuUWcm4qgY/kAnxgRbEyGkALu6iMY+5nGqisz2mUQs6OO4uVxZ2Fghce0whrFzHsOOq0bzT2WEr4z6cmbMzxOPmGwwmQxQWbQv57EgCmJK7oEFqg03mwc4NHHKNbdqdkeSwlaN5o/ePHWGsWMgghB85oqjYw60NpJiLKRTqmNtIyGlz4IKSAQL+KdM4fWdwmcVgu4o4/iy04WtFCGwZUc6zSI0rgbl8ZcpWEDjynFvAc1T235xn6z+Lh9cd/aS8TvUwFZpiMlOIM5XJsTcHUujPMaAbd0YRBMGlysDGpXlntX4w/b9bG15+Z874uNfIPOjzN/xlETqG6b5eqaNN4OK5uZdwVluHgJWsshTigZNI74QPF57PASnHu/YKbT+guT/tstE4FaNXHMhUgSVVY2uckKZVDBEk4pPehZ3seaVwYrlGFik5skiar/OjeAijUmoyQ50WF0ZySbV5RsnOgwedJKABVHeb8BqwYNIHJB6x4AAAAASUVORK5CYII=");
+  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/2/24/Wikinews-logo.svg/20px-Wikinews-logo.svg.png);
   background-position: 0 5px;
 }
 .wikiquote {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAATCAYAAACZZ43PAAACc0lEQVQ4jZWUzUtUYRTGH5Ns5UektulDJTAtU0cKmveOjgRTs8gCnVIiRmdECufe886IIoHmNqRNRpuQ+77XcdFFIfMP0ApCIZz3umlR+Ae00E2LyI+3hQqOpEzP/nfO4TnPOUCOevZ27WzS8RzTXSnLlckSdzL9JJQm6X12XV2QMxgac8qDA/Z9AEjJzDgJpbmTeZNzAZa03zOSO/7UVHvEdfO5UAtceNupyZX648mwWYZbZm3YdMsMkmsGl79CCady0M40cOFtk/Tmj8PzYPAFGHwDzUM1LQPp64zkDrNEGgC4zMyRVFtj819L97o9KoIvPoS6nknUxxO4ZJ5CK1XDoHUErGUAeYzEDCPxx3g6fdqSXpSE0pb0okCQl6A2+gOVnRoXIhpVnRpXepbQ1HcSfm6CkUbLYMCfmmpnJLQxILrMWe/c7kbUBHAt9hyVDzVK72oU39Eob9Oo6tLwPelG2CwDIw1mjQSH7QpGQgfIGdVan+BSbXLHmwXqYu9wvkOj6LZGnqFREta4+ECjIT4OADDoNwI00fZirpCR0CzlvAIAEuonl5mPQGN89J8TNMSjBycIJZxKRkIzyx6JuG4+l2qThDcDNPUVozb6PcuDq7EvWR4EB4wAT3cwEjpg2Z3ZHgBAdawQvt5B1PVMwtfbj0ikADcTl2HQOgy+dHgLKTvTTUJpbqvHR+fAn1yEwTfQStWB5PQNRnKHkZzazwGXarNfLp85PonNQzUHkxgctitMqRq58LYt4X04Psp7OnwLSXt1kaTaSqa/1eVUIDTmlPuT8h4AWPbqSxJKW0K9zgk+KG4rcxf2Pv3XP9jXUR/pL4TqQDd7mR91AAAAAElFTkSuQmCC");
+  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/16px-Wikiquote-logo.svg.png);
   background-position: 2px 1px;
 }
 .commons {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAATCAYAAACgADyUAAAB+klEQVQ4jZWSPUxUQRDHfygcRpqrNNFCVBpiIQS/OwqtDXoEMGgivtn1AHMGWogNNRqIvtl95hSMH7SiLSZ2BvUSlUQKrGwMLQmJJs/iLejhkeAk0+zMb+a/MwPbmegIpHXbxmva6EwTomsYf/n/QOMHEE0x+o3h1407gwpzOSK/gvhfiPtBlBR3BtqknSjpRzRF3Hdu3j/yf3Jt/DLAHxG9SGFud+3ENN1VDc7sw+iHDNYUcUsMxSeqoeEHp7BukevPDlS9izYgei10TTH6k6h8MgsW5nKIWwlV5xE/+K9sHUL0fcj5msk2/mp4eIN13RhdbS5N5hU6FTqbS5N5jK5iXTeib7POvhds/ALRlGLcBdAh0jBd3/hKIVVIp+ob5ztEGoL0AqIpkX8KkV/KOvoxRL20HL+wAW24Odx2HlFPlIwHdZ/BxhVEU6zexurEnYMtZ7aCY/ubT2N1AtGRLDeugNHZMPI+AErl/FRu7+MNaDq3p0ypnAf+moc+gmLclVVxi0SuH9E1Rmeabh1tOzd4qP3s5sFHrn9zLdHDS0Bah9FK2NMXoqQnDOIeNr4LwA3fi7ilkFP5cyxF34rR9fDxdxjfS5SMh2H0Yd1igNYp+tbqJQ+6Y5tVa7nRTwzMttS+14WFeqy7gtHnmHgZEy9j4ydESc/WI/8NR6YOCkIm1CoAAAAASUVORK5CYII=");
+  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/14px-Commons-logo.svg.png);
   background-position: 3px 0;
 }
 .wikimedia {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAACX0lEQVQ4jZ2UQU8TQRTH/+qFcrGakEhCiMINYmLZlqQkJL0YQozCxYMaD5Xum10WTfkGfAKDF5z3tmUT09N+CtSTwpcAE/QCpjeR4njYadnWQokv+V9m3/vNezP/WWBARECWgWWrm4PyL40akGPgkAFjdSjAg/8GCrCXgrW1e3WCJy4CXQSAGMgwcNYHeBYBQwCAQBdBXOkPc+uLIGlBcRNeLWc7/NEH+D3ZvJaD4iZIWvBkoRu2HmdA8g3EBm74BetxZj4uj4QA9QIFcOfj8giIh0HyFcQGig+wHmfOgcRv7IdfqL6/m6+5L/OsmjkdFBl4pIGGBhp1YDGng2KeVdNheg5/awIkJyA28HgtDfwMYgPicCFeue0I/XSYTBvaTkvBjMPquBRVsyCp22Y+JllP4xtQfApig1X9eDZUK0lBIgsYd5jGz2GJCtovQ4VLtpnfMOY6QDxqFwwCmXaY3qWLHCYzF7mFucgt9K472tuE2p7q1K9Gd7qBanvK0d7mVYEzQm8RyHSnnni0e2S3/qR35MuABe2XQbzcPTIAePqTtUzt/pZ/y2F1PAiYFzoqRdUsFG8nQNk5v2Vfv+7YpvLh3ox4Ly4FCv2ZDdUzEE92bENh0N/YiVmHE2jSaRqYFzqysGEo3rXj7mMjGup9xwsgaXWg/tZEKapm8zX3ValRGSs1KmMF7ZcT7/EkPNmzU51ChQ8v+DmwSkFPQFKHCpcQyLS9zeXkzNpjSgt+SP1h6U4VH6SscJH2L+6sNzaiIXi8BpKdjqXa1iDZgcdr/57ZVcOY6yAeTV6BuTYo/S+IFd2WmPbZVQAAAABJRU5ErkJggg==");
+  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/8/81/Wikimedia-logo.svg/20px-Wikimedia-logo.svg.png);
   background-position: 0 0;
 }
 .wikidata {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAMCAYAAABm+U3GAAAAnUlEQVQ4je3ToQ6CUBhA4dNENqUoDwI238Gmlasb/yDgZrAZeAz+e8OdzOBImnwn38CExWRzM3Ie4GsHPimEHoIW4gtMFaIW4qqqRuvuMF7ddxNEI4o2pvYBoiGiM7bd3Pg6ML4OUpWQ7xo4WTAKvcJV4aHQZ9lyk6rsFy4/k7sboj2iGeKOiH0i9pW4UhJbmLQpTwM8wAP8C/zvpd8/bTzICdW0UgAAAABJRU5ErkJggg==");
+  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wikidata-logo.svg/22px-Wikidata-logo.svg.png);
   background-position: 0 5px;
 }
 .wikivoyage {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABXUlEQVQ4ja3QvytGURzH8bdJEimUSZJSBsm5TxlMEvkjDOR+76WE8g9YMLI87vdcPQ8yPQNZsGAzKFYMJFZKMphcA9eP8Phx77e+yznf8zqfcyClWoCGEExiSKFeYV7hugC1aUAPClEA06lACpGF+z+mi0oA8lCnsBtD73rmbdbLteAHc/hBHj9Yww92ED3E0zPE3uDpCeP5qvd8AANxQgt3CjUfA4j2IPYC0ehT+7b3m6cPFf+7wY0K3HABsY9voL2Kn/tVhbD389+JdiL29DldsF1sdBmqi2NxTRTKcBdn8XTrdwd+W2PZ5u+2MvmRulTuaNocLXUW3X6jcvxvJGNH2jLq7bdbOTAqt0YlcqycJ0pmVLJGJYrbUe8oEdi6MlnuqHf2CobuXiIQoD031GWsPL6g64lBAKMSvoBLqYB9q6OVjnqXRmU+FRCgI+d2m2B4KjUQoDM73PjV+hOeQKBEh4OhgQAAAABJRU5ErkJggg==");
+  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Wikivoyage-Logo-v3-icon.svg/20px-Wikivoyage-Logo-v3-icon.svg.png);
   background-position: 1px 1px;
 }
 .wwwmediawiki {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAADIklEQVQ4jZXT22sTeRQH8B+1NclvJkmN2q6KF0RtNa2KympFoQpF8UUQ2YcqKAvrQ0qjre7KsqsUH9S9iKz7B7isireqiMVq22yapJ2ZTCZJtYmlmjbJXDJNYrMqorte5uuD4AWju57ncz6cA99DyCdKCTW2Zbi6xuGuyueEEKJEdrk/1f+fNeq1GSnv7H8SPQyUyCpNDk41/r63b3NmcNtvenRf/fhgU8PngT4GqQADhaNI8gzSQRu00CSoA1//lQ47oUmbnn44tbhlbZnTtZNU7a4iNXvqy5yunSmvzchEVmZlzoqcQJHnzJB5C/SgGfqtaRiLT8dYbAb4zu1xssS1htS21JZVu74h1U11pNTZ9HNJTbMb+T7rH6cPSEJv81DSt+x+/BoDuY9C95mQ7TIh222C7jejELYhN1QBJboIqrTQiAfWFQghpMTpOlCy0P3DGzA/+lNVIvTV01GPDUkvA9ljQfbGRARPsBCPsQgdZxE/xSAfMGFcpEgJFCmexe/Ht3iKgpnQhi5ZmmeooQXISVY8CFLETlrhO0jR0UrRuZfCf4hB6hrFuGCCKrCQuekv2s9ujRQFCyP77Ql++bO7N+xIB8ox5mfQf5hFRwvFuWYW590Mbn7PINFOkRcsUASH4b+yfri0xt1WFAQuTGht+7ZTiS4xcrEKPBQt4I6w6Gh9DbbvZuBvYxD7k0VOMEEN2nH5/A7+o6AqrvYk+61QBDtUjqIg2aB5KLijDHq+s6B3vwXCL1bcaadI9pqhiixkfooR8zfki4KPpF+njPrmvJCFCiPlK4fKOZAdqMQjzoThSxRDZxikrluQFayIX2Rxt4vFUN+GwgcbvptD89I99TJfaaihSkOLTIYerkDulgNZcRruDziQ7KTIRidBC06GPuBAWljw5G0O3btIdVPdexkHrtv+LRyqVcWZzzPSLEOJrCvoUjl08YuXI90sYpdYyP12KNH5UMLLHyjCosf/++1UqcGrD5/4MtFnhcqv7hnx2IxkwG6k++c+00KzDO325quf9cdvYHHFICGEKMqP89N8XbcW3njy9TXe0mL9rwCANPrFznZFLQAAAABJRU5ErkJggg==");
+  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/b/bb/MediaWiki-notext.svg/20px-MediaWiki-notext.svg.png);
   background-position: 1px 3px;
 }
 .grosse-icone {
@@ -2748,9 +2748,9 @@ a.mw-ui-button:focus {
     url(/w/load.php?modules=skins.vector.icons&image=language&format=original&skin=vector&version=3vgeg);
 }
 .mw-ui-icon-wikimedia-language-progressive:before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ctitle%3E language %3C/title%3E%3Cg fill='%2336c'%3E%3Cpath d='M20 18h-1.44a.61.61 0 0 1-.4-.12.81.81 0 0 1-.23-.31L17 15h-5l-1 2.54a.77.77 0 0 1-.22.3.59.59 0 0 1-.4.14H9l4.55-11.47h1.89zm-3.53-4.31L14.89 9.5a11.62 11.62 0 0 1-.39-1.24q-.09.37-.19.69l-.19.56-1.58 4.19zm-6.3-1.58a13.43 13.43 0 0 1-2.91-1.41 11.46 11.46 0 0 0 2.81-5.37H12V4H7.31a4 4 0 0 0-.2-.56C6.87 2.79 6.6 2 6.6 2l-1.47.5s.4.89.6 1.5H0v1.33h2.15A11.23 11.23 0 0 0 5 10.7a17.19 17.19 0 0 1-5 2.1q.56.82.87 1.38a23.28 23.28 0 0 0 5.22-2.51 15.64 15.64 0 0 0 3.56 1.77zM3.63 5.33h4.91a8.11 8.11 0 0 1-2.45 4.45 9.11 9.11 0 0 1-2.46-4.45z'/%3E%3C/g%3E%3C/svg%3E") /* url(/w/load.php?modules=skins.vector.icons&image=language&variant=progressive&format=rasterized&skin=vector&version=3vgeg)*/ ;
-  background-image: linear-gradient(transparent, transparent), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ctitle%3E language %3C/title%3E%3Cg fill='%2336c'%3E%3Cpath d='M20 18h-1.44a.61.61 0 0 1-.4-.12.81.81 0 0 1-.23-.31L17 15h-5l-1 2.54a.77.77 0 0 1-.22.3.59.59 0 0 1-.4.14H9l4.55-11.47h1.89zm-3.53-4.31L14.89 9.5a11.62 11.62 0 0 1-.39-1.24q-.09.37-.19.69l-.19.56-1.58 4.19zm-6.3-1.58a13.43 13.43 0 0 1-2.91-1.41 11.46 11.46 0 0 0 2.81-5.37H12V4H7.31a4 4 0 0 0-.2-.56C6.87 2.79 6.6 2 6.6 2l-1.47.5s.4.89.6 1.5H0v1.33h2.15A11.23 11.23 0 0 0 5 10.7a17.19 17.19 0 0 1-5 2.1q.56.82.87 1.38a23.28 23.28 0 0 0 5.22-2.51 15.64 15.64 0 0 0 3.56 1.77zM3.63 5.33h4.91a8.11 8.11 0 0 1-2.45 4.45 9.11 9.11 0 0 1-2.46-4.45z'/%3E%3C/g%3E%3C/svg%3E");
-  /*url(/w/load.php?modules=skins.vector.icons&image=language&variant=progressive&format=original&skin=vector&version=3vgeg);*/
+  background-image: url(/w/load.php?modules=skins.vector.icons&image=language&variant=progressive&format=rasterized&skin=vector&version=3vgeg);
+  background-image: linear-gradient(transparent, transparent),
+    url(/w/load.php?modules=skins.vector.icons&image=language&variant=progressive&format=original&skin=vector&version=3vgeg);
 }
 .mw-ui-icon-wikimedia-sandbox:before {
   background-image: url(/w/load.php?modules=skins.vector.icons&image=sandbox&format=rasterized&skin=vector&version=3vgeg);
@@ -4713,7 +4713,7 @@ div.thumbinner {
     overflow: hidden;
     width: 15px;
     height: 11px;
-    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='11' viewBox='0 0 11 15'%3E%3Cg id='magnify-clip' fill='%23fff' stroke='%23000'%3E%3Cpath id='bigbox' d='M1.509 1.865h10.99v7.919H1.509z'/%3E%3Cpath id='smallbox' d='M-1.499 6.868h5.943v4.904h-5.943z'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url(/w/resources/src/mediawiki.skinning/images/magnify-clip-ltr.svg?8330e);
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -4731,7 +4731,7 @@ div.thumbinner {
     float: right;
   }
   .mw-content-ltr .magnify a {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='11' viewBox='0 0 11 15'%3E%3Cg id='magnify-clip' fill='%23fff' stroke='%23000'%3E%3Cpath id='bigbox' d='M1.509 1.865h10.99v7.919H1.509z'/%3E%3Cpath id='smallbox' d='M-1.499 6.868h5.943v4.904h-5.943z'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url(/w/resources/src/mediawiki.skinning/images/magnify-clip-ltr.svg?8330e);
   }
   .mw-content-rtl .magnify {
     margin-left: 0;
@@ -4739,7 +4739,7 @@ div.thumbinner {
     float: left;
   }
   .mw-content-rtl .magnify a {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='11' viewBox='0 0 11 15'%3E%3Cg id='magnify-clip' fill='%23fff' stroke='%23000'%3E%3Cpath id='bigbox' d='M9.491 1.865h-10.99v7.919h10.99z'/%3E%3Cpath id='smallbox' d='M12.499 6.868H6.556v4.904h5.943z'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url(/w/resources/src/mediawiki.skinning/images/magnify-clip-rtl.svg?38fd5);
   }
   a.new {
     color: #dd3333;
@@ -4784,28 +4784,28 @@ div.thumbinner {
   }
   .mw-parser-output a.external,
   .link-https {
-    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23fff' stroke='%2336c' d='M1.5 4.518h5.982V10.5H1.5z'/%3E%3Cpath fill='%2336c' d='M5.765 1H11v5.39L9.427 7.937l-1.31-1.31L5.393 9.35l-2.69-2.688 2.81-2.808L4.2 2.544z'/%3E%3Cpath fill='%23fff' d='m9.995 2.004.022 4.885L8.2 5.07 5.32 7.95 4.09 6.723l2.882-2.88-1.85-1.852z'/%3E%3C/svg%3E%0A");
+    background-image: url(/w/resources/src/mediawiki.skinning/images/external-ltr.svg?59558);
     background-position: center right;
     background-repeat: no-repeat;
     padding-right: 13px;
   }
   .mw-parser-output a.external[href^="mailto:"],
   .link-mailto {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13'%3E%3Cpath fill='%2315a5ea' d='M1.84 4 6.5 8.349 11.16 4l-.621-.621L9.296 4 6.5 6.485 3.704 4 2.46 3.38z'/%3E%3Cpath fill='%2336b' d='M1 3v8h11V3zm1 1h9v6H2z'/%3E%3C/svg%3E");
+    background-image: url(/w/resources/src/mediawiki.skinning/images/mail.svg?8a79c);
     background-position: center right;
     background-repeat: no-repeat;
     padding-right: 13px;
   }
   .mw-parser-output a.external[href^='ftp://'],.link-ftp
   {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13'%3E%3Cpath fill='%233465ba' d='M1.043 2.466v7.5l1-.987V2.966h2l2 1h4v2h1v-2.5l-.5-.5h-4.5l-2-1h-2.5z'/%3E%3Cpath fill='%2316a4e8' d='M6.043 4.966h-3.5l-.5.5-1 4.5h10v-4.5l-.5-.5zm0 1h4v3h-7.75l.75-3h2z'/%3E%3Cpath fill='%233465ba' d='M2.043 10.966v1h8v-1z'/%3E%3Cpath fill='%233465ba' d='M5.043 9.466v2h2v-2c0-.5-2-.5-2 0z'/%3E%3C/svg%3E");
+    background-image: url(/w/resources/src/mediawiki.skinning/images/ftp-ltr.svg?c5643);
     background-position: center right;
     background-repeat: no-repeat;
     padding-right: 13px;
   }
   .mw-parser-output a.external[href^='irc://'],.mw-parser-output a.external[href^='ircs://'],.link-irc
   {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13'%3E%3Cpath fill='%2336b' d='m1.622 2.01-.621.621v5.757l.621.622h1.69l-.622 2.728L7 9.01h4.38l.62-.622V2.631l-.621-.621zm.379 1h9v5H7L4.099 9.907 5 8.01H2z'/%3E%3C/svg%3E");
+    background-image: url(/w/resources/src/mediawiki.skinning/images/chat-ltr.svg?e0649);
     background-position: center right;
     background-repeat: no-repeat;
     padding-right: 13px;
@@ -4823,7 +4823,7 @@ div.thumbinner {
   .mw-parser-output a.external[href$=".wma"],
   .mw-parser-output a.external[href$=".WMA"],
   .link-audio {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13'%3E%3Cpath fill='%2336b' d='m7.002 1.01-3 3h-3v4h3l3 3zm-1 2.5v5l-1.5-1.5h-2.5v-2h2.5z'/%3E%3Cpath fill='%2315a5ea' d='M7.432 4.11c0-.621.621-1.243 1.243-.621 0 0 .621.621.621 2.485s-.62 2.485-.62 2.485c-.622.621-1.244 0-1.244-.622 0 0 .621-.62.621-1.864s-.62-1.864-.62-1.864z'/%3E%3Cpath fill='%2315a5ea' d='M9.292 2.81c0-.621.621-1.243 1.243-.621 0 0 1.243 1.243 1.243 3.728s-1.243 3.728-1.243 3.728c-.621.621-1.243 0-1.243-.622 0 0 1.243-1.243 1.243-3.107S9.292 2.81 9.292 2.81z'/%3E%3C/svg%3E");
+    background-image: url(/w/resources/src/mediawiki.skinning/images/audio-ltr.svg?74d04);
     background-position: center right;
     background-repeat: no-repeat;
     padding-right: 13px;
@@ -4837,7 +4837,7 @@ div.thumbinner {
   .mw-parser-output a.external[href$=".mpg"],
   .mw-parser-output a.external[href$=".MPG"],
   .link-video {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13'%3E%3Cpath fill='%2315a5ea' d='M2.492 2.01v.621h8.098V2.01zm0 8h8.098v-.621H2.492zm0-6.1v.621h1.87V3.91zm6.23 0v.621h1.868V3.91zm-6.23 3.7v.621h1.87V7.61zm6.23 0v.621h1.868V7.61zm-6.23-1.2h8.098v-.621H2.492z'/%3E%3Cpath fill='%2315a5ea' d='M4.362 5.51v1.243h4.36V5.51z'/%3E%3Cpath fill='%2336b' d='M4.002 2.01v8h5v-8zm1 1h3v6h-3zm-3-2h1v10h-1zm8 0h1v10h-1z'/%3E%3C/svg%3E");
+    background-image: url(/w/resources/src/mediawiki.skinning/images/video.svg?a3758);
     background-position: center right;
     background-repeat: no-repeat;
     padding-right: 13px;
@@ -4849,7 +4849,7 @@ div.thumbinner {
   .mw-parser-output a.external[href*=".pdf?"],
   .mw-parser-output a.external[href*=".PDF?"],
   .link-document {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13'%3E%3Cpath fill='%2315a5ea' d='M7.5 2v3H10l1-1H8.5V1z'/%3E%3Cpath fill='%2336b' d='M3 1v10h8V4L8.5 1zm1 1h4l2 2.5V10H4z'/%3E%3C/svg%3E");
+    background-image: url(/w/resources/src/mediawiki.skinning/images/document-ltr.svg?0bf90);
     background-position: center right;
     background-repeat: no-repeat;
     padding-right: 13px;
@@ -5685,7 +5685,7 @@ div.thumbinner {
 }
 .wb-langlinks-link > a:before {
   content: "";
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%230645ad' d='M10.5 4.7l1.3-1.3c.3-.3.3-.7 0-.9L9.6.2c-.3-.3-.7-.3-.9 0L7.3 1.5l3.2 3.2zM6.6 2.2L0 8.8V12h3.2l6.6-6.6-3.2-3.2z'/%3E%3C/svg%3E");
+  background-image: url(/w/extensions/Wikibase/client/resources/images/edit.svg?34bc5);
   background-position: left top;
   background-repeat: no-repeat;
   background-size: 10px 10px;
@@ -5727,4 +5727,7 @@ div.after-portlet-lang:after {
 }
 .sidebar-toc-contents {
     display: none;
+}
+.infobox {
+  float: right;
 }

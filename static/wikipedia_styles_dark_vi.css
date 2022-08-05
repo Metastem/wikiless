@@ -1,0 +1,69 @@
+@import "wikipedia_styles_dark.css";
+
+/* the logo section at the left side at the top of the Korean page header */
+img.mw-logo-wordmark, img.mw-logo-tagline {
+    filter: invert(90%);
+}
+
+/* icon in first row of top-right dropdown */
+.mw-ui-icon-wikimedia-logIn::before {
+    filter:invert(1);
+}
+
+/* overwriting messy styling of top-right dropdown */
+#p-personal .vector-menu-content,
+.vector-user-menu-create-account,
+.vector-user-menu-login,
+.vector-user-menu-anon-editor,
+.vector-menu-content-item, .vector-menu-content-item:hover,
+.vector-menu-content-list #pt-anontalk, .vector-menu-content-list #pt-anontalk a, .vector-menu-content-list #pt-anontalk a:hover,
+.vector-menu-content-list #pt-anoncontribs a {
+    background-color: var(--black_8)!important;
+    color: var(--white) !important;
+}
+
+/* white box at top-center of Vietnamese landing page */
+.mw-parser-output .main-header,
+.mw-parser-output .main-header__left,
+.mw-parser-output .main-header__bottom {
+    background: transparent!important;
+    box-shadow: none !important;
+}
+
+/* fix white background of boxes on Vietnamese landing page */
+.mw-parser-output .main-top,
+.mw-parser-output .main-top-left,
+.mw-parser-output .main-top-left p,
+.mw-parser-output .main-box,
+.mw-parser-output .main-box__body,
+.mw-parser-output .main-box__title {
+    background: transparent!important;
+    color: var(--white) !important;
+    box-shadow: none !important;
+}
+
+/* color boxes at bottom-center ('improvements') of Vietnamese landing page */
+.mw-parser-output .main-box__header.-header-box-color-gray,
+.mw-parser-output .content-improvement-invitation {
+    background-color: #f2f2f21c!important;
+}
+.content-improvement-invitation__icon {
+    filter: invert(0.9);
+}
+
+.mw-parser-output .content-improvement-item > a::before {
+    background: transparent!important;
+}
+.mw-parser-output .content-improvement-item > a,
+.mw-parser-output .content-improvement-item > a:hover,
+.mw-parser-output .content-improvement-item > a:visited,
+.mw-parser-output .content-improvement-item > a:focus {
+    background-color: #f2f2f21c!important;
+    box-shadow: none !important;
+}
+
+#main-content-improvement .content-improvement-item,
+.main-bottom-box__header.u-plain-heading {
+    background: transparent!important;
+    box-shadow: none !important;
+}

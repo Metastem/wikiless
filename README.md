@@ -16,7 +16,6 @@ XMR: 832ogRwuoSs2JGYg7wJTqshidK7dErgNdfpenQ9dzMghNXQTJRby1xGbqC3gW3GAifRM9E84J91
 [https://wikiless.org](https://wikiless.org) - Official instance
 
 Community instances:
-  - [https://wikiless.alefvanoon.xyz](https://wikiless.alefvanoon.xyz)
   - [https://wikiless.sethforprivacy.com](https://wikiless.sethforprivacy.com) + [hidden server](http://dj2tbh2nqfxyfmvq33cjmhuw7nb6am7thzd3zsjvizeqf374fixbrxyd.onion)
   - [https://wiki.604kph.xyz](https://wiki.604kph.xyz)
   - [https://wikiless.lunar.icu](https://wikiless.lunar.icu)
@@ -25,6 +24,8 @@ Community instances:
   - [https://wikiless.northboot.xyz](https://wikiless.northboot.xyz) + [hidden server](http://ybgg2evrcdz37y2qes23ff3wjqjdn33tthgoagi76vhxytu4mpxiz5qd.onion) + [I2P](http://wikiless.i2p)
   - [https://wikiless.tiekoetter.com](https://wikiless.tiekoetter.com)
   - [http://c2pese...onion](http://c2pesewpalbi6lbfc5hf53q4g3ovnxe4s7tfa6k2aqkf7jd7a7dlz5ad.onion) + [http://hflqp2...b32.i2p](http://hflqp2ejxygpj6cdwo3ogfieqmxw3b56w7dblt7bor2ltwk6kcfa.b32.i2p)
+  - [https://wiki.slipfox.xyz](https://wiki.slipfox.xyz)
+  - [https://wikiless.funami.tech](https://wikiless.funami.tech)
 
 ## TODO
 
@@ -149,3 +150,5 @@ For development, there's a `docker-compose.yml` that mounts the app code (for ho
 $ docker-compose run --rm web npm install --no-optionals
 $ docker-compose up
 ```
+
+If you are experiencing errors with Redis not connecting, you might want to try the [alternative docker-compose.yml](https://github.com/JarbasAl/wikiless-docker).
