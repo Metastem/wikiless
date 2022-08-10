@@ -26,6 +26,7 @@ Community instances:
   - [http://c2pese...onion](http://c2pesewpalbi6lbfc5hf53q4g3ovnxe4s7tfa6k2aqkf7jd7a7dlz5ad.onion) + [http://hflqp2...b32.i2p](http://hflqp2ejxygpj6cdwo3ogfieqmxw3b56w7dblt7bor2ltwk6kcfa.b32.i2p)
   - [https://wiki.slipfox.xyz](https://wiki.slipfox.xyz)
   - [https://wikiless.funami.tech](https://wikiless.funami.tech)
+  - [https://wl.vern.cc](https://wl.vern.cc) + [Tor onion service](http://wl.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion) + [I2P eepsite](http://vernesciy2defjsputrjrv6pa5ll6qzrckfffi5lgkumstdojyga.b32.i2p)
 
 ## TODO
 
