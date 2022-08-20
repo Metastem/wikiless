@@ -28,6 +28,7 @@ Community instances:
   - [https://wikiless.funami.tech](https://wikiless.funami.tech)
   - [https://wl.vern.cc](https://wl.vern.cc) + [Tor onion service](http://wl.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion) + [I2P eepsite](http://vernesciy2defjsputrjrv6pa5ll6qzrckfffi5lgkumstdojyga.b32.i2p)
   - [https://wiki.privacytools.io](https://wiki.privacytools.io)
+  - [https://wikiless.rawbit.ninja](https://wikiless.rawbit.ninja) + [hidden server](http://tdx37ew3oke5rxn3yi5r5665ka7ozvehnd4xmnjxxdvqorias2nyl4qd.onion)
 
 ## TODO
 
