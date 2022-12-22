@@ -30,6 +30,7 @@ Community instances:
   - [https://wiki.privacytools.io](https://wiki.privacytools.io) + [Tor onion service](7lvwsn4fohcnaw5ije6j52aurmwaovqdzj4drfrj5aqget3nwwneshid.onion)
   - [https://wikiless.rawbit.ninja](https://wikiless.rawbit.ninja) + [hidden server](http://tdx37ew3oke5rxn3yi5r5665ka7ozvehnd4xmnjxxdvqorias2nyl4qd.onion)
   - [https://wiki.adminforge.de](https://wiki.adminforge.de)
+  - [https://wikiless.pufe.org](https://wikiless.pufe.org)
 
 ## TODO
 
