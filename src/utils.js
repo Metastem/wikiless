@@ -24,9 +24,16 @@ module.exports = function(redis) {
       url = url.replace(wikipage, uriencoded_wikipage)
     }
 
+
+
+
     if(params) {
-      url = `${url}?${params}`
+      url = `${url}?${params}&useskin=vector`
     }
+    else {
+      url= `${url}?useskin=vector`
+    }
+
 
     let data = ''
     try {
