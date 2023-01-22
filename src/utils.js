@@ -354,6 +354,8 @@ module.exports = function(redis) {
     const params = new URLSearchParams(req.query)
     // wikipedia doesn't support 'lang' parameter
     params.delete('lang')
+    // set skin
+    params.set('useskin', 'vector')
     const up_params = params.toString()
     const result = await download(url, up_params)
 
