@@ -31,7 +31,7 @@ Community instances:
   - [https://wikiless.rawbit.ninja](https://wikiless.rawbit.ninja) + [hidden server](http://tdx37ew3oke5rxn3yi5r5665ka7ozvehnd4xmnjxxdvqorias2nyl4qd.onion)
   - [https://wiki.adminforge.de](https://wiki.adminforge.de)
   - [https://wikiless.pufe.org](https://wikiless.pufe.org)
-  - [https://wiki.beparanoid.de](https://wiki.beparanoid.de)
+  - [https://wiki.femboy.hu](https://wiki.femboy.hu) + [hidden server](http://wiki.femboy2vec5mc3rdvecifqrwzpiaeoyfh4zodppxq4pc2tdvzhm4moqd.onion)
 
 ## TODO
 
