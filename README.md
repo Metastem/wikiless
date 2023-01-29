@@ -32,8 +32,8 @@ Community instances:
   - [https://wiki.adminforge.de](https://wiki.adminforge.de)
   - [https://wikiless.pufe.org](https://wikiless.pufe.org)
   - [https://wiki.femboy.hu](https://wiki.femboy.hu) + [hidden server](http://wiki.femboy2vec5mc3rdvecifqrwzpiaeoyfh4zodppxq4pc2tdvzhm4moqd.onion)
-  - [https://wiki.phreedom.club](https://wiki.phreedom.club)
-  - [https://wiki.phast.ru](https://wiki.phast.ru)
+  - [http://wiki.phreedom.club](https://wiki.phreedom.club)
+  - [http://wiki.phast.ru](https://wiki.phast.ru)
 
 ## TODO
 
