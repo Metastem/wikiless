@@ -1,0 +1,46 @@
+name: Build latest image
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["buildx"] # replace with main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Container Registry
+permissions:
+  contents: read
+  packages: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "image-latest"
+  cancel-in-progress: true
+
+env:
+  DEPLOY_TAG: latest
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ghcr.io/${{ github.repository }}:${{ env.DEPLOY_TAG }}
