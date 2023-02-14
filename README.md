@@ -138,7 +138,7 @@ If you are like me, and you also like the NSA, feel free to contribute and add m
 1. Clone and set up the repository.
 
    ```console
-   git clone https://codeberg.org/orenom/wikiless
+   git clone https://github.com/Metastem/wikiless.git
    cd wikiless
    npm install --no-optional
    cp config.js.template config.js # edit the file to suit your environment
