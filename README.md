@@ -150,13 +150,18 @@ Wikiless should now be running at <http://localhost:8080>.
 
 ### Docker & docker compose
 
-You can build a production image by running `docker build .` in the repo's root.
-
-For development, there's a `docker-compose.yml` that mounts the app code (for hot reload of code changes) and default config. Before running it, you need to install the dependencies:
+Run wikiless in production with docker compose:
 
 ```
-$ docker-compose run --rm web npm install --no-optionals
-$ docker-compose up
+$ docker compose up
+```
+
+For development, there's a `docker-compose.dev.yml` that mounts the app code (for hot reload of code changes) and default config. Before running it, you need to install the dependencies:
+
+```
+$ cp docker-compose.dev.yml docker-compose.override.yml
+$ docker compose run --rm web npm install --no-optionals
+$ docker compose up
 ```
 
 If you are experiencing errors with Redis not connecting, you might want to try the [alternative docker-compose.yml](https://github.com/JarbasAl/wikiless-docker).

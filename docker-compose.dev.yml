@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  web:
+    image: node:16-alpine
+    volumes:
+      - .:/wikiless
+      - ./config.js.template:/wikiless/config.js
+      - node_modules:/wikiless/node_modules
+    working_dir: /wikiless
+    command: npm start
+volumes:
+  node_modules:
