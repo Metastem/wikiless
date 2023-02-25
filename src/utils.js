@@ -140,6 +140,12 @@ module.exports = function(redis) {
         }
       }
 
+      // add the lang query param to forms
+      let forms = data.html.querySelectorAll('form')
+      for(let i = 0; i < forms.length; i++) {
+        forms[i].insertAdjacentHTML('afterbegin', `<input type="hidden" name="lang" value="${lang}">`)
+      }
+
       // remove #p-wikibase-otherprojects
       let wikibase_links = data.html.querySelector('#p-wikibase-otherprojects')
       if(wikibase_links) {
@@ -200,18 +206,6 @@ module.exports = function(redis) {
       // replace wiki links
       const wiki_href_regx = /(href=\"(https:|http:|)\/\/([A-z.-]+\.)?(wikipedia.org|wikimedia.org|wikidata.org|mediawiki.org))/gm
       data.html = data.html.replace(wiki_href_regx, 'href="')
-
-      /**
-      * If we are on DownloadAsPdf page, we have to inject a input which
-      * holds the language value. Without this input, we can't access the
-      * language (not avail from the POST data).
-      * See more on https://codeberg.org/orenom/Wikiless/issues/9
-      */
-      if(url.includes('%3ADownloadAsPdf')) {
-        let lang_input = `<input type='hidden' name='lang' value='${lang}'>`
-        let replace_str = `<input type='hidden' name='page'`
-        data.html = data.html.replace(replace_str, `${lang_input}${replace_str}`)
-      }
 
       try {
         if(redis.isOpen === false) {
