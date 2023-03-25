@@ -11,7 +11,10 @@ const bodyParser = require('body-parser')
 const redis = (() => {
   const redisOptions = {
     url: config.redis_url,
-    password: config.redis_password
+    password: config.redis_password,
+    socket: {
+      path: config.redis_path,
+    }
   }
 
   const client = r.createClient(redisOptions)
