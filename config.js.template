@@ -25,6 +25,7 @@ const config = {
   */
   redis_url: process.env.REDIS_URL || process.env.REDIS_HOST || 'redis://127.0.0.1:6379',
   redis_password: process.env.REDIS_PASSWORD,
+  redis_path: process.env.REDIS_PATH,
   
   /**
   * You might need to change these configs below if you host through a reverse
