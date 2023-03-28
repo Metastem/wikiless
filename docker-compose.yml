@@ -10,8 +10,6 @@ services:
       REDIS_URL: redis://redis
     ports:
       - 8080:8080
-    user: 65534:65534
-    read_only: true
     security_opt:
       - no-new-privileges:true
     cap_drop:
