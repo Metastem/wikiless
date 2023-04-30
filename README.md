@@ -34,6 +34,7 @@ Community instances:
   - [https://wiki.femboy.hu](https://wiki.femboy.hu) + [hidden server](http://wiki.femboy2vec5mc3rdvecifqrwzpiaeoyfh4zodppxq4pc2tdvzhm4moqd.onion)
   - [http://wiki.phreedom.club](https://wiki.phreedom.club)
   - [http://wiki.phast.ru](https://wiki.phast.ru)
+  - [https://wikiless.fascinated.cc](https://wikiless.fascinated.cc)
 
 ## TODO
 
