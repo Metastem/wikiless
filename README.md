@@ -1,6 +1,5 @@
 # Wikiless
 This is a mirror repo of https://codeberg.org/orenom/Wikiless
-[wikiless.org](https://wikiless.org)
 
 A free open source alternative Wikipedia front-end focused on privacy.
 
