@@ -1,5 +1,5 @@
 # Wikiless
-
+This is a mirror repo of https://codeberg.org/orenom/Wikiless
 [wikiless.org](https://wikiless.org)
 
 A free open source alternative Wikipedia front-end focused on privacy.
@@ -13,9 +13,37 @@ XMR: 832ogRwuoSs2JGYg7wJTqshidK7dErgNdfpenQ9dzMghNXQTJRby1xGbqC3gW3GAifRM9E84J91
 
 ## Instances
 
-[https://wikiless.org](https://wikiless.org) - Official instance
+[https://wikiless.org](https://wikiless.org) - Official instance(Not suggested)
 
-Community instances:
+[https://wikiless.tiekoetter.com](https://wikiless.tiekoetter.com) - Suggest!
+[https://wikiless.funami.tech](https://wikiless.funami.tech) - Suggest!
+# working, but light mode isn't default:
+
+1 - https://wiki.froth.zone/
+2 - https://wikiless.esmailelbob.xyz/
+3 - https://wikiless.northboot.xyz/
+4 - https://wikiless.rawbit.ninja/
+5 - https://wiki.adminforge.de/ (german UI)
+6 - https://wikiless.pufe.org/
+7 - https://wikiless.fascinated.cc/
+8 - https://wiki.phreedom.club/ (russian UI)
+
+# working with broken UI:
+
+1 - https://wikiless.org/
+2 - https://wiki.slipfox.xyz/
+3 - https://wiki.privacytools.io/
+
+# not working:
+
+1 - https://wikiless.sethforprivacy.com/ (site not found)
+2 - https://wiki.604kph.xyz/ (server migration)
+3 - https://wikiless.lunar.icu/ (site not found)
+4 - https://wl.vern.cc/ (timed out)
+5 - https://wiki.femboy.hu/ (timed out)
+6 - https://wiki.phast.ru/ (bad certificate)
+
+# Community instances:
   - [https://wikiless.sethforprivacy.com](https://wikiless.sethforprivacy.com) + [hidden server](http://dj2tbh2nqfxyfmvq33cjmhuw7nb6am7thzd3zsjvizeqf374fixbrxyd.onion)
   - [https://wiki.604kph.xyz](https://wiki.604kph.xyz)
   - [https://wikiless.lunar.icu](https://wikiless.lunar.icu)
