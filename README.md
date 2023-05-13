@@ -9,8 +9,6 @@ A free open source alternative Wikipedia front-end focused on privacy.
 * Prevents Wikipedia getting your IP address.
 * Self-hostable. Anyone can setup a private or public instance.
 
-XMR: 832ogRwuoSs2JGYg7wJTqshidK7dErgNdfpenQ9dzMghNXQTJRby1xGbqC3gW3GAifRM9E84J91VdMZRjoSJ32nkAZnaCEj
-
 ## Instances
 
 [https://wikiless.org](https://wikiless.org) - Official instance(Not suggested)
