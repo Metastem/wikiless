@@ -46,7 +46,11 @@ A free open source alternative Wikipedia front-end focused on privacy.
   - [https://wiki.604kph.xyz](https://wiki.604kph.xyz)
   - [https://wikiless.lunar.icu](https://wikiless.lunar.icu)
   - [https://wiki.froth.zone](https://wiki.froth.zone)
+  - 
+  - ❗🏳️‍🌈🏳️‍⚧️ANTI LGBTQ TOS
   - [https://wikiless.esmailelbob.xyz/](https://wikiless.esmailelbob.xyz/) + [http://wikiless.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion](http://wikiless.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion)
+❗🏳️‍🌈🏳️‍⚧️ ANTI LGBTQ TOS
+
   - [https://wikiless.northboot.xyz](https://wikiless.northboot.xyz) + [hidden server](http://ybgg2evrcdz37y2qes23ff3wjqjdn33tthgoagi76vhxytu4mpxiz5qd.onion) + [I2P](http://wikiless.i2p)
   - [https://wikiless.tiekoetter.com](https://wikiless.tiekoetter.com)
   - [http://c2pese...onion](http://c2pesewpalbi6lbfc5hf53q4g3ovnxe4s7tfa6k2aqkf7jd7a7dlz5ad.onion) + [http://hflqp2...b32.i2p](http://hflqp2ejxygpj6cdwo3ogfieqmxw3b56w7dblt7bor2ltwk6kcfa.b32.i2p)
