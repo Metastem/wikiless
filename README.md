@@ -15,7 +15,7 @@ A free open source alternative Wikipedia front-end focused on privacy.
 - [https://wikiless.tiekoetter.com](https://wikiless.tiekoetter.com) - Suggest!
 
 - [https://wikiless.funami.tech](https://wikiless.funami.tech) - Suggest!
-- https://wl.vern.cc/ (timed out)
+- https://wl.vern.cc/
 
 # working, but light mode isn't default:
  - https://wikiless.whateveritworks.org
