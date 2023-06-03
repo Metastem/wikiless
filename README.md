@@ -149,49 +149,19 @@ If you are like me, and you also like the NSA, feel free to contribute and add m
 [26]: https://www.theguardian.com/world/2013/dec/17/merkel-compares-nsa-stasi-obama  
 
 
-## Installation
-
-### Manual
-
-1. Install [Node.js](https://nodejs.org).
-
-1. Install [redis-server](https://redis.io).
-
-   ```console
-   # Linux, for example with Debian based systems
-   apt install redis-server
-
-   # macOS
-   brew install redis
-   ```
-
-1. Clone and set up the repository.
-
-   ```console
-   git clone https://github.com/Metastem/wikiless.git
-   cd wikiless
-   npm install --no-optional
-   cp config.js.template config.js # edit the file to suit your environment
-   redis-server
-   npm start
-   ```
-
-Wikiless should now be running at <http://localhost:8080>.
+## Simple & Easy Installation
 
 ### Docker & docker compose
 
 Run wikiless in production with docker compose:
 
 ```
-$ docker compose up
+docker-compose up -d
 ```
+Wikiless should now be running at <http://localhost:8080>.
 
-For development, there's a `docker-compose.dev.yml` that mounts the app code (for hot reload of code changes) and default config. Before running it, you need to install the dependencies:
+For development, there's a `docker-compose.yml (build from source comment, uncomment it out and use the commands below)` that mounts the app code (for hot reload of code changes) and default config:
 
 ```
-$ cp docker-compose.dev.yml docker-compose.override.yml
-$ docker compose run --rm web npm install --no-optionals
-$ docker compose up
+docker-compose up -d --build
 ```
-
-If you are experiencing errors with Redis not connecting, you might want to try the [alternative docker-compose.yml](https://github.com/JarbasAl/wikiless-docker).
