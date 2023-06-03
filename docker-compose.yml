@@ -1,35 +1,55 @@
 version: "3.9"
-services:
 
-  web:
-    image: ghcr.io/metastem/wikiless:latest
+services:
+  wikiless:
+    # build from source
+    #build: .
+    image: wikiless:latest
+    restart: always
+    networks:
+      wikiless_net:
+        ipv4_address: 172.4.0.6
     environment:
-      # see config.js.template for more settings
-      DOMAIN: wikiless.example.org
+      REDIS_HOST: redis://172.4.0.5:6379
+      THEME: dark
       HTTP_ADDR: 0.0.0.0
-      REDIS_URL: redis://redis
+      DEFAULT_LANG: en
+      DOMAIN: changethis
+      WIKIPAGE_CACHE_EXPIRATION: 60 * 60 * 1
+      wikimedia_useragent: Wikiless media proxy bot (https://github.com/Metastem/wikiless)
     ports:
-      - 8080:8080
+      - "127.0.0.1:8180:8080"
+    read_only: true
     security_opt:
       - no-new-privileges:true
     cap_drop:
       - ALL
-    networks:
-      - wikiless
+    depends_on:
+        - wikiless_redis
 
-  redis:
+  wikiless_redis:
     image: "redis:alpine"
-    container_name: redis
+    restart: always
+    networks:
+      wikiless_net:
+        ipv4_address: 172.4.0.5
+    ports:
+      - "6379"
     user: nobody
     read_only: true
-    tmpfs:
-      - /data:size=10M,mode=0770,uid=65534,gid=65534,noexec,nosuid,nodev
     security_opt:
       - no-new-privileges:true
+    tmpfs:
+      - /data:size=10M,mode=0770,uid=65534,gid=65534,noexec,nosuid,nodev
     cap_drop:
       - ALL
-    networks:
-      - wikiless
+    cap_add:
+      - SETGID
+      - SETUID
+      - DAC_OVERRIDE
 
 networks:
-  wikiless:
+  wikiless_net:
+    ipam:
+      config:
+        - subnet: 172.4.0.0/16
