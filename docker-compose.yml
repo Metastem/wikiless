@@ -1,10 +1,8 @@
-version: "3.9"
+version: "3.7"
 
 services:
   wikiless:
-    # build from source
-    #build: .
-    image: wikiless:latest
+    build: .
     restart: always
     networks:
       wikiless_net:
