@@ -1,25 +1,16 @@
-version: "3.9"
+version: "3.7"
 
 services:
   wikiless:
-    # build from source
-    #build: .
-    image: wikiless:latest
+    build: .
     restart: always
     networks:
       wikiless_net:
         ipv4_address: 172.4.0.6
     environment:
       REDIS_HOST: redis://172.4.0.5:6379
-      THEME: dark
-      HTTP_ADDR: 0.0.0.0
-      DEFAULT_LANG: en
-      DOMAIN: changethis
-      WIKIPAGE_CACHE_EXPIRATION: 60 * 60 * 1
-      wikimedia_useragent: Wikiless media proxy bot (https://github.com/Metastem/wikiless)
     ports:
-      - "127.0.0.1:8180:8080"
-    read_only: true
+      - "127.0.0.1:8180:8080" # change port if needed
     security_opt:
       - no-new-privileges:true
     cap_drop:
