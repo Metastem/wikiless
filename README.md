@@ -65,6 +65,7 @@ A free open source alternative Wikipedia front-end focused on privacy.
   - [http://wiki.phast.ru](https://wiki.phast.ru)
   - [https://wikiless.fascinated.cc](https://wikiless.fascinated.cc)
   - [https://wikiless.bloatcat.tk](https://wikiless.bloatcat.tk)
+  - [https://wikiless.nerdyfam.tech](https://wikiless.nerdyfam.tech)
 
 ## TODO
 
