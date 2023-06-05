@@ -1,6 +1,4 @@
 # Wikiless
-This is a mirror repo of https://codeberg.org/orenom/Wikiless
-
 A free open source alternative Wikipedia front-end focused on privacy.
 
 * No JavaScript or ads.
@@ -8,67 +6,26 @@ A free open source alternative Wikipedia front-end focused on privacy.
 * Prevents Wikipedia getting your IP address.
 * Self-hostable. Anyone can setup a private or public instance.
 
-## Instances
+### Instances
 
-[https://wikiless.org](https://wikiless.org) - Official instance(Not suggested)
-
-- [https://wikiless.tiekoetter.com](https://wikiless.tiekoetter.com) - Suggest!
-
-- [https://wikiless.funami.tech](https://wikiless.funami.tech) - Suggest!
-- https://wl.vern.cc/
-
-# working, but light mode isn't default:
- - https://wikiless.whateveritworks.org
- - https://wiki.froth.zone/
- - https://wikiless.esmailelbob.xyz/
- - https://wikiless.northboot.xyz/
- - https://wikiless.rawbit.ninja/
- - https://wiki.adminforge.de/ (german UI)
- - https://wikiless.pufe.org/
- - https://wikiless.fascinated.cc/
- - https://wiki.phreedom.club/ (russian UI)
-
-# working with broken UI:
-
- - https://wikiless.org/
- - https://wiki.slipfox.xyz/
- - https://wiki.privacytools.io/
-
-# not working:
-
- - https://wikiless.sethforprivacy.com/ (site not found)
- - https://wiki.604kph.xyz/ (server migration)
- - https://wikiless.lunar.icu/ (site not found)
-
- - https://wiki.femboy.hu/ (timed out)
- - https://wiki.phast.ru/ (bad certificate)
-
-# Community instances:
-  - [https://wikiless.sethforprivacy.com](https://wikiless.sethforprivacy.com) + [hidden server](http://dj2tbh2nqfxyfmvq33cjmhuw7nb6am7thzd3zsjvizeqf374fixbrxyd.onion)
-  - [https://wiki.604kph.xyz](https://wiki.604kph.xyz)
-  - [https://wikiless.lunar.icu](https://wikiless.lunar.icu)
-  - [https://wiki.froth.zone](https://wiki.froth.zone)
-  - [https://wikiless.whateveritworks.org](https://wikiless.whateveritworks.org)
-
-  - [https://wikiless.northboot.xyz](https://wikiless.northboot.xyz) + [hidden server](http://ybgg2evrcdz37y2qes23ff3wjqjdn33tthgoagi76vhxytu4mpxiz5qd.onion) + [I2P](http://wikiless.i2p)
-  - [https://wikiless.tiekoetter.com](https://wikiless.tiekoetter.com)
-  - [http://c2pese...onion](http://c2pesewpalbi6lbfc5hf53q4g3ovnxe4s7tfa6k2aqkf7jd7a7dlz5ad.onion) + [http://hflqp2...b32.i2p](http://hflqp2ejxygpj6cdwo3ogfieqmxw3b56w7dblt7bor2ltwk6kcfa.b32.i2p)
-  - [https://wiki.slipfox.xyz](https://wiki.slipfox.xyz)
-  - [https://wikiless.funami.tech](https://wikiless.funami.tech)
-  - [https://wl.vern.cc](https://wl.vern.cc) + [Tor onion service](http://wl.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion) + [I2P eepsite](http://vernesciy2defjsputrjrv6pa5ll6qzrckfffi5lgkumstdojyga.b32.i2p)
-  - [https://wiki.privacytools.io](https://wiki.privacytools.io) + [Tor onion service](7lvwsn4fohcnaw5ije6j52aurmwaovqdzj4drfrj5aqget3nwwneshid.onion)
-  - [https://wikiless.rawbit.ninja](https://wikiless.rawbit.ninja) + [hidden server](http://tdx37ew3oke5rxn3yi5r5665ka7ozvehnd4xmnjxxdvqorias2nyl4qd.onion)
-  - [https://wiki.adminforge.de](https://wiki.adminforge.de)
-  - [https://wikiless.pufe.org](https://wikiless.pufe.org)
-  - [https://wiki.femboy.hu](https://wiki.femboy.hu) + [hidden server](http://wiki.femboy2vec5mc3rdvecifqrwzpiaeoyfh4zodppxq4pc2tdvzhm4moqd.onion)
-  - [http://wiki.phreedom.club](https://wiki.phreedom.club)
-  - [http://wiki.phast.ru](https://wiki.phast.ru)
-  - [https://wikiless.fascinated.cc](https://wikiless.fascinated.cc)
-  - [https://wikiless.bloatcat.tk](https://wikiless.bloatcat.tk)
-
-## TODO
-
-* Make the mobile version better
+| Domain | CDN/DDoS Protection | Provider | Country |
+| -- | -- | -- | -- 
+| [https://wikiless.org](https://wikiless.org) | No CDN/DDoS Protection | Hetzner | Finland (Official)
+| [https://wikiless.tiekoetter.com](https://wikiless.tiekoetter.com) | No CDN/DDoS Protection | myVirtualserver | Germany
+| [https://wikiless.funami.tech](https://wikiless.funami.tech) | No CDN/DDoS Protection | Oracle Corporation | Korea
+| [https://wl.vern.cc/](https://wl.vern.cc/) [Tor Hidden Service](http://wl.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion) + [I2P](http://vernesciy2defjsputrjrv6pa5ll6qzrckfffi5lgkumstdojyga.b32.i2p)| No CDN/DDoS Protection | Hetzner | United States of America
+| [https://wikiless.whateveritworks.org](https://wikiless.whateveritworks.org) | Cloudflare | Hetzner | Germany
+| [https://wiki.froth.zone/](https://wiki.froth.zone/) | No CDN/DDoS Protection | Oracle Corporation | United States of America
+| [https://wikiless.northboot.xyz/](https://wikiless.northboot.xyz/) [Tor Hidden Service](http://ybgg2evrcdz37y2qes23ff3wjqjdn33tthgoagi76vhxytu4mpxiz5qd.onion) + [I2P](http://wikiless.i2p) | No CDN/DDoS Protection | netcup GmbH | Germany
+| [https://wikiless.rawbit.ninja/](https://wikiless.rawbit.ninja/) [Tor Hidden Service](http://tdx37ew3oke5rxn3yi5r5665ka7ozvehnd4xmnjxxdvqorias2nyl4qd.onion) | Cloudflare | 
+| [https://wiki.adminforge.de/](https://wiki.adminforge.de/) (Germany UI) | No CDN/DDoS Protection | Hetzner | Germany
+| [https://wikiless.pufe.org/](https://wikiless.pufe.org/) | No CDN/DDoS Protection | The Internet Group | New Zealand
+| [https://wikiless.fascinated.cc/](https://wikiless.fascinated.cc/) | Cloudflare
+| [https://wiki.froth.zone](https://wiki.froth.zone) | No CDN/DDoS Protection | Oracle Corporation | United States of America
+| [https://wikiless.tiekoetter.com](https://wikiless.tiekoetter.com) | No CDN/DDoS Protection | myVirtualserver | Germany
+| [Tor Hidden Service](http://c2pesewpalbi6lbfc5hf53q4g3ovnxe4s7tfa6k2aqkf7jd7a7dlz5ad.onion) + [I2P](http://hflqp2ejxygpj6cdwo3ogfieqmxw3b56w7dblt7bor2ltwk6kcfa.b32.i2p)
+| [https://wikiless.bloatcat.tk](https://wikiless.bloatcat.tk) | No CDN/DDoS Protection | 1984.hosting | Iceland
+| [https://wikiless.nerdyfam.tech](https://wikiless.nerdyfam.tech) | Cloudflare |
 
 ## Why I should use Wikiless instead of Wikipedia?
 
