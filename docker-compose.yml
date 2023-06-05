@@ -15,7 +15,7 @@ services:
       HTTP_ADDR: 0.0.0.0
       DEFAULT_LANG: en
       DOMAIN: changethis
-      WIKIPAGE_CACHE_EXPIRATION: 60 * 60 * 1
+      WIKIPAGE_CACHE_EXPIRATION: 3600
       wikimedia_useragent: Wikiless media proxy bot (https://github.com/Metastem/wikiless)
     ports:
       - "127.0.0.1:8180:8080"
