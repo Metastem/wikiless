@@ -21,7 +21,6 @@ A free open source alternative Wikipedia front-end focused on privacy.
 | [https://wiki.adminforge.de/](https://wiki.adminforge.de/) (Germany UI) | No CDN/DDoS Protection | Hetzner | Germany
 | [https://wikiless.pufe.org/](https://wikiless.pufe.org/) | No CDN/DDoS Protection | The Internet Group | New Zealand
 | [https://wikiless.fascinated.cc/](https://wikiless.fascinated.cc/) | Cloudflare
-| [https://wiki.phreedom.club/](https://wiki.phreedom.club/) (Russian UI) | Flokinet Ltd | United Kingdom
 | [https://wiki.froth.zone](https://wiki.froth.zone) | No CDN/DDoS Protection | Oracle Corporation | United States of America
 | [https://wikiless.tiekoetter.com](https://wikiless.tiekoetter.com) | No CDN/DDoS Protection | myVirtualserver | Germany
 | [Tor Hidden Service](http://c2pesewpalbi6lbfc5hf53q4g3ovnxe4s7tfa6k2aqkf7jd7a7dlz5ad.onion) + [I2P](http://hflqp2ejxygpj6cdwo3ogfieqmxw3b56w7dblt7bor2ltwk6kcfa.b32.i2p)
