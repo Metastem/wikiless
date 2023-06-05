@@ -9,12 +9,6 @@ services:
         ipv4_address: 172.4.0.6
     environment:
       REDIS_HOST: redis://172.4.0.5:6379
-      THEME: dark  # change to light if you do not want dark by default
-      HTTP_ADDR: 0.0.0.0 # don't touch
-      DEFAULT_LANG: en # change to any language you want
-      DOMAIN: changethis # set this to your domain do not add http://
-      WIKIPAGE_CACHE_EXPIRATION: 3600
-      wikimedia_useragent: Wikiless media proxy bot (https://github.com/Metastem/wikiless) 
     ports:
       - "127.0.0.1:8180:8080" # change port if needed
     security_opt:
