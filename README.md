@@ -10,7 +10,6 @@ A free open source alternative Wikipedia front-end focused on privacy.
 
 | Domain | CDN/DDoS Protection | Provider | Country |
 | -- | -- | -- | -- 
-| [https://wikiless.org](https://wikiless.org) | No CDN/DDoS Protection | Hetzner | Finland (Official)
 | [https://wikiless.tiekoetter.com](https://wikiless.tiekoetter.com) | No CDN/DDoS Protection | myVirtualserver | Germany
 | [https://wikiless.funami.tech](https://wikiless.funami.tech) | No CDN/DDoS Protection | Oracle Corporation | Korea
 | [https://wl.vern.cc/](https://wl.vern.cc/) [Tor Hidden Service](http://wl.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion) + [I2P](http://vernesciy2defjsputrjrv6pa5ll6qzrckfffi5lgkumstdojyga.b32.i2p)| No CDN/DDoS Protection | Hetzner | United States of America
@@ -22,7 +21,6 @@ A free open source alternative Wikipedia front-end focused on privacy.
 | [https://wikiless.pufe.org/](https://wikiless.pufe.org/) | No CDN/DDoS Protection | The Internet Group | New Zealand
 | [https://wikiless.fascinated.cc/](https://wikiless.fascinated.cc/) | Cloudflare
 | [https://wiki.froth.zone](https://wiki.froth.zone) | No CDN/DDoS Protection | Oracle Corporation | United States of America
-| [https://wikiless.tiekoetter.com](https://wikiless.tiekoetter.com) | No CDN/DDoS Protection | myVirtualserver | Germany
 | [Tor Hidden Service](http://c2pesewpalbi6lbfc5hf53q4g3ovnxe4s7tfa6k2aqkf7jd7a7dlz5ad.onion) + [I2P](http://hflqp2ejxygpj6cdwo3ogfieqmxw3b56w7dblt7bor2ltwk6kcfa.b32.i2p)
 | [https://wikiless.bloatcat.tk](https://wikiless.bloatcat.tk) | No CDN/DDoS Protection | 1984.hosting | Iceland
 | [https://wikiless.nerdyfam.tech](https://wikiless.nerdyfam.tech) | Cloudflare |
@@ -114,12 +112,6 @@ If you are like me, and you also like the NSA, feel free to contribute and add m
 Run wikiless in production with docker compose:
 
 ```
-docker-compose up -d
-```
-Wikiless should now be running at <http://localhost:8080>.
-
-For development, there's a `docker-compose.yml (build from source comment, uncomment it out and use the commands below)` that mounts the app code (for hot reload of code changes) and default config:
-
-```
 docker-compose up -d --build
 ```
+Wikiless should now be running at <http://localhost:8080>.
