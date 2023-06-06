@@ -112,12 +112,6 @@ If you are like me, and you also like the NSA, feel free to contribute and add m
 Run wikiless in production with docker compose:
 
 ```
-docker-compose up -d
-```
-Wikiless should now be running at <http://localhost:8080>.
-
-For development, there's a `docker-compose.yml (build from source comment, uncomment it out and use the commands below)` that mounts the app code (for hot reload of code changes) and default config:
-
-```
 docker-compose up -d --build
 ```
+Wikiless should now be running at <http://localhost:8080>.
