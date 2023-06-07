@@ -106,11 +106,20 @@ If you are like me, and you also like the NSA, feel free to contribute and add m
 
 ## Simple & Easy Installation
 
-### Docker & docker compose
+### Docker Compose
 
-Run wikiless in production with docker compose:
+Run wikiless in production or Development with docker compose:
 
 ```
-docker-compose up -d --build
+docker-compose up -d --build (This is for building from source to make hot changes incase the repo goes down.)
+docker-compose up -d (Use this with Metastem Registry Image)
 ```
-Wikiless should now be running at <http://localhost:8080>.
+### Recommended Commands To Get Started
+
+```
+docker-compose down
+docker-compose pull
+docker-compose up -d
+```
+
+Wikiless should now be running at <http://localhost:8180>.
