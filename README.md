@@ -23,6 +23,8 @@ A free open source alternative Wikipedia front-end focused on privacy.
 | [https://wiki.froth.zone](https://wiki.froth.zone) | No CDN/DDoS Protection | Oracle Corporation | United States of America
 | [Tor Hidden Service](http://c2pesewpalbi6lbfc5hf53q4g3ovnxe4s7tfa6k2aqkf7jd7a7dlz5ad.onion) + [I2P](http://hflqp2ejxygpj6cdwo3ogfieqmxw3b56w7dblt7bor2ltwk6kcfa.b32.i2p)
 | [https://wikiless.bloatcat.tk](https://wikiless.bloatcat.tk) | No CDN/DDoS Protection | 1984.hosting | Iceland
+Users can view the historic reliability of the Wikiless instances on this status [page](https://status.whateveritworks.org/status/wiki). Click each instance on that page for more details.
+
 
 ## Why I should use Wikiless instead of Wikipedia?
 
