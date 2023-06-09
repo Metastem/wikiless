@@ -2,7 +2,10 @@ version: "3.7"
 
 services:
   wikiless:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #image: ghcr.io/metastem/wikiless:latest
     restart: always
     networks:
       wikiless_net:
