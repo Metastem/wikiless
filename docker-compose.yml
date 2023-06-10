@@ -22,7 +22,7 @@ services:
         - wikiless_redis
 
   wikiless_redis:
-    image: "redis:alpine"
+    image: redis:latest
     restart: always
     networks:
       wikiless_net:
