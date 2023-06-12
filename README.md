@@ -17,7 +17,7 @@ A free open source alternative Wikipedia front-end focused on privacy.
 | [https://wiki.froth.zone/](https://wiki.froth.zone/) | No CDN/DDoS Protection | Oracle Corporation | United States of America
 | [https://wikiless.northboot.xyz/](https://wikiless.northboot.xyz/) | No CDN/DDoS Protection | netcup GmbH | Germany
 | [https://wikiless.rawbit.ninja/](https://wikiless.rawbit.ninja/)  | Cloudflare | 
-| [https://wiki.adminforge.de/](https://wiki.adminforge.de/) (Germany UI) | No CDN/DDoS Protection | Hetzner | Germany
+| [https://wiki.adminforge.de/](https://wiki.adminforge.de/) | No CDN/DDoS Protection | Hetzner | Germany
 | [https://wikiless.pufe.org/](https://wikiless.pufe.org/) | No CDN/DDoS Protection | The Internet Group | New Zealand
 | [https://wikiless.fascinated.cc/](https://wikiless.fascinated.cc/) | Cloudflare
 | [https://wiki.froth.zone](https://wiki.froth.zone) | No CDN/DDoS Protection | Oracle Corporation | United States of America
