@@ -2,9 +2,13 @@ version: "3.7"
 
 services:
   wikiless:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: https://github.com/Metastem/wikiless.git
+    # Use the one below if you wish to use the cloned repo
+    #build:
+    #  context: .
+    #  dockerfile: Dockerfile
+    
+    # Outdated image below
     #image: ghcr.io/metastem/wikiless:latest
     restart: always
     networks:
