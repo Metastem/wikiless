@@ -1,4 +1,4 @@
 node_modules/
 config.js
-docker-compose.override.yml
+docker-compose.yml
 *.log
