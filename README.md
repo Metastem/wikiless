@@ -24,6 +24,7 @@ A free open source alternative Wikipedia front-end focused on privacy.
 | [https://wikiless.bloatcat.tk](https://wikiless.bloatcat.tk) | No CDN/DDoS Protection | 1984.hosting | Iceland
 | [https://wikiless.nerdyfam.tech](https://wikiless.nerdyfam.tech) | Cloudflare |
 | [https://wiki.phreedom.club/](https://wiki.phreedom.club/) | No CDN/DDoS Protection | Flokinet | United Kingdom
+| [https://wiki.sylentpunk.xyz](https://wiki.sylentpunk.xyz/) | No CDN/DDoS Protection | 1984.hosting | Iceland
 
 | TOR |
 | -- |  
