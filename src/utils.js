@@ -516,8 +516,8 @@ module.exports = function(redis) {
                 <div class="option">
                   <select id="theme" name="theme">
                     <option value="" ${(!theme ? 'selected' : '')}>Auto</option>
-                    <option value="white" ${(theme == 'white' ? 'selected' : '')}>White</option>
-                    <option value="dark" ${(theme == 'dark' ? 'selected' : '')}>Dark (experimental)</option>
+                    <option value="white" ${(theme == 'white' ? 'selected' : '')}>Light Mode</option>
+                    <option value="dark" ${(theme == 'dark' ? 'selected' : '')}>Dark Mode</option>
                   </select>
                 </div>
               </div>
