@@ -6,6 +6,8 @@ services:
     #build:
       #context: .
       #dockerfile: Dockerfile
+    container_name: wikiless
+    hostname: wikiless
     image: ghcr.io/metastem/wikiless:latest
     restart: always
     networks:
@@ -20,9 +22,11 @@ services:
     cap_drop:
       - ALL
     depends_on:
-        - wikiless_redis
+        - wikiless-redis
 
-  wikiless_redis:
+  wikiless-redis:
+    container_name: wikiless-redis
+    hostname: wikiless-redis
     image: redis:latest
     restart: always
     networks:
