@@ -132,6 +132,10 @@ module.exports = (app, utils) => {
     return handleWikiPage(req, res, '/')
   })
 
+  app.get('Open in Wikipedia', (req, res, next) => {
+    return res.sendFile(path.join(__dirname, 'https://wikipedia.org/wiki/Wikipedia'))
+  })
+  
   app.get('/about', (req, res, next) => {
     return res.sendFile(path.join(__dirname, '../static/about.html'))
   })
