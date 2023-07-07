@@ -114,14 +114,18 @@ If you are like me, and you also like the NSA, feel free to contribute and add m
 [25]: https://theintercept.com/document/2014/03/20/hunt-sys-admins/  
 [26]: https://www.theguardian.com/world/2013/dec/17/merkel-compares-nsa-stasi-obama  
 
+### Deploy with Docker
 
-## Simple & Easy Installation
-
-### Docker & docker compose
-
-Run wikiless in production with docker compose:
-
+Run wikiless in production with docker-compose:
 ```
+docker-compose down
+docker-compose pull
+docker-compose up -d
+```
+
+Run wikiless in developer with docker-compose:
+```
+docker-compose down
 docker-compose up -d --build
 ```
 Wikiless should now be running at <http://localhost:8080>.
