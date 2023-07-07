@@ -1,10 +1,11 @@
 #https://hub.docker.com/_/node/
 
-FROM node:20-alpine3.17
-RUN apk add git
-RUN git clone https://github.com/Metastem/wikiless.git /wikiless
+FROM node:20-alpine3.17 AS build
 WORKDIR /wikiless
-RUN apk add redis
+COPY . /wikiless
 RUN npm install --no-optional
+FROM gcr.io/distroless/nodejs20-debian11
+COPY --from=build /wikiless /wikiless
+WORKDIR /wikiless
 COPY wikiless.config config.js
-CMD npm start
+CMD ["src/wikiless.js"]
