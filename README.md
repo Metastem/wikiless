@@ -7,13 +7,17 @@ A free open source alternative Wikipedia front-end focused on privacy.
 * Self-hostable. Anyone can setup a private or public instance.
 
 ### Instances
+| Clearnet/Domain | CDN/DDoS Protection | Provider | Country |
+| -- | -- | -- | -- 
+| [https://wikiless.whateveritworks.org](https://wikiless.whateveritworks.org) | Cloudflare | Hetzner | Germany (Official)
+
+<br>
 
 | Clearnet/Domain | CDN/DDoS Protection | Provider | Country |
 | -- | -- | -- | -- 
 | [https://wikiless.tiekoetter.com](https://wikiless.tiekoetter.com) | No CDN/DDoS Protection | myVirtualserver | Germany
 | [https://wikiless.funami.tech](https://wikiless.funami.tech) | No CDN/DDoS Protection | Oracle Corporation | Korea
 | [https://wl.vern.cc/](https://wl.vern.cc/) | No CDN/DDoS Protection | Hetzner | United States of America
-| [https://wikiless.whateveritworks.org](https://wikiless.whateveritworks.org) | Cloudflare | Hetzner | Germany
 | [https://wiki.froth.zone/](https://wiki.froth.zone/) | No CDN/DDoS Protection | Oracle Corporation | United States of America
 | [https://wikiless.northboot.xyz/](https://wikiless.northboot.xyz/) | No CDN/DDoS Protection | netcup GmbH | Germany
 | [https://wikiless.rawbit.ninja/](https://wikiless.rawbit.ninja/)  | Cloudflare | 
@@ -34,6 +38,9 @@ A free open source alternative Wikipedia front-end focused on privacy.
 | -- |
 | [wl.vern.cc: I2P](http://vernesciy2defjsputrjrv6pa5ll6qzrckfffi5lgkumstdojyga.b32.i2p) |
 | [wikiless.northboot.xyz: I2P](http://wikiless.i2p)
+
+| LOKINET |
+| -- |
 
 ## Why I should use Wikiless instead of Wikipedia?
 
@@ -82,8 +89,6 @@ Non-Wikipedia related fun facts about the NSA:
 * Angela Merkel has compared NSA to Stasi.[26]
 
 If you are like me, and you also like the NSA, feel free to contribute and add more fun facts!
-
-
 
 #### Sources
   
