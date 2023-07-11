@@ -9,7 +9,7 @@ A free open source alternative Wikipedia front-end focused on privacy.
 ### Instances
 | Clearnet/Domain | CDN/DDoS Protection | Provider | Country |
 | -- | -- | -- | -- 
-| [https://wikiless.whateveritworks.org](https://wikiless.whateveritworks.org) | Cloudflare | Hetzner | Germany (Official)
+| [https://wikiless.whateveritworks.org](https://wikiless.whateveritworks.org) (Official) | Cloudflare | Hetzner | Germany 
 
 <br>
 
