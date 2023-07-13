@@ -10,11 +10,6 @@ A free open source alternative Wikipedia front-end focused on privacy.
 | Clearnet/Domain | CDN/DDoS Protection | Provider | Country |
 | -- | -- | -- | -- 
 | [https://wikiless.whateveritworks.org](https://wikiless.whateveritworks.org) (Official) | Cloudflare | Hetzner | Germany 
-
-<br>
-
-| Clearnet/Domain | CDN/DDoS Protection | Provider | Country |
-| -- | -- | -- | -- 
 | [https://wikiless.tiekoetter.com](https://wikiless.tiekoetter.com) | No CDN/DDoS Protection | myVirtualserver | Germany
 | [https://wikiless.funami.tech](https://wikiless.funami.tech) | No CDN/DDoS Protection | Oracle Corporation | Korea
 | [https://wl.vern.cc/](https://wl.vern.cc/) | No CDN/DDoS Protection | Hetzner | United States of America
