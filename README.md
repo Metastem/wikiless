@@ -38,18 +38,6 @@ A free open source alternative Wikipedia front-end focused on privacy.
 
 ### Deploy with Docker (Simple & Easy, Recommended)
 
-Run wikiless in production with docker-compose:
-```
-git clone https://github.com/Metastem/wikiless.git wiki
-cd wiki
-nano wikiless.config (change to your own settings)
-nano docker-compose.yml (change your port)
-docker-compose pull
-docker-compose up -d
-```
-Wikiless should now be running at <http://localhost:8180>.
-
-
 Run wikiless in developer with docker-compose:
 ```
 git clone https://github.com/Metastem/wikiless.git wiki
