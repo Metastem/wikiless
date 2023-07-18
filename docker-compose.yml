@@ -2,13 +2,11 @@ version: "3.7"
 
 services:
   wikiless:
-   #build from source, incase repo goes down!
-    #build:
-      #context: .
-      #dockerfile: Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: wikiless
     hostname: wikiless
-    image: ghcr.io/metastem/wikiless:latest
     restart: always
     networks:
       wikiless_net:
