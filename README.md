@@ -20,6 +20,7 @@ A free open source alternative Wikipedia front-end focused on privacy.
 | [https://wiki.froth.zone](https://wiki.froth.zone) | No CDN/DDoS Protection | Oracle Corporation | United States of America
 | [https://wiki.phreedom.club/](https://wiki.phreedom.club/) | No CDN/DDoS Protection | Flokinet | United Kingdom
 | [https://wiki.owo.si](https://wiki.owo.si/) | No CDN/DDoS Protection | Contabo | Germany
+| [https://wikiless.datura.network](https://wikiless.datura.network/) | No CDN/DDoS Protection | Hetzner | Germany
 
 | TOR |
 | -- |  
