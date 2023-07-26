@@ -54,7 +54,7 @@ app.use((req, res, next) => {
     'X-Download-Options': 'noopen',
     'X-Frame-Options': 'DENY',
     'X-Permitted-Cross-Domain-Policies': 'none',
-    'X-XSS-Protection': '0'
+    'X-XSS-Protection': '1; mode=block'
   })
   next()
 })
