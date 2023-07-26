@@ -6,8 +6,8 @@ A free open source alternative Wikipedia front-end focused on privacy.
 * Prevents Wikipedia getting your IP address.
 * Self-hostable. Anyone can setup a private or public instance.
 
-### Instances
-| Clearnet/Domain | CDN/DDoS Protection | Provider | Country |
+### Clearnet Instances
+| Domain | CDN/DDoS Protection | Provider | Country |
 | -- | -- | -- | -- 
 | [https://wikiless.whateveritworks.org](https://wikiless.whateveritworks.org) (Official) | Cloudflare | Hetzner | Germany 
 | [https://wikiless.tiekoetter.com](https://wikiless.tiekoetter.com) | No CDN/DDoS Protection | myVirtualserver | Germany
@@ -22,6 +22,7 @@ A free open source alternative Wikipedia front-end focused on privacy.
 | [https://wiki.owo.si](https://wiki.owo.si/) | No CDN/DDoS Protection | Contabo | Germany
 | [https://wikiless.datura.network](https://wikiless.datura.network/) | No CDN/DDoS Protection | Hetzner | Germany
 
+### Darknet Instances
 | TOR |
 | -- |  
 | [wl.vern.cc: Tor Hidden Service](http://wl.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion) |
