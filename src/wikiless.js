@@ -3,8 +3,6 @@ const compression = require('compression')
 const path = require('path')
 const express = require('express')
 const cookieParser = require('cookie-parser')
-const session = require("express-session")
-const csrf = require('lusca').csrf
 const fs = require('fs')
 const app = express()
 const r = require('redis')
@@ -78,8 +76,6 @@ if(config.redirect_http_to_https) {
 app.use(compression())
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }))
-app.use(session({ secret: process.env['SECRET'], cookie: 'secure', maxAge: '60000' }))
-app.use(csrf())
 app.use(express.static(path.join(__dirname, '../static')))
 app.use(express.static(path.join(__dirname, '../media')))
 
