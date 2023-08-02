@@ -4,13 +4,13 @@
   "description": "A free open source alternative Wikipedia front-end focused on privacy.",
   "main": "src/wikiless.js",
   "dependencies": {
-    "body-parser": "^1.20.2",
+    "body-parser": "^1.20.1",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",
     "express": "^4.18.2",
-    "got": "^13.0.0",
-    "node-html-parser": "^6.1.5",
-    "redis": "^4.6.7"
+    "got": "^11.8.3",
+    "node-html-parser": "^3.1.5",
+    "redis": "^4.0.1"
   },
   "devDependencies": {},
   "scripts": {
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://codeberg.org/orenom/wikiless"
+    "url": "https://github.com/Metastem/wikiless"
   },
   "license": "APGL-3.0"
 }
