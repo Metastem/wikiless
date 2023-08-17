@@ -1,5 +1,4 @@
 #https://hub.docker.com/_/node/
-
 FROM node:20-alpine3.17 AS build
 WORKDIR /wikiless
 COPY . /wikiless
