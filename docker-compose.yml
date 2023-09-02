@@ -20,18 +20,16 @@ services:
     cap_drop:
       - ALL
     depends_on:
-        - wikiless-redis
+        - wikiless_redis
 
-  wikiless-redis:
-    container_name: wikiless-redis
-    hostname: wikiless-redis
+  wikiless_redis:
+    container_name: wikiless_redis
+    hostname: wikiless_redis
     image: redis:latest
     restart: always
     networks:
       wikiless_net:
         ipv4_address: 172.4.0.5
-    ports:
-      - "6379"
     user: nobody
     read_only: true
     security_opt:
