@@ -12,5 +12,3 @@ A free open source alternative Wikipedia front-end focused on privacy.
 * 防止维基百科获取您的 IP 地址。
 * 可自行托管。任何人都可以设置私有或公共实例。
 * 中国网民无需任何VPN或代理即可访问全球人类智慧的结晶。
-
-For successful installation, you need to fill all creditials in wikiless.config and rename it to config.js.
