@@ -88,7 +88,6 @@ module.exports = (app, utils) => {
     return handleWikiPage(req, res, '/wiki/')
   })
 
-  // This route handles wiki-pages starting with forward slash (issue #21))
   app.get('/wiki//:page?/:sub_page?', (req, res, next) => {
     const page = req.params.page
     if(page) {
@@ -96,6 +95,18 @@ module.exports = (app, utils) => {
       req.params.page = `/${req.params.page}`
     }
     return handleWikiPage(req, res, '/wiki/')
+  })
+
+  // Handle the search request and redirect to the correct wiki page
+  app.get('/w/index.php', (req, res, next) => {
+    const searchQuery = req.query.search
+    if (searchQuery) {
+      // Construct the URL to redirect to the proper wiki page
+      const lang = req.query.lang || req.cookies.default_lang || config.default_lang
+      const redirectUrl = `/wiki/${encodeURIComponent(searchQuery)}?lang=${lang}`
+      return res.redirect(redirectUrl)
+    }
+    return next()
   })
 
   app.get('/w/:file', (req, res, next) => {
@@ -132,10 +143,6 @@ module.exports = (app, utils) => {
     return handleWikiPage(req, res, '/')
   })
 
-  app.get('Open in Wikipedia', (req, res, next) => {
-    return res.sendFile(path.join(__dirname, 'https://wikipedia.org/wiki/Wikipedia'))
-  })
-  
   app.get('/about', (req, res, next) => {
     return res.sendFile(path.join(__dirname, '../static/about.html'))
   })
