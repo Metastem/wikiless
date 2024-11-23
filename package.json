@@ -7,7 +7,7 @@
     "body-parser": "^1.20.1",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",
-    "express": "^4.19.2",
+    "express": "^4.21.1",
     "got": "^11.8.3",
     "node-html-parser": "^3.1.5",
     "redis": "^4.0.1"
